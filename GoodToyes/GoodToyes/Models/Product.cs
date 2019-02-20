@@ -11,10 +11,12 @@ namespace GoodToyes.Models
 
         public string Name { get; set; }
 
+        public string SKU { get; set; }
+
         public decimal Price { get; set; }
 
-        public int Number { get; set; }
+        public string Description { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string ImageURL { get; set; }
     }
 }
