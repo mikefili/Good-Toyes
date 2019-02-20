@@ -17,7 +17,7 @@ namespace GoodToyes.Migrations
                     SKU = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    ImageURL = table.Column<string>(nullable: true)
+                    Image = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,7 +26,7 @@ namespace GoodToyes.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ID", "Description", "ImageURL", "Name", "Price", "SKU" },
+                columns: new[] { "ID", "Description", "Image", "Name", "Price", "SKU" },
                 values: new object[,]
                 {
                     { 1, "Your puppers will love this tasty toy from south of the border!", "Products/avacado_toy.png", "Avacado's Nibbler", 12.95m, "DT00001" },

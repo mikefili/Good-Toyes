@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodToyes.Migrations
 {
     [DbContext(typeof(GoodToyesDbContext))]
-    [Migration("20190220204219_initial")]
+    [Migration("20190220205533_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace GoodToyes.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("ImageURL");
+                    b.Property<string>("Image");
 
                     b.Property<string>("Name");
 
@@ -45,7 +45,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 1,
                             Description = "Your puppers will love this tasty toy from south of the border!",
-                            ImageURL = "Products/avacado_toy.png",
+                            Image = "Products/avacado_toy.png",
                             Name = "Avacado's Nibbler",
                             Price = 12.95m,
                             SKU = "DT00001"
@@ -54,7 +54,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 2,
                             Description = "You can't got wrong with this time-tested classic.",
-                            ImageURL = "Products/bone_toy.png",
+                            Image = "Products/bone_toy.png",
                             Name = "Throw Me A Bone",
                             Price = 8.95m,
                             SKU = "DT00002"
@@ -63,7 +63,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 3,
                             Description = "A fine, feathered friend for your four-legged friend!",
-                            ImageURL = "Products/chicken_toy.png",
+                            Image = "Products/chicken_toy.png",
                             Name = "Cluckin' Good Time",
                             Price = 12.95m,
                             SKU = "DT00003"
@@ -72,7 +72,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 4,
                             Description = "Perfect side toy for your doggo's morning puppaccino!",
-                            ImageURL = "Products/donut_toy.png",
+                            Image = "Products/donut_toy.png",
                             Name = "Donut Bother Me",
                             Price = 12.95m,
                             SKU = "DT00004"
@@ -81,7 +81,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 5,
                             Description = "Barbeque sauce sold separately.",
-                            ImageURL = "Products/drumstick_toy.png",
+                            Image = "Products/drumstick_toy.png",
                             Name = "Ain't No Thing Like A Chicken Wing",
                             Price = 12.95m,
                             SKU = "DT00005"
@@ -90,7 +90,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 6,
                             Description = "WARNING: May turn your pooch into an old timey movie villain.",
-                            ImageURL = "Products/mustache_toy.png",
+                            Image = "Products/mustache_toy.png",
                             Name = "I Mustache You A Question",
                             Price = 13.95m,
                             SKU = "DT00006"
@@ -99,7 +99,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 7,
                             Description = "That classic thin-crust your dog loves, now in plush!",
-                            ImageURL = "Products/pizza_toy.png",
+                            Image = "Products/pizza_toy.png",
                             Name = "Pizza My Heart",
                             Price = 12.95m,
                             SKU = "DT00007"
@@ -108,7 +108,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 8,
                             Description = "To the victor, go the spoils!",
-                            ImageURL = "Products/rope_toy.png",
+                            Image = "Products/rope_toy.png",
                             Name = "Pug'o'War",
                             Price = 7.95m,
                             SKU = "DT00008"
@@ -117,7 +117,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 9,
                             Description = "Give your woofer the beautiful pearly whites they deserve.",
-                            ImageURL = "Products/smile_toy.png",
+                            Image = "Products/smile_toy.png",
                             Name = "Doggy Dentures",
                             Price = 13.95m,
                             SKU = "DT00009"
@@ -126,7 +126,7 @@ namespace GoodToyes.Migrations
                         {
                             ID = 10,
                             Description = "Set of three extra jingly tennis balls.",
-                            ImageURL = "Products/tennis_balls.png",
+                            Image = "Products/tennis_balls.png",
                             Name = "Jingle Balls",
                             Price = 8.95m,
                             SKU = "DT00010"
