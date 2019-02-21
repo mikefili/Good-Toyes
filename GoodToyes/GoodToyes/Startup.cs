@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoodToyes.Data;
 using GoodToyes.Models;
+using GoodToyes.Models.Interfaces;
+using GoodToyes.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +22,8 @@ namespace GoodToyes
 
         public Startup(IConfiguration configuration)
         {
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
             Configuration = configuration;
         }
 
@@ -33,6 +37,8 @@ namespace GoodToyes
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ApplicationConnection"]));
 
             services.AddDbContext<GoodToyesDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            services.AddScoped<IProduct, ProductManager>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

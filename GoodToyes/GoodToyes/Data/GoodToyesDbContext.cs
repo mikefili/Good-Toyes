@@ -109,7 +109,6 @@ namespace GoodToyes.Data
                 }
                 );
         }
-
         public DbSet<Product> Products { get; set; }
     }
 }
