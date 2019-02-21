@@ -2,7 +2,7 @@
 
 namespace GoodToyes.Migrations
 {
-    public partial class deploy : Migration
+    public partial class ini : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
