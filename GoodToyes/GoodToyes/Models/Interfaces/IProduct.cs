@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GoodToyes.Models.Interfaces
 {
-    interface IProduct
+    public interface IProduct
     {
         // CREATE PRODUCT
         Task CreateProduct(Product product);
