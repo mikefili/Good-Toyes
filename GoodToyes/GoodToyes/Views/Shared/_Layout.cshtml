@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GoodToyes.Models
+@inject SignInManager<ApplicationUser> signInManager
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @if (signInManager.IsSignedIn(User))
+        {
+            <span>Welcome @User.Claims.First(c => c.Type == "FullName").Value</span>
+        }
+        else
+        {
+            <p>YOU ARE NOT LOGGED IN</p>
+        }
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

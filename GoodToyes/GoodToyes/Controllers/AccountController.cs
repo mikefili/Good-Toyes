@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace GoodToyes.Controllers
@@ -28,11 +29,16 @@ namespace GoodToyes.Controllers
         [HttpGet]
         public IActionResult Register() => View();
 
+        /// <summary>
+        /// Registers a new user
+        /// </summary>
+        /// <param name="rvm"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel rvm)
         {
             if (ModelState.IsValid)
-            {
+            {   //setting values to input from user
                 ApplicationUser user = new ApplicationUser()
                 {
                     UserName = rvm.Email,
@@ -41,11 +47,23 @@ namespace GoodToyes.Controllers
                     LastName = rvm.LastName,
                     Birthdate = rvm.Birthdate
                 };
-
+                //creates passsword if password is in valid format
                var result = await _userManager.CreateAsync(user, rvm.Password);
 
                 if (result.Succeeded)
                 {
+                    Claim fullNameClaim = new Claim("FullName", $"{user.FirstName}{user.LastName}");
+
+                    Claim birthdateClaim = new Claim(ClaimTypes.DateOfBirth, new DateTime(user.Birthdate.Year, user.Birthdate.Month, user.Birthdate.Day).ToString("u"),
+                        ClaimValueTypes.DateTime);
+
+                    Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.Email);
+
+                    List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim };
+
+                    await _userManager.AddClaimsAsync(user, claims);
+
+                    //sends user to home page after sign in
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -54,6 +72,32 @@ namespace GoodToyes.Controllers
             }
             return View(rvm);
         }
+
+
+        /// <summary>
+        /// Logs user in and sends to home page
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Login() => View();
+
+        [HttpPost]
+        public async  Task<IActionResult> Login(LoginViewModel lvm)
+        {
+            if (ModelState.IsValid)
+            {
+               var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, false, false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            ModelState.TryAddModelError(string.Empty, "Invalid Login Attempt");
+
+            return View(lvm);
+        }
+
 
     }
 }

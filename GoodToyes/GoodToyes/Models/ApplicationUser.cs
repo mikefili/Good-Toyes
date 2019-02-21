@@ -13,7 +13,5 @@ namespace GoodToyes.Models
         public string LastName { get; set; }
 
         public DateTime Birthdate { get; set; }
-
-        public string Email { get; set; }
     }
 }

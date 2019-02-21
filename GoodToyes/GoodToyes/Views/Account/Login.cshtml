@@ -1,0 +1,16 @@
+﻿@model GoodToyes.ViewModels.LoginViewModel
+
+@{ 
+    Layout = "_Layout";
+}
+<form method="post">
+    <label asp-for="Email">Email</label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+
+    <label asp-for="Password">Email</label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+
+    <button type="submit">LOGIN</button>
+</form>
