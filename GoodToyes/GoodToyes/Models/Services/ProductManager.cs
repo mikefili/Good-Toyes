@@ -1,4 +1,5 @@
-﻿using GoodToyes.Models.Interfaces;
+﻿using GoodToyes.Data;
+using GoodToyes.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,13 @@ namespace GoodToyes.Models.Services
 {
     public class ProductManager : IProduct
     {
+        private readonly GoodToyesDbContext _context;
+
+        public ProductManager(GoodToyesDbContext context)
+        {
+            _context = context;
+        }
+
         public Task CreateProduct(Product product)
         {
             throw new NotImplementedException();
