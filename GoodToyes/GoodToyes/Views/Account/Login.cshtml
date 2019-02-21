@@ -4,13 +4,19 @@
     Layout = "_Layout";
 }
 <form method="post">
-    <label asp-for="Email">Email</label>
-    <input asp-for="Email" />
-    <span asp-validation-for="Email"></span>
-
-    <label asp-for="Password">Password</label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-
+    <table>
+        <tbody>
+            <tr>
+                <td><label asp-for="Email">Email</label></td>
+                <td><input asp-for="Email" /></td>
+                <td><span asp-validation-for="Email"></span></td>
+            </tr>
+            <tr>
+                <td><label asp-for="Password">Password</label></td>
+                <td><input asp-for="Password" /></td>
+                <td><span asp-validation-for="Password"></span></td>
+            </tr>
+        </tbody>
+    </table>
     <button type="submit">LOGIN</button>
 </form>

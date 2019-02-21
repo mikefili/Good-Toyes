@@ -52,7 +52,7 @@ namespace GoodToyes.Controllers
 
                 if (result.Succeeded)
                 {
-                    Claim fullNameClaim = new Claim("FullName", $"{user.FirstName}{user.LastName}");
+                    Claim fullNameClaim = new Claim("FullName", $"{user.FirstName} {user.LastName}");
 
                     Claim birthdateClaim = new Claim(ClaimTypes.DateOfBirth, new DateTime(user.Birthdate.Year, user.Birthdate.Month, user.Birthdate.Day).ToString("u"),
                         ClaimValueTypes.DateTime);

@@ -23,11 +23,11 @@ namespace XUnitTestProject1
             //arrange
             Product product = new Product();
             product.Name = "Toy";
-            product.ImageUrl = "img";
+            product.Image = "img";
 
 
             //Assert
-            Assert.Equal("img", product.ImageUrl);
+            Assert.Equal("img", product.Image);
         }
 
         [Fact]
@@ -36,12 +36,12 @@ namespace XUnitTestProject1
             //arrange
             Product product = new Product();
             product.Name = "Toy";
-            product.ImageUrl = "img";
+            product.Image = "img";
 
             //act
-            product.ImageUrl = "imgs";
+            product.Image = "imgs";
             //Assert
-            Assert.Equal("imgs", product.ImageUrl);
+            Assert.Equal("imgs", product.Image);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace XUnitTestProject1
             //arrange
             Product product = new Product();
             product.Name = "Toy";
-            product.ImageUrl = "img";
+            product.Image = "img";
 
             //act
             product.Name = "Toys";
