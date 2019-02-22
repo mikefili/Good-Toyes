@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using GoodToyes.Data;
 using GoodToyes.Models;
 using GoodToyes.Models.Handler;
 using GoodToyes.Models.Interfaces;
 using GoodToyes.Models.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -46,6 +48,8 @@ namespace GoodToyes
             {
                 options.AddPolicy("spayOrNeuter", policy => policy.Requirements.Add(new SpayNeuterRequirement()));
             });
+
+            services.AddScoped<IAuthorizationHandler, SpayNeuterRequirement>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
