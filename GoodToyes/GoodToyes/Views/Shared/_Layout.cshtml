@@ -8,20 +8,35 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/Styles/Reset.css" rel="stylesheet" />
+    <link href="~/Styles/Base.css" rel="stylesheet" />
+    <link href="~/Styles/IntelliStyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @if (signInManager.IsSignedIn(User))
-        {
-            <span>Welcome @User.Claims.First(c => c.Type == "FullName").Value</span>
-        }
-        else
-        {
-            <p>Please log in or create an account</p>
-        }
-    </div>
+    <header class="flex-row-container space-between pad-top-xs">
+        <a href="/" class="logo-link">
+            <div class="pad-left-s">
+                <img src="~/Assets/Logos/logo.png" alt="Good Toyes" class="logo-img" />
+                <span class="logo-text">Good Toyes</span>
+            </div>
+        </a>
+        <div class="pad-right-s">
+            @if (signInManager.IsSignedIn(User))
+            {
+                <span class="greeting">Hey, @User.Claims.First(c => c.Type == "FullName").Value!</span>
+            }
+            else
+            {
+                <span class="greeting"><a href="../Account/Login">Login</a> or <a href="../Account/Register">Register</a></span>
+            }
+        </div>
+    </header>
+
     <div>
         @RenderBody()
     </div>
+    <footer>
+        <div class="center pads-xs">&#169; Good Toyes 2019</div>
+    </footer>
 </body>
 </html>

@@ -24,7 +24,7 @@ namespace GoodToyes.Data
                     SKU = "DT00001",
                     Price = 12.95m,
                     Description = "Your puppers will love this tasty toy from south of the border!",
-                    Image = "Products/avacado_toy.png"
+                    Image = "Assets/Products/avacado_toy.png"
                 },
                 new Product
                 {
@@ -33,7 +33,7 @@ namespace GoodToyes.Data
                     SKU = "DT00002",
                     Price = 8.95m,
                     Description = "You can't got wrong with this time-tested classic.",
-                    Image = "Products/bone_toy.png"
+                    Image = "Assets/Products/bone_toy.png"
                 },
                 new Product
                 {
@@ -42,7 +42,7 @@ namespace GoodToyes.Data
                     SKU = "DT00003",
                     Price = 12.95m,
                     Description = "A fine, feathered friend for your four-legged friend!",
-                    Image = "Products/chicken_toy.png"
+                    Image = "Assets/Products/chicken_toy.png"
                 },
                 new Product
                 {
@@ -51,7 +51,7 @@ namespace GoodToyes.Data
                     SKU = "DT00004",
                     Price = 12.95m,
                     Description = "Perfect side toy for your doggo's morning puppaccino!",
-                    Image = "Products/donut_toy.png"
+                    Image = "Assets/Products/donut_toy.png"
                 },
                 new Product
                 {
@@ -60,7 +60,7 @@ namespace GoodToyes.Data
                     SKU = "DT00005",
                     Price = 12.95m,
                     Description = "Barbeque sauce sold separately.",
-                    Image = "Products/drumstick_toy.png"
+                    Image = "Assets/Products/drumstick_toy.png"
                 },
                 new Product
                 {
@@ -69,7 +69,7 @@ namespace GoodToyes.Data
                     SKU = "DT00006",
                     Price = 13.95m,
                     Description = "WARNING: May turn your pooch into an old timey movie villain.",
-                    Image = "Products/mustache_toy.png"
+                    Image = "Assets/Products/mustache_toy.png"
                 },
                 new Product
                 {
@@ -78,7 +78,7 @@ namespace GoodToyes.Data
                     SKU = "DT00007",
                     Price = 12.95m,
                     Description = "That classic thin-crust your dog loves, now in plush!",
-                    Image = "Products/pizza_toy.png"
+                    Image = "Assets/Products/pizza_toy.png"
                 },
                 new Product
                 {
@@ -87,7 +87,7 @@ namespace GoodToyes.Data
                     SKU = "DT00008",
                     Price = 7.95m,
                     Description = "To the victor, go the spoils!",
-                    Image = "Products/rope_toy.png"
+                    Image = "Assets/Products/rope_toy.png"
                 },
                 new Product
                 {
@@ -96,7 +96,7 @@ namespace GoodToyes.Data
                     SKU = "DT00009",
                     Price = 13.95m,
                     Description = "Give your woofer the beautiful pearly whites they deserve.",
-                    Image = "Products/smile_toy.png"
+                    Image = "Assets/Products/smile_toy.png"
                 },
                 new Product
                 {
@@ -105,7 +105,7 @@ namespace GoodToyes.Data
                     SKU = "DT00010",
                     Price = 8.95m,
                     Description = "Set of three extra jingly tennis balls.",
-                    Image = "Products/tennis_balls.png"
+                    Image = "Assets/Products/tennis_balls.png"
                 }
                 );
         }
