@@ -21,6 +21,10 @@ namespace GoodToyes.ViewModels
         public DateTime Birthdate { get; set; }
 
         [Required]
+        [Display(Name = "Is Your Pet Spayed or Neutered?")]
+        public bool SpayedOrNeutered { get; set; }
+
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -33,6 +37,8 @@ namespace GoodToyes.ViewModels
         [Display(Name="Confirm Password")]
         [Compare("Password", ErrorMessage ="Does Not Match")]
         public string ConfirmPassword { get; set; }
+
+        
 
     }
 }
