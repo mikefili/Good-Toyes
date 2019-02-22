@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GoodToyes.Models
+@model GoodToyes.Models.ApplicationUser
+@inject SignInManager<ApplicationUser> signInManager
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Styles/Reset.css" rel="stylesheet" />
+    <link href="~/Styles/Base.css" rel="stylesheet" />
+    <link href="~/Styles/IntelliStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="flex-row-container space-between pad-top-xs">
+        <a href="/" class="logo-link">
+            <div class="pad-left-s">
+                <img src="~/Assets/Logos/logo.png" alt="Good Toyes" class="logo-img" />
+                <span class="logo-text">Good Toyes</span>
+            </div>
+        </a>
+        <div>
+            <ul class="menu-ul">
+                <li><a href="../Shop" class="greeting a">Shop</a></li>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    if (User.Claims.First(c => c.Type == "SpayNeuter").Value == "True")
+                    {
+                        <li class="greeting"><a href="~/Policy" class="a">Discounts</a></li>
+                    }
+                }
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <li class="greeting">Hey, @User.Claims.First(c => c.Type == "FullName").Value!</li>
+                }
+                else
+                {
+                    <li class="greeting"><a href="../Account/Login" class="a">Login</a> or <a href="../Account/Register" class="a">Register</a></li>
+                }
+            </ul>
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="center pads-xs">&#169; Good Toyes 2019</div>
+    </footer>
+</body>
+</html>

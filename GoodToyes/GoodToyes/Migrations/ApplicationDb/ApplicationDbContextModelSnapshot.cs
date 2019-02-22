@@ -58,6 +58,8 @@ namespace GoodToyes.Migrations.ApplicationDb
 
                     b.Property<string>("SecurityStamp");
 
+                    b.Property<bool>("SpayedOrNeutered");
+
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
