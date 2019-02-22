@@ -12,45 +12,47 @@
                     <td><label asp-for="Email">Enter your email: </label></td>
                     <td></td>
                     <td><input asp-for="Email" class="wide-input" /></td>
-                    <td><span asp-validation-for="Email"></span></td>
+                    <td><span asp-validation-for="Email" class="text-warning"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="FirstName">Enter your first name: </label></td>
                     <td></td>
                     <td><input asp-for="FirstName" class="wide-input" /></td>
-                    <td><span asp-validation-for="FirstName"></span></td>
+                    <td><span asp-validation-for="FirstName" class="text-warning"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="LastName">Enter your last name: </label></td>
                     <td></td>
                     <td><input asp-for="LastName" class="wide-input" /></td>
-                    <td><span asp-validation-for="LastName"></span></td>
+                    <td><span asp-validation-for="LastName" class="text-warning"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="Birthdate">Enter your birthday: </label></td>
                     <td></td>
                     <td><input asp-for="Birthdate" class="wide-input" /></td>
-                    <td><span asp-validation-for="Birthdate"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="SpayedOrNeutered">Check if Your Pet is Spayed or Neutered? </label></td>
-                    <td><input asp-for="SpayedOrNeutered" /></td>
-                    <td><span asp-validation-for="SpayedOrNeutered"></span></td>
+                    <td><span asp-validation-for="Birthdate" class="text-warning"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="Password">Enter your password: </label></td>
                     <td></td>
                     <td><input asp-for="Password" class="wide-input" /></td>
-                    <td><span asp-validation-for="Password"></span></td>
+                    <td><span asp-validation-for="Password" class="text-warning"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="ConfirmPassword">Confirm your password: </label></td>
                     <td></td>
                     <td><input asp-for="ConfirmPassword" class="wide-input" /></td>
-                    <td><span asp-validation-for="ConfirmPassword"></span></td>
+                    <td><span asp-validation-for="ConfirmPassword" class="text-warning"></span></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="SpayedOrNeutered">Is your pup spayed or neutered? </label></td>
+                    <td></td>
+                    <td><div class="center"><input asp-for="SpayedOrNeutered" /></div></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
         <div class="center pad-top-xs"><button type="submit">Register</button></div>
     </div>
+    <div class="pad-bottom-m"></div>
 </form>
