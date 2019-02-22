@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using GoodToyes.Models
+@model GoodToyes.Models.ApplicationUser
 @inject SignInManager<ApplicationUser> signInManager
 <!DOCTYPE html>
 <html>
@@ -20,14 +21,21 @@
         </a>
         <div>
             <ul class="menu-ul">
-                <li><a href="../Shop" class="greeting">Shop</a></li>
+                <li><a href="../Shop" class="greeting a">Shop</a></li>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    if (User.Claims.First(c => c.Type == "SpayNeuter").Value == "True")
+                    {
+                        <li class="greeting"><a href="~/Policy" class="a">Discounts</a></li>
+                    }
+                }
                 @if (signInManager.IsSignedIn(User))
                 {
                     <li class="greeting">Hey, @User.Claims.First(c => c.Type == "FullName").Value!</li>
                 }
                 else
                 {
-                    <li class="greeting"><a href="../Account/Login">Login</a> or <a href="../Account/Register">Register</a></li>
+                    <li class="greeting"><a href="../Account/Login" class="a">Login</a> or <a href="../Account/Register" class="a">Register</a></li>
                 }
             </ul>
         </div>
