@@ -13,7 +13,7 @@ body {
 
 .body {
     background-image: url(/Assets/Images/bkg.jpg);
-    -webkit-mask-image: -webkit-gradient(linear, left 10%, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    -webkit-mask-image: -webkit-gradient(linear, left 12%, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     box-shadow: 0 0 40px 40px white inset;
     -moz-box-shadow: 0 0 40px 40px white inset;
     -webkit-box-shadow: 0 0 40px 40px white inset;
@@ -25,13 +25,24 @@ body {
     margin: auto;
 }
 
+.product-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+}
+
 .petite-caps {
     font-variant-caps: all-petite-caps;
-    font-size: 8rem;
 }
 
 .text-s {
     font-size: 3rem;
+}
+
+.text-m {
+    font-size: 4rem;
 }
 
 .test {
@@ -144,5 +155,13 @@ button:hover {
 
     h1 {
         font-size: 3rem;
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
     }
 }
