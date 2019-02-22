@@ -5,14 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace GoodToyes.Controllers
 {
-    public class HomeController : Controller
+    public class ShopController : Controller
     {
         private readonly IProduct _context;
 
-        public HomeController(IProduct context)
+        public ShopController(IProduct context)
         {
             _context = context;
         }
