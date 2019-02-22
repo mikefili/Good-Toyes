@@ -20,15 +20,18 @@
                 <span class="logo-text">Good Toyes</span>
             </div>
         </a>
-        <div class="pad-right-s">
-            @if (signInManager.IsSignedIn(User))
-            {
-                <span class="greeting">Hey, @User.Claims.First(c => c.Type == "FullName").Value!</span>
-            }
-            else
-            {
-                <span class="greeting"><a href="../Account/Login">Login</a> or <a href="../Account/Register">Register</a></span>
-            }
+        <div>
+            <ul class="menu-ul">
+                <li><a href="../Shop" class="greeting">Shop</a></li>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <li class="greeting">Hey, @User.Claims.First(c => c.Type == "FullName").Value!</li>
+                }
+                else
+                {
+                    <li class="greeting"><a href="../Account/Login">Login</a> or <a href="../Account/Register">Register</a></li>
+                }
+            </ul>
         </div>
     </header>
 
