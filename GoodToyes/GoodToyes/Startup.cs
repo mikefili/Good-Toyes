@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoodToyes.Data;
 using GoodToyes.Models;
+using GoodToyes.Models.Handler;
 using GoodToyes.Models.Interfaces;
 using GoodToyes.Models.Services;
 using Microsoft.AspNetCore.Builder;
@@ -39,6 +40,11 @@ namespace GoodToyes
             services.AddDbContext<GoodToyesDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddScoped<IProduct, ProductManager>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("spayOrNeuter", policy => policy.Requirements.Add(new SpayNeuterRequirement()));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -57,13 +57,15 @@ namespace GoodToyes.Controllers
                 {
                     Claim fullNameClaim = new Claim("FullName", $"{user.FirstName} {user.LastName}");
 
+                    Claim spayOrNeuter = new Claim("SpayNeuter", $"{ user.SpayedOrNeutered }");
+
                     Claim birthdateClaim = new Claim(ClaimTypes.DateOfBirth, new DateTime(user.Birthdate.Year, user.Birthdate.Month, user.Birthdate.Day).ToString("u"),
                         ClaimValueTypes.DateTime);
 
                     Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.Email);
 
                     //list to hold the claims
-                    List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim };
+                    List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim, spayOrNeuter };
 
                     //retruns list of claims to user manager
                     await _userManager.AddClaimsAsync(user, claims);
