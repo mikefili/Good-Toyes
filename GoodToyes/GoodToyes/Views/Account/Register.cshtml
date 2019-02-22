@@ -1,49 +1,51 @@
 ﻿@model GoodToyes.ViewModels.RegisterViewModel
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Example App: Registration Page</title>
-</head>
-<body>
-    <form method="post">
-        <div asp-validation-summary="All"></div>
-        <table>
+@{
+    Layout = "_Layout";
+}
+<form method="post">
+    <div class="pad-top-m"></div>
+    <div class="overlayer container-l pad-top-s pad-bottom-s hover-shadow">
+        <p class="center logo-text pad-bottom-s">Sign Up!</p>
+        <table class="auto-margin">
             <tbody>
                 <tr>
                     <td><label asp-for="Email">Enter your email: </label></td>
-                    <td><input asp-for="Email" /></td>
+                    <td></td>
+                    <td><input asp-for="Email" class="wide-input" /></td>
                     <td><span asp-validation-for="Email"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="FirstName">Enter your first name: </label></td>
-                    <td><input asp-for="FirstName" /></td>
+                    <td></td>
+                    <td><input asp-for="FirstName" class="wide-input" /></td>
                     <td><span asp-validation-for="FirstName"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="LastName">Enter your last name: </label></td>
-                    <td><input asp-for="LastName" /></td>
+                    <td></td>
+                    <td><input asp-for="LastName" class="wide-input" /></td>
                     <td><span asp-validation-for="LastName"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="Birthdate">Enter your birthday: </label></td>
-                    <td><input asp-for="Birthdate" /></td>
+                    <td></td>
+                    <td><input asp-for="Birthdate" class="wide-input" /></td>
                     <td><span asp-validation-for="Birthdate"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="Password">Enter your password: </label></td>
-                    <td><input asp-for="Password" /></td>
+                    <td></td>
+                    <td><input asp-for="Password" class="wide-input" /></td>
                     <td><span asp-validation-for="Password"></span></td>
                 </tr>
                 <tr>
                     <td><label asp-for="ConfirmPassword">Confirm your password: </label></td>
-                    <td><input asp-for="ConfirmPassword" /></td>
+                    <td></td>
+                    <td><input asp-for="ConfirmPassword" class="wide-input" /></td>
                     <td><span asp-validation-for="ConfirmPassword"></span></td>
                 </tr>
             </tbody>
         </table>
-        <button type="submit">Register</button>
-    </form>
-</body>
-</html>
+        <div class="center pad-top-xs"><button type="submit">Register</button></div>
+    </div>
+</form>

@@ -1,28 +1,86 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato');
+﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower');
 
 body {
-    background-color: powderblue;
+    /*background-color: powderblue;*/
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
-    height: 100%;
+    height: auto;
+    min-height: 100%;
     min-width: 760px;
+    display: block;
+}
+
+.body {
+    background-image: url(/Assets/Images/bkg.jpg);
+    -webkit-mask-image: -webkit-gradient(linear, left 10%, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    box-shadow: 0 0 40px 40px white inset;
+    -moz-box-shadow: 0 0 40px 40px white inset;
+    -webkit-box-shadow: 0 0 40px 40px white inset;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 760px;
+    width: 96%;
+    margin: auto;
+}
+
+.test {
+    height: 100%;
+    min-height: 300px;
+    min-width: 200px;
+}
+
+.product-img {
+    width: 250px;
+}
+
+.fader-1 {
+    background-image: url(/Assets/Images/dog-1.jpg);
+    background-size: cover;
+}
+
+.fader-1:hover {
+    opacity: 0.5;
+    transition: 0.5s ease
 }
 
 a {
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
+    color: blue;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 6vw;
 }
 
 header {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
-    height: 8vw;
-    min-height: 120px;
+    background-color: rgba(200, 200, 200, 0.5);
+    border-bottom: 3px solid rgba(200, 200, 200, 0.2);
+    height: 6vw;
+    max-height: 140px;
+    min-height: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+footer {
+    height: 100px;
+    background-color: rgba(200, 200, 200, 0.5);
+    border-top: 3px solid rgba(200, 200, 200, 0.2);
+}
+
+button {
+    background-image: linear-gradient(#2b90ec, #2b90ec, #267ac7, #267ac7);
+    border-radius: 3px;
+    color: white;
+    font-size: 1.6rem;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+button:hover {
+    background-image: linear-gradient(#419ff4, #419ff4, #2b90ec, #2b90ec);
 }
 
 .logo-img {
@@ -34,17 +92,40 @@ header {
     font-family: 'Fredoka One', cursive;
 }
 
+.logo-link {
+    color: black;
+}
+
 .fredoka-one {
     font-family: 'Fredoka One', cursive;
 }
 
+.indie-flower {
+    font-family: 'Indie Flower', cursive;
+}
+
 .greeting {
+    font-size: 1.2rem;
     line-height: 7rem;
 }
 
 .overlayer {
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.5);
+    border: 3px solid rgba(200, 200, 200, 0.4);
+    background-color: rgba(200, 200, 200, 0.5);
     border-radius: 1vw;
     margin: auto;
+}
+
+@media (max-width: 760px) {
+    body {
+        background-image: none;
+    }
+
+    .body {
+        height: 760px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
 }
