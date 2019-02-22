@@ -45,7 +45,8 @@ namespace GoodToyes.Controllers
                     Email = rvm.Email,
                     FirstName = rvm.FirstName,
                     LastName = rvm.LastName,
-                    Birthdate = rvm.Birthdate
+                    Birthdate = rvm.Birthdate,
+                    SpayedOrNeutered = rvm.SpayedOrNeutered
                 };
 
                 //creates passsword if password is in valid format
