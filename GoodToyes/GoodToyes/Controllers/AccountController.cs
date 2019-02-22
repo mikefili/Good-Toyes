@@ -47,9 +47,11 @@ namespace GoodToyes.Controllers
                     LastName = rvm.LastName,
                     Birthdate = rvm.Birthdate
                 };
+
                 //creates passsword if password is in valid format
                var result = await _userManager.CreateAsync(user, rvm.Password);
 
+                //creat a number of different claims
                 if (result.Succeeded)
                 {
                     Claim fullNameClaim = new Claim("FullName", $"{user.FirstName} {user.LastName}");
@@ -59,8 +61,10 @@ namespace GoodToyes.Controllers
 
                     Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.Email);
 
+                    //list to hold the claims
                     List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim };
 
+                    //retruns list of claims to user manager
                     await _userManager.AddClaimsAsync(user, claims);
 
                     //sends user to home page after sign in
