@@ -40,7 +40,8 @@ namespace GoodToyes
             services.AddDbContext<GoodToyesDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddScoped<IProduct, ProductManager>();
-
+            
+            //Policy requirement
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("spayOrNeuter", policy => policy.Requirements.Add(new SpayNeuterRequirement()));
