@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower');
+﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Raleway|Bowlby+One+SC');
 
 body {
     /*background-color: powderblue;*/
@@ -19,10 +19,19 @@ body {
     -webkit-box-shadow: 0 0 40px 40px white inset;
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     min-height: 760px;
     width: 96%;
     margin: auto;
+}
+
+.petite-caps {
+    font-variant-caps: all-petite-caps;
+    font-size: 8rem;
+}
+
+.text-s {
+    font-size: 3rem;
 }
 
 .test {
@@ -102,6 +111,14 @@ button:hover {
 
 .indie-flower {
     font-family: 'Indie Flower', cursive;
+}
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+}
+
+.bowlby-one-sc {
+    font-family: 'Bowlby One SC', cursive;
 }
 
 .greeting {
