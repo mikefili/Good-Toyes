@@ -1,8 +1,5 @@
-﻿@using GoodToyes.Models.Interfaces
-@inject IProduct ProductManager
-@{
+﻿@{
     Layout = "_Layout";
-    var products = await ProductManager.GetProducts();
 }
 <div class="body">
     <h1 class="center pad-top-m pad-bottom-xs petite-caps bold">Good Toyes <span class="text-s">FOR</span> Good Boyes!</h1>
@@ -13,11 +10,4 @@
     <div class="pad-bottom-xl"></div>
 </div>
 <div class="center logo-text">Featured Products</div>
-<div class="pad-top-xs pad-bottom-s container-xl flex-row-container space-around auto-margin center">
-    @foreach (var product in products)
-    {
-        <div class="pads-xs">
-            <img src="@product.Image" class="product-img"/>
-        </div>
-    }
-</div>
+<partial name="../Partials/_DisplayProducts.cshtml" />
