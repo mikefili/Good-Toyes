@@ -1,13 +1,27 @@
 ﻿@{
     Layout = "_Layout";
 }
-<div class="body">
-    <h1 class="center pad-top-m pad-bottom-xs petite-caps bold">Good Toyes <span class="text-s">FOR</span> Good Boyes!</h1>
-    <div class="container-s pad-bottom-s pad-top-s pad-left-s pad-right-s auto-margin">
+<section class="hero is-large fader-1">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="tagline has-text-black">
+                Good Toyes for Good Boyes.
+            </h1>
+            <h2 class="subtitle is-size-3 has-text-black">
+                Now featuring discounts for members with spayed or neutered dogs
+            </h2>
+        </div>
     </div>
-    <div class="pad-bottom-xl text-s auto-align center">Now featuring discounts for members with spayed or neutered dogs!</div>
-    <div class="pad-bottom-xl"></div>
-    <div class="pad-bottom-xl"></div>
-</div>
-<div class="center logo-text">Featured Products</div>
-<partial name="../Partials/_DisplayProducts.cshtml" />
+</section>
+<section class="pad-top-s">
+    <div class="container has-text-centered">
+        <h1 class="title is-size-2">
+            Featured Products
+        </h1>
+    </div>
+</section>
+<section class="pad-top-s">
+    <div class="container">
+        <partial name="../Partials/_DisplayProducts.cshtml" />
+    </div>
+</section>
