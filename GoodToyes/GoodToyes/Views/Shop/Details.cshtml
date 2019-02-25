@@ -1,36 +1,18 @@
-﻿@model GoodToyes.Models.Product
-
-@{
+﻿@{
     Layout = "_Layout";
 }
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="tagline has-text-weight-bold has-text-black">
+                Product Details
+            </h1>
+        </div>
+    </div>
+</section>
 
-<h2>Details</h2>
-
-<div>
-    <h4>Product Details</h4>
-    <hr />
-    <dl>
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="AddCart" asp-route-id="@Model.ID">Add to Cart</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<section class="pad-bottom-m">
+    <div class="container">
+        <partial name="../Partials/_DisplayProduct.cshtml" />
+    </div>
+</section>

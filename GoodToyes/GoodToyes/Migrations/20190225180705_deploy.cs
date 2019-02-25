@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GoodToyes.Migrations
 {
-    public partial class initial : Migration
+    public partial class deploy : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,8 @@ namespace GoodToyes.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    Birthdate = table.Column<DateTime>(nullable: false)
+                    Birthdate = table.Column<DateTime>(nullable: false),
+                    SpayedOrNeutered = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
