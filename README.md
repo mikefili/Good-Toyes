@@ -8,13 +8,17 @@ https://goodtoyes.azurewebsites.net/
 
 ## Claims
 
-### Full Name: So that we can display it as a welcome on each page
+### Full Name:
+So that we can display it as a welcome on each page
 
-### Email: To pass the user information from view to view
+### Email:
+To pass the user information from view to view
 
-### Date of Birth: For age validation
+### Date of Birth:
+For age validation
 
-### Spay or Neutered: To allow users with spayed/neutered pets access to our discounts
+### Spay or Neutered:
+To allow users with spayed/neutered pets access to our discounts
 
 ##Polcy
 
