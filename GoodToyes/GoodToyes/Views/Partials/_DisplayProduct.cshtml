@@ -2,10 +2,10 @@
 @{
 }
 
-<div class="card">
-    <div class="card-image">
+<div class="">
+    <div class="card-image pad-top-s">
         <figure class="card-image is-1by1 center">
-            <img src="/@Model.Image" class="" />
+            <img src="/@Model.Image" class="card" title="@Model.Name" />
         </figure>
     </div>
 
@@ -14,7 +14,7 @@
             <span class="title is-2 is-size-4-mobile is-spaced has-text-weight-bold pad-right-s">
                 @Model.Name
             </span>
-            <span class="subtitle is-size-2 is-size-4-mobile is-success">
+            <span class="subtitle is-size-2 is-size-4-mobile has-text-success">
                 $@Model.Price
             </span>
             <p class="is-size-4 is-size-5-mobile">@Model.Description</p>
@@ -22,10 +22,10 @@
             <div class="buttons is-centered pad-top-s">
                 <div class="field is-grouped">
                     <div class="control">
-                        <button asp-action="AddCart" asp-route-id="@Model.ID" class="button is-link" type="submit">Add to Cart</button>
+                        <button asp-action="AddCart" asp-route-id="@Model.ID" class="button is-success is-large" type="submit">Add to Cart</button>
                     </div>
                     <div class="control">
-                        <a href="~/Shop#productsline" class="button is-text">Back to Explore</a>
+                        <a href="~/Shop#productsline" class="button is-text is-large">Back to Explore</a>
                     </div>
                 </div>
             </div>
