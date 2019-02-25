@@ -3,15 +3,18 @@
 @{
     var products = await ProductManager.GetProducts();
 }
+
 <div class="product-container">
     @foreach (var product in products)
     {
-        <div class="">
+    <a href="#">
+        <div class="pads-s">
             <img src="@product.Image" class="product-img" />
             <ul>
                 <li class="text-container">@product.Name</li>
-                <li>$@product.Price</li>
+                <li class="is-size-3 is-size-4-mobile">$@product.Price</li>
             </ul>
         </div>
+    </a>
     }
 </div>

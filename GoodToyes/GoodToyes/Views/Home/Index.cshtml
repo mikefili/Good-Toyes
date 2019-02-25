@@ -1,27 +1,41 @@
 ﻿@{
     Layout = "_Layout";
 }
-<section class="hero is-large fader-1">
+<section class="hero is-large landing-img">
     <div class="hero-body">
         <div class="container has-text-centered">
-            <h1 class="tagline has-text-black">
-                Good Toyes for Good Boyes.
+            <h1 class="tagline has-text-black has-text-weight-bold">
+                Good Toyes for Good Boyes
             </h1>
-            <h2 class="subtitle is-size-3 has-text-black">
+            <h2 class="subtitle is-size-3 is-size-5-mobile has-text-black">
                 Now featuring discounts for members with spayed or neutered dogs
             </h2>
         </div>
     </div>
+
+    @*<div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+                <ul>
+                    <li class="is-active">
+                        <a>Featured Products</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>*@
 </section>
-<section class="pad-top-s">
+
+<section class="pad-top-m">
     <div class="container has-text-centered">
-        <h1 class="title is-size-2">
+        <h1 class="title is-1 is-size-3-mobile is-spaced has-text-weight-bold">
             Featured Products
         </h1>
     </div>
 </section>
+
 <section class="pad-top-s">
     <div class="container">
-        <partial name="../Partials/_DisplayProducts.cshtml" />
+        <partial name="../Partials/_DisplayProductsDetail.cshtml" />
     </div>
 </section>

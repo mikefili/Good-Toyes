@@ -1,19 +1,30 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Raleway|Bowlby+One+SC');
+﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Sniglet:800|Bowlby+One+SC');
 
 body {
     font-family: 'Lato', sans-serif;
-    font-size: 1.6rem;
 }
 
 a {
     transition: 0.5s ease;
     cursor: pointer;
-    text-decoration: none;
 }
 
 a:hover {
     transition: 0.5s ease;
-    color: #EE9C20;
+    color: #0026ff;
+}
+
+nav {
+    height: 80px;
+}
+
+.navbar-item img {
+    max-height: unset;
+}
+
+.navbar-burger {
+    height: 5rem;
+    width: 5rem;
 }
 
 .product-container {
@@ -33,8 +44,15 @@ a:hover {
     width: 250px;
 }
 
-.fader-1 {
+.landing-img {
     background-image: url(/Assets/Images/dog-2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.explore-img {
+    background-image: url(/Assets/Images/dogs-explore.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -48,8 +66,8 @@ a:hover {
     font-family: 'Indie Flower', cursive;
 }
 
-.raleway {
-    font-family: 'Raleway', sans-serif;
+.sniglet {
+    font-family: 'Sniglet', cursive;
 }
 
 .bowlby-one-sc {
@@ -60,6 +78,12 @@ a:hover {
     font-size: 4rem;
 }
 
+@media (min-width: 1200px) {
+    .tagline {
+        font-size: 6vw;
+    }
+}
+
 @media (max-width: 800px) {
     .body {
         min-height: unset;
@@ -67,7 +91,7 @@ a:hover {
     }
 }
 
-@media (max-width: 865px) {
+@media (max-width: 900px) {
     .tagline {
         font-size: 3rem;
     }
@@ -82,5 +106,15 @@ a:hover {
         justify-content: flex-start;
         align-items: center;
         flex-wrap: nowrap;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .tagline {
+        font-size: 1.5rem;
     }
 }
