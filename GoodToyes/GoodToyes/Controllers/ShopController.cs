@@ -20,5 +20,17 @@ namespace GoodToyes.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult>Details(int id)
+        {
+            var product = await _context.GetProduct(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
     }
 }
