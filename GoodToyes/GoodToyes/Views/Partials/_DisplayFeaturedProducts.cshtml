@@ -1,0 +1,20 @@
+﻿@using GoodToyes.Models.Interfaces
+@inject IProduct ProductManager
+@{
+    var products = await ProductManager.GetProducts();
+}
+
+<div class="product-container">
+    @foreach (var product in products)
+    {
+    <a href="#">
+        <div class="pads-s">
+            <img src="@product.Image" class="product-img" />
+            <ul>
+                <li class="text-container">@product.Name</li>
+                <li class="is-size-3 is-size-4-mobile is-success">$@product.Price</li>
+            </ul>
+        </div>
+    </a>
+    }
+</div>
