@@ -7,15 +7,24 @@ body {
 a {
     transition: 0.5s ease;
     cursor: pointer;
+    color: hsl(141, 71%, 48%);
 }
 
 a:hover {
     transition: 0.5s ease;
-    color: #0026ff;
+    color: hsl(0, 0%, 21%);
 }
 
 nav {
     height: 80px;
+}
+
+.box-shadow {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+}
+
+.outline {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .navbar-item img {
@@ -76,6 +85,12 @@ nav {
 
 .tagline {
     font-size: 4rem;
+}
+
+.text-container {
+    height: auto;
+    max-width: 250px;
+    text-wrap: normal;
 }
 
 @media (min-width: 1200px) {
