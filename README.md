@@ -1,23 +1,21 @@
-#Product
+# Good Toyes
+## Product
 
-What is the product you are selling?
+Good Toyes is your source for everything your good boy needs! All types of toys, treats, and enticements. Now offering discounts for spayed/neutered pets.
 
-We are selling Dog Toys for dogs/
+## Deployed Link
+https://goodtoyes.azurewebsites.net/
 
-#claims
+## Claims
 
-What claims are you capturing? Why?
+### Full Name: So that we can display it as a welcome on each page
 
-Full Name
+### Email: To pass the user information from view to view
 
-Email
+### Date of Birth: For age validation
 
-Date of Birth
+### Spay or Neutered: To allow users with spayed/neutered pets access to our discounts
 
-Spay or Neutered
+##Polcy
 
-#Polcy
-
-What Policies are you enforcing? Why?
-
-We are enforcing a Spay or Neuter policy.  If you have spayed or neutered we are allowing users special access to a very special page because they are responsible.
+We are enforcing a Spay or Neuter policy.  If you have spayed or neutered we are allowing users access to a very special page because they are responsible pet owners.
