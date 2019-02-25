@@ -1,0 +1,184 @@
+﻿.pads-xs {
+    padding: 0.5em;
+}
+
+.pads-s {
+    padding: 1em
+}
+
+.pads-m {
+    padding: 5em
+}
+
+.pads-l {
+    padding: 10em
+}
+
+.pads-xl {
+    padding: 15em;
+}
+
+.pad-top-xs {
+    padding-top: 0.5em;
+}
+
+.pad-top-s {
+    padding-top: 1em;
+}
+
+.pad-top-m {
+    padding-top: 5em;
+}
+
+.pad-top-l {
+    padding-top: 10em;
+}
+
+.pad-top-xl {
+    padding-top: 15em;
+}
+
+.pad-bottom-xs {
+    padding-bottom: 0.5em;
+}
+
+.pad-bottom-s {
+    padding-bottom: 1em;
+}
+
+.pad-bottom-m {
+    padding-bottom: 5em;
+}
+
+.pad-bottom-l {
+    padding-bottom: 10em;
+}
+
+.pad-bottom-xl {
+    padding-bottom: 15em;
+}
+
+.pad-left-xs {
+    padding-left: 0.5em;
+}
+
+.pad-left-s {
+    padding-left: 1em;
+}
+
+.pad-left-m {
+    padding-left: 5em;
+}
+
+.pad-left-l {
+    padding-left: 10em;
+}
+
+.pad-left-xl {
+    padding-left: 15em;
+}
+
+.pad-right-xs {
+    padding-right: 0.5em;
+}
+
+.pad-right-s {
+    padding-right: 1em;
+}
+
+.pad-right-m {
+    padding-right: 5em;
+}
+
+.pad-right-l {
+    padding-right: 10em;
+}
+
+.pad-right-xl {
+    padding-right: 15em;
+}
+
+.margin-top-xs {
+    padding-top: 0.5em;
+}
+
+.margin-top-s {
+    padding-top: 1em;
+}
+
+.margin-top-m {
+    padding-top: 5em;
+}
+
+.margin-top-l {
+    padding-top: 10em;
+}
+
+.margin-top-xl {
+    padding-top: 15em;
+}
+
+.margin-bottom-xs {
+    padding-bottom: 0.5em;
+}
+
+.margin-bottom-s {
+    padding-bottom: 1em;
+}
+
+.margin-bottom-m {
+    padding-bottom: 5em;
+}
+
+.margin-bottom-l {
+    padding-bottom: 10em;
+}
+
+.margin-bottom-xl {
+    padding-bottom: 15em;
+}
+
+.margin-left-xs {
+    padding-left: 0.5em;
+}
+
+.margin-left-s {
+    padding-left: 1em;
+}
+
+.margin-left-m {
+    padding-left: 5em;
+}
+
+.margin-left-l {
+    padding-left: 10em;
+}
+
+.margin-left-xl {
+    padding-left: 15em;
+}
+
+.margin-right-xs {
+    padding-right: 0.5em;
+}
+
+.margin-right-s {
+    padding-right: 1em;
+}
+
+.margin-right-m {
+    padding-right: 5em;
+}
+
+.margin-right-l {
+    padding-right: 10em;
+}
+
+.margin-right-xl {
+    padding-right: 15em;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}

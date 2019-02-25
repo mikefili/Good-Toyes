@@ -2,57 +2,107 @@
 @{
     Layout = "_Layout";
 }
-<form method="post">
-    <div class="pad-top-m"></div>
-    <div class="overlayer container-l pad-top-s pad-bottom-s hover-shadow">
-        <p class="center logo-text pad-bottom-s">Sign Up!</p>
-        <table class="auto-margin">
-            <tbody>
-                <tr>
-                    <td><label asp-for="Email">Enter your email: </label></td>
-                    <td></td>
-                    <td><input asp-for="Email" class="wide-input" /></td>
-                    <td><span asp-validation-for="Email" class="text-warning"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="FirstName">Enter your first name: </label></td>
-                    <td></td>
-                    <td><input asp-for="FirstName" class="wide-input" /></td>
-                    <td><span asp-validation-for="FirstName" class="text-warning"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="LastName">Enter your last name: </label></td>
-                    <td></td>
-                    <td><input asp-for="LastName" class="wide-input" /></td>
-                    <td><span asp-validation-for="LastName" class="text-warning"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="Birthdate">Enter your birthday: </label></td>
-                    <td></td>
-                    <td><input asp-for="Birthdate" class="wide-input" /></td>
-                    <td><span asp-validation-for="Birthdate" class="text-warning"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="Password">Enter your password: </label></td>
-                    <td></td>
-                    <td><input asp-for="Password" class="wide-input" /></td>
-                    <td><span asp-validation-for="Password" class="text-warning"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="ConfirmPassword">Confirm your password: </label></td>
-                    <td></td>
-                    <td><input asp-for="ConfirmPassword" class="wide-input" /></td>
-                    <td><span asp-validation-for="ConfirmPassword" class="text-warning"></span></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="SpayedOrNeutered">Is your pup spayed or neutered? </label></td>
-                    <td></td>
-                    <td><div class="center"><input asp-for="SpayedOrNeutered" /></div></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="center pad-top-xs"><button type="submit">Register</button></div>
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-size-1">
+                Sign Up Now
+            </h1>
+        </div>
     </div>
-    <div class="pad-bottom-m"></div>
-</form>
+</section>
+
+<section class="">
+    <div class="container">
+        <form method="post">
+            <div class="field">
+                <label asp-for="FirstName" class="label">First Name</label>
+                <div class="control">
+                    <input asp-for="FirstName" class="input" type="text" placeholder="eg. Dog" />
+                </div>
+                <span asp-validation-for="FirstName" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="LastName" class="label">Last Name</label>
+                <div class="control">
+                    <input asp-for="LastName" class="input" type="text" placeholder="eg. Lover" />
+                </div>
+                <span asp-validation-for="LastName" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="Birthdate" class="label">Birthday</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Birthdate" class="input" type="date" />
+                    <span class="icon is-small is-left">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+                <span asp-validation-for="Birthdate" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="Email" class="label">Email</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Email" class="input" type="email" placeholder="example@email.com" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="Email"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="Password" class="label">Password</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Password" class="input" type="password" placeholder="Pick a strong password" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="Password"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="ConfirmPassword" class="label">Confirm Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input asp-for="ConfirmPassword" class="input" type="password" placeholder="Confirm password" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label class="label has-text-success">Special Deals</label>
+                <div class="control">
+                    <label asp-for="SpayedOrNeutered" class="checkbox">
+                        <input asp-for="SpayedOrNeutered" type="checkbox">
+                        <span class="">
+                            Is your pup spayed or neutered?
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="buttons is-centered">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" type="submit">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-text">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

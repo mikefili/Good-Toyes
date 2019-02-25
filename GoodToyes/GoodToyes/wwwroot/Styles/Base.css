@@ -1,41 +1,39 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Raleway|Bowlby+One+SC');
+﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Sniglet:800|Bowlby+One+SC');
 
 body {
-    /*background-color: powderblue;*/
-    box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    font-size: 1.6rem;
-    height: auto;
-    min-height: 100%;
-    min-width: 760px;
-    display: block;
 }
 
-input[type=checkbox] {
-    -ms-transform: scale(2.5);
-    -moz-transform: scale(2.5);
-    -webkit-transform: scale(2.5);
-    -o-transform: scale(2.5);
+a {
+    transition: 0.5s ease;
     cursor: pointer;
+    color: hsl(141, 71%, 48%);
 }
 
-.text-warning {
-    color: red;
-    font-size: 1rem;
+a:hover {
+    transition: 0.5s ease;
+    color: hsl(0, 0%, 21%);
 }
 
-.body {
-    background-image: url(/Assets/Images/bkg.jpg);
-    -webkit-mask-image: -webkit-gradient(linear, left 12%, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-    box-shadow: 0 0 40px 40px white inset;
-    -moz-box-shadow: 0 0 40px 40px white inset;
-    -webkit-box-shadow: 0 0 40px 40px white inset;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-height: 760px;
-    width: 96%;
-    margin: auto;
+nav {
+    height: 80px;
+}
+
+.box-shadow {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+}
+
+.outline {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.navbar-item img {
+    max-height: unset;
+}
+
+.navbar-burger {
+    height: 5rem;
+    width: 5rem;
 }
 
 .product-container {
@@ -43,98 +41,30 @@ input[type=checkbox] {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-}
+    width: 80%;
+    margin: auto;
 }
 
 .petite-caps {
     font-variant-caps: all-petite-caps;
 }
 
-.text-s {
-    font-size: 3rem;
-}
-
-.text-m {
-    font-size: 4rem;
-}
-
-.test {
-    height: 100%;
-    min-height: 300px;
-    min-width: 200px;
-}
-
 .product-img {
     width: 250px;
 }
 
-.fader-1 {
-    background-image: url(/Assets/Images/dog-1.jpg);
+.landing-img {
+    background-image: url(/Assets/Images/dog-2.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.fader-1:hover {
-    opacity: 0.5;
-    transition: 0.5s ease
-}
-
-a {
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.a {
-    color: #2b90ec;
-}
-
-.a:hover {
-    transition: 0.5s ease;
-    color: #000000;
-}
-
-h1 {
-    font-size: 6vw;
-}
-
-header {
-    background-color: rgba(200, 200, 200, 0.5);
-    border-bottom: 3px solid rgba(200, 200, 200, 0.2);
-    height: 6vw;
-    max-height: 140px;
-    min-height: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-footer {
-    height: 100px;
-    background-color: rgba(200, 200, 200, 0.5);
-    border-top: 3px solid rgba(200, 200, 200, 0.2);
-}
-
-button {
-    background-image: linear-gradient(#2b90ec, #2b90ec, #267ac7, #267ac7);
-    border-radius: 3px;
-    color: white;
-    font-size: 1.6rem;
-    padding: 1rem 2rem 1rem 2rem;
-}
-
-button:hover {
-    background-image: linear-gradient(#419ff4, #419ff4, #2b90ec, #2b90ec);
-}
-
-.logo-img {
-    width: 100px;
-}
-
-.logo-text {
-    font-size: 3rem;
-    font-family: 'Fredoka One', cursive;
-}
-
-.logo-link {
-    color: black;
+.explore-img {
+    background-image: url(/Assets/Images/dogs-explore.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .fredoka-one {
@@ -145,50 +75,61 @@ button:hover {
     font-family: 'Indie Flower', cursive;
 }
 
-.raleway {
-    font-family: 'Raleway', sans-serif;
+.sniglet {
+    font-family: 'Sniglet', cursive;
 }
 
 .bowlby-one-sc {
     font-family: 'Bowlby One SC', cursive;
 }
 
-.greeting {
-    font-size: 1.2rem;
+.tagline {
+    font-size: 4rem;
 }
 
-.menu-ul li {
-    line-height: 7rem;
-    list-style: none;
-    display: inline;
-    padding-right: 1em;
+.text-container {
+    height: auto;
+    max-width: 250px;
+    text-wrap: normal;
 }
 
-.overlayer {
-    border: 3px solid rgba(200, 200, 200, 0.4);
-    background-color: rgba(200, 200, 200, 0.5);
-    border-radius: 1vw;
-    margin: auto;
+@media (min-width: 1200px) {
+    .tagline {
+        font-size: 6vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .body {
+        min-height: unset;
+        margin-right: 0%;
+    }
+}
+
+@media (max-width: 900px) {
+    .tagline {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 760px) {
-    body {
-        background-image: none;
-    }
-
-    .body {
-        height: 760px;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
 
     .product-container {
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         flex-wrap: nowrap;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .tagline {
+        font-size: 1.5rem;
     }
 }
