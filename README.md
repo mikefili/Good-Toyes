@@ -20,6 +20,6 @@ For age validation
 ### Spay or Neutered:
 To allow users with spayed/neutered pets access to our discounts
 
-##Polcy
+##Policy
 
 We are enforcing a Spay or Neuter policy.  If you have spayed or neutered we are allowing users access to a very special page because they are responsible pet owners.
