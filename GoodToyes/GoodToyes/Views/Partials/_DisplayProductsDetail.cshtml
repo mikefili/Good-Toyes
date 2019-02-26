@@ -7,14 +7,13 @@
 <div class="product-container">
     @foreach (var product in products)
     {
-    <a href="#">
+    <a asp-action="Details" asp-controller="Shop" asp-route-id="@product.ID">
         <div class="pads-s">
             <img src="@product.Image" class="product-img" />
             <ul>
                 <li class="text-container is-size-5 has-text-dark">@product.Name</li>
                 <li class="is-size-3">$@product.Price</li>
             </ul>
-            <a asp-action="Details" asp-controller="Shop"  asp-route-id="@product.ID">Details</a>
         </div>
     </a>
     }

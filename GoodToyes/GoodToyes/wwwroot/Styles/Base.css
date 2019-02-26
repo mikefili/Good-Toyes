@@ -89,7 +89,9 @@ nav {
 
 .text-container {
     height: auto;
-    max-width: 250px;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
     text-wrap: normal;
 }
 
@@ -126,10 +128,76 @@ nav {
     .tagline {
         font-size: 2rem;
     }
+
+    .text-container {
+        width: 80%;
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 560px) {
     .tagline {
         font-size: 1.5rem;
+    }
+}
+
+.navbar.is-gradient {
+    background-image: linear-gradient( to right, #23d160, #1a8e42 );
+    color: #fff;
+}
+
+    .navbar.is-gradient .navbar-brand > .navbar-item,
+    .navbar.is-gradient .navbar-brand .navbar-link {
+        color: #fff;
+    }
+
+        .navbar.is-gradient .navbar-brand > a.navbar-item:hover, .navbar.is-gradient .navbar-brand > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-brand .navbar-link:hover,
+        .navbar.is-gradient .navbar-brand .navbar-link.is-active {
+            background-color: #20bc56;
+            color: #fff;
+        }
+
+        .navbar.is-gradient .navbar-brand .navbar-link::after {
+            border-color: #fff;
+        }
+
+    .navbar.is-gradient .navbar-burger {
+        color: #fff;
+    }
+
+@media screen and (min-width: 1088px) {
+    .navbar.is-gradient .navbar-start > .navbar-item,
+    .navbar.is-gradient .navbar-start .navbar-link,
+    .navbar.is-gradient .navbar-end > .navbar-item,
+    .navbar.is-gradient .navbar-end .navbar-link {
+        color: #fff;
+    }
+
+        .navbar.is-gradient .navbar-start > a.navbar-item:hover, .navbar.is-success .navbar-start > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-start .navbar-link:hover,
+        .navbar.is-gradient .navbar-start .navbar-link.is-active,
+        .navbar.is-gradient .navbar-end > a.navbar-item:hover,
+        .navbar.is-gradient .navbar-end > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-end .navbar-link:hover,
+        .navbar.is-gradient .navbar-end .navbar-link.is-active {
+            background-color: #20bc56;
+            color: #fff;
+        }
+
+        .navbar.is-gradient .navbar-start .navbar-link::after,
+        .navbar.is-gradient .navbar-end .navbar-link::after {
+            border-color: #fff;
+        }
+
+    .navbar.is-gradient .navbar-item.has-dropdown:hover .navbar-link,
+    .navbar.is-gradient .navbar-item.has-dropdown.is-active .navbar-link {
+        background-color: #20bc56;
+        color: #fff;
+    }
+
+    .navbar.is-gradient .navbar-dropdown a.navbar-item.is-active {
+        background-image: linear-gradient( to right, #23d160, #1a8e42 );
+        color: #fff;
     }
 }
