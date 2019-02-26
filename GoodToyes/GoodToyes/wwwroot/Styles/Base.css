@@ -89,7 +89,9 @@ nav {
 
 .text-container {
     height: auto;
-    max-width: 250px;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
     text-wrap: normal;
 }
 
@@ -126,6 +128,11 @@ nav {
     .tagline {
         font-size: 2rem;
     }
+
+    .text-container {
+        width: 80%;
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 560px) {
@@ -144,7 +151,7 @@ nav {
         color: #fff;
     }
 
-        .navbar.is-gradient .navbar-brand > a.navbar-item:hover, .navbar.is-success .navbar-brand > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-brand > a.navbar-item:hover, .navbar.is-gradient .navbar-brand > a.navbar-item.is-active,
         .navbar.is-gradient .navbar-brand .navbar-link:hover,
         .navbar.is-gradient .navbar-brand .navbar-link.is-active {
             background-color: #20bc56;
