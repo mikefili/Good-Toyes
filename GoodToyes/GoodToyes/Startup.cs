@@ -50,6 +50,8 @@ namespace GoodToyes
             });
 
             services.AddScoped<IAuthorizationHandler, SpayNeuterRequirement>();
+            services.AddScoped<ICart, CartService>();
+            //services.AddScoped<IProduct, ProductManager>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

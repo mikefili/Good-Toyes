@@ -1,6 +1,7 @@
 ﻿using GoodToyes.Models;
 using GoodToyes.Models.Interfaces;
 using GoodToyes.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -117,11 +118,11 @@ namespace GoodToyes.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return View("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

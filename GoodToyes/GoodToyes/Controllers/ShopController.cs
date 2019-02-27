@@ -56,19 +56,17 @@ namespace GoodToyes.Controllers
         /// </summary>
         /// <param name="cartItem">Product to be added to cart</param>
         /// <returns>Redirect to index</returns>
-        [HttpPost]
-        public async Task<IActionResult> AddToCart(CartItem cartItem)
+        public async Task<IActionResult> AddToCart(int id, int quantity)
         {
             var user = _userManager.GetUserId(User);
+            var product = _context.GetProduct(id);
+            CartItem cartItem = new CartItem();
+            cartItem.ProductID = id;
+            cartItem.Quantity = quantity;
 
-            if (user != null)
-            {
-                var cart = await _cart.GetCart(user);
-                var result = await _cart.CreateCartItem(cart, cartItem);
-                return RedirectToAction("Index");
-            }
-
-            return RedirectToAction("Index");
+            var cart = await _cart.GetCart(user);
+            var result = await _cart.CreateCartItem(cart, cartItem);
+            return View("Index");
         }
     }
 }

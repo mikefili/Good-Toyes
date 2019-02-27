@@ -1,32 +1,32 @@
-﻿@model GoodToyes.ViewModels.ApplicationUserViewModel
+﻿@model GoodToyes.Models.Product
 @{
 }
 
 <div class="card-content">
     <div class="card-image pad-top-s">
         <figure class="card-image is-1by1 center">
-            <img src="/@Model.Product.Image" class="card" title="@Model.Product.Name" />
+            <img src="/@Model.Image" class="card" title="@Model.Name" />
         </figure>
     </div>
 
     <div class="">
         <div class="center">
             <span class="title is-2 is-size-4-mobile is-spaced has-text-weight-bold pad-right-s">
-                @Model.Product.Name
+                @Model.Name
             </span>
             <span class="subtitle is-size-2 is-size-4-mobile has-text-success">
-                $@Model.Product.Price
+                $@Model.Price
             </span>
-            <p class="is-size-4 is-size-5-mobile text-container">@Model.Product.Description</p>
-            <p class="is-size-4 is-size-5-mobile">SKU: #@Model.Product.SKU</p>
+            <p class="is-size-4 is-size-5-mobile text-container">@Model.Description</p>
+            <p class="is-size-4 is-size-5-mobile">SKU: #@Model.SKU</p>
             <div class="buttons is-centered pad-top-s">
                 <div class="field is-grouped">
                     <div class="control">
-                        <form asp-action="AddToCart" asp-controller="Shop" method="post">
-                            <span>Quantity:  </span>
-                            <input asp-for="CartItem" />
-                            <button asp-route-id="@Model.Product.ID" class="button is-success is-large" type="submit">Add to Cart</button>
+                        <span class="is-size-4">Quantity:  </span>
+                        <form method="post">
+                            <input asp-for="@Model.Quantity" />
                         </form>
+                        <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@Model.ID" class="button is-success is-large">Add to Cart</a>
                     </div>
                     <div class="control">
                         <a href="~/Shop#productsline" class="button is-text is-large">Back to Explore</a>

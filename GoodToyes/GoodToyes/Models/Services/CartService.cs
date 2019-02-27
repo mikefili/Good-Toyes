@@ -53,22 +53,6 @@ namespace GoodToyes.Models.Services
         }
 
         /// <summary>
-        /// Deletes a cart
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<HttpStatusCode> DeleteCart(int id)
-        {
-            var deleted = await _context.Carts.FindAsync(id);
-            var cartItemsCascade = await _context.CartItems.Where(i => i.CartID == id).ToListAsync();
-
-            _context.CartItems.RemoveRange(cartItemsCascade);
-            _context.Carts.Remove(deleted);
-            await _context.SaveChangesAsync();
-            return HttpStatusCode.OK;
-        }
-
-        /// <summary>
         /// Deletes a cart item
         /// </summary>
         /// <param name="id"></param>
@@ -80,16 +64,6 @@ namespace GoodToyes.Models.Services
             _context.CartItems.Remove(cartItem);
             await _context.SaveChangesAsync();
             return HttpStatusCode.OK;
-        }
-
-        /// <summary>
-        /// Gets all the carts 
-        /// </summary>
-        /// <returns>List of carts</returns>
-        public async Task<List<Cart>> GetCarts()
-        {
-            var allCarts = await _context.Carts.ToListAsync();
-            return allCarts;
         }
 
         /// <summary>
