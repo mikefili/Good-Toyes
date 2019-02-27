@@ -1,4 +1,5 @@
 ﻿using GoodToyes.Models;
+using GoodToyes.Models.Interfaces;
 using GoodToyes.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace GoodToyes.Controllers
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private readonly ICart _cart;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICart cart)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _cart = cart;
         }
 
         
@@ -67,7 +70,7 @@ namespace GoodToyes.Controllers
                     //list to hold the claims
                     List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim, spayOrNeuter };
 
-                    //retruns list of claims to user manager
+                    //returns list of claims to user manager
                     await _userManager.AddClaimsAsync(user, claims);
 
                     //sends user to home page after sign in
