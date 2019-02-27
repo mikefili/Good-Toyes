@@ -51,6 +51,12 @@ namespace GoodToyes.Controllers
             return View(product);
         }
 
+        [HttpPost]
+        public IActionResult Index(int quantity)
+        {
+            return RedirectToAction("AddToCart", new { quantity });
+        }
+
         /// <summary>
         /// Adds a product to the user's cart
         /// </summary>
@@ -66,7 +72,7 @@ namespace GoodToyes.Controllers
 
             var cart = await _cart.GetCart(user);
             var result = await _cart.CreateCartItem(cart, cartItem);
-            return View("Index");
+            return View();
         }
     }
 }
