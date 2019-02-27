@@ -1,5 +1,7 @@
 ﻿using GoodToyes.Models;
+using GoodToyes.Models.Interfaces;
 using GoodToyes.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,13 +16,14 @@ namespace GoodToyes.Controllers
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private readonly ICart _cart;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICart cart)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _cart = cart;
         }
-
         
         /// <summary>
         /// User register Page
@@ -55,6 +58,7 @@ namespace GoodToyes.Controllers
                 //creat a number of different claims
                 if (result.Succeeded)
                 {
+                    await _cart.CreateCart(user);
                     Claim fullNameClaim = new Claim("FullName", $"{user.FirstName} {user.LastName}");
 
                     Claim spayOrNeuter = new Claim("SpayNeuter", $"{ user.SpayedOrNeutered }");
@@ -67,7 +71,7 @@ namespace GoodToyes.Controllers
                     //list to hold the claims
                     List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim, spayOrNeuter };
 
-                    //retruns list of claims to user manager
+                    //returns list of claims to user manager
                     await _userManager.AddClaimsAsync(user, claims);
 
                     //sends user to home page after sign in
@@ -88,6 +92,11 @@ namespace GoodToyes.Controllers
         [HttpGet]
         public IActionResult Login() => View();
 
+        /// <summary>
+        /// Validates password to log in user
+        /// </summary>
+        /// <param name="lvm">Login view model</param>
+        /// <returns>Signed in home index view</returns>
         [HttpPost]
         public async  Task<IActionResult> Login(LoginViewModel lvm)
         {
@@ -105,6 +114,15 @@ namespace GoodToyes.Controllers
             return View(lvm);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

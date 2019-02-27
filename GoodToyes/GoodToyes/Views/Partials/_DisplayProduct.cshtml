@@ -22,7 +22,11 @@
             <div class="buttons is-centered pad-top-s">
                 <div class="field is-grouped">
                     <div class="control">
-                        <button asp-action="AddCart" asp-route-id="@Model.ID" class="button is-success is-large" type="submit">Add to Cart</button>
+                        <span class="is-size-4">Quantity:  </span>
+                        <form method="post">
+                            <input asp-for="@Model.Quantity" />
+                        </form>
+                        <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@Model.ID" class="button is-success is-large">Add to Cart</a>
                     </div>
                     <div class="control">
                         <a href="~/Shop#productsline" class="button is-text is-large">Back to Explore</a>

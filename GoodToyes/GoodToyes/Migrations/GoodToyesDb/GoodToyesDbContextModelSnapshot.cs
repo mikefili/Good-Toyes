@@ -18,6 +18,42 @@ namespace GoodToyes.Migrations.GoodToyesDb
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("GoodToyes.Models.Cart", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("CheckedOut");
+
+                    b.Property<string>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("GoodToyes.Models.CartItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CartID");
+
+                    b.Property<int>("ProductID");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CartID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("CartItems");
+                });
+
             modelBuilder.Entity("GoodToyes.Models.Product", b =>
                 {
                     b.Property<int>("ID")
@@ -31,6 +67,8 @@ namespace GoodToyes.Migrations.GoodToyesDb
                     b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
+
+                    b.Property<int>("Quantity");
 
                     b.Property<string>("SKU");
 
@@ -46,6 +84,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/avacado_toy.png",
                             Name = "Avacado's Nibbler",
                             Price = 12.95m,
+                            Quantity = 0,
                             SKU = "DT00001"
                         },
                         new
@@ -55,6 +94,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/bone_toy.png",
                             Name = "Throw Me A Bone",
                             Price = 8.95m,
+                            Quantity = 0,
                             SKU = "DT00002"
                         },
                         new
@@ -64,6 +104,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/chicken_toy.png",
                             Name = "Cluckin' Good Time",
                             Price = 12.95m,
+                            Quantity = 0,
                             SKU = "DT00003"
                         },
                         new
@@ -73,6 +114,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/donut_toy.png",
                             Name = "Donut Bother Me",
                             Price = 12.95m,
+                            Quantity = 0,
                             SKU = "DT00004"
                         },
                         new
@@ -82,6 +124,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/drumstick_toy.png",
                             Name = "Ain't No Thing Like A Chicken Wing",
                             Price = 12.95m,
+                            Quantity = 0,
                             SKU = "DT00005"
                         },
                         new
@@ -91,6 +134,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/mustache_toy.png",
                             Name = "I Mustache You A Question",
                             Price = 13.95m,
+                            Quantity = 0,
                             SKU = "DT00006"
                         },
                         new
@@ -100,6 +144,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/pizza_toy.png",
                             Name = "Pizza My Heart",
                             Price = 12.95m,
+                            Quantity = 0,
                             SKU = "DT00007"
                         },
                         new
@@ -109,6 +154,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/rope_toy.png",
                             Name = "Pug'o'War",
                             Price = 7.95m,
+                            Quantity = 0,
                             SKU = "DT00008"
                         },
                         new
@@ -118,6 +164,7 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/smile_toy.png",
                             Name = "Doggy Dentures",
                             Price = 13.95m,
+                            Quantity = 0,
                             SKU = "DT00009"
                         },
                         new
@@ -127,8 +174,22 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Image = "Assets/Products/tennis_balls.png",
                             Name = "Jingle Balls",
                             Price = 8.95m,
+                            Quantity = 0,
                             SKU = "DT00010"
                         });
+                });
+
+            modelBuilder.Entity("GoodToyes.Models.CartItem", b =>
+                {
+                    b.HasOne("GoodToyes.Models.Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("GoodToyes.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

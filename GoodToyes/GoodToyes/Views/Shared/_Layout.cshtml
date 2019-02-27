@@ -93,7 +93,14 @@
             <div class="navbar-end">
                 @if (signInManager.IsSignedIn(User))
                 {
-                    <p class="navbar-item">Hey, @User.Claims.First(c => c.Type == "FullName").Value!</p>
+                    <div class="navbar-item">
+                        <div class="buttons is-size-5">
+                            <p class="pad-right-xs">Hey, @User.Claims.First(c => c.Type == "FullName").Value! |</p>
+                            <a href="../Account/Logout" class="has-text-light">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
                 }
                 else
                 {

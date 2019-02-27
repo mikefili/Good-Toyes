@@ -23,27 +23,16 @@ namespace GoodToyes.Models.Interfaces
         //update cart item
         Task<CartItem> UpdateCartItem(int id, CartItem cartItem);
 
-
         //Create cart
         Task<HttpStatusCode> CreateCart(ApplicationUser user);
 
         //get cart
         Task<Cart> GetCart(string id);
 
-        //get all carts
-        Task<List<Cart>> GetCarts();
-        
-        //delete cart
-        Task<HttpStatusCode> DeleteCart(int id);
-
         //brings up update form
         Task<Cart> UpdateCartFirsStep(int id);
         
         //updates cart
         Task<Cart> UpdateCart(Cart cart);
-
-        
-
-        
     }
 }
