@@ -91,6 +91,11 @@ namespace GoodToyes.Controllers
         [HttpGet]
         public IActionResult Login() => View();
 
+        /// <summary>
+        /// Validates password to log in user
+        /// </summary>
+        /// <param name="lvm">Login view model</param>
+        /// <returns>Signed in home index view</returns>
         [HttpPost]
         public async  Task<IActionResult> Login(LoginViewModel lvm)
         {
@@ -108,6 +113,10 @@ namespace GoodToyes.Controllers
             return View(lvm);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Logout()
         {

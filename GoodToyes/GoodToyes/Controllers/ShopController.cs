@@ -22,11 +22,20 @@ namespace GoodToyes.Controllers
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        /// Returns the index view
+        /// </summary>
+        /// <returns>shop index view</returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Brings the details for a product to the shop details view
+        /// </summary>
+        /// <param name="id">Product ID</param>
+        /// <returns>Shop detail view</returns>
         public async Task<IActionResult>Details(int id)
         {
             var product = await _context.GetProduct(id);
