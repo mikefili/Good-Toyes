@@ -34,9 +34,7 @@ namespace GoodToyes.Models.Services
             };
 
             await _context.Carts.AddAsync(cart);
-
             await _context.SaveChangesAsync();
-
             return HttpStatusCode.Created;
         }
 
@@ -49,11 +47,8 @@ namespace GoodToyes.Models.Services
         public async Task<HttpStatusCode> CreateCartItem(Cart cart, CartItem cartItem)
         {
             cartItem.CartID = cart.ID;
-
             await _context.CartItems.AddAsync(cartItem);
-
             await _context.SaveChangesAsync();
-
             return HttpStatusCode.Created;
         }
 
@@ -65,15 +60,11 @@ namespace GoodToyes.Models.Services
         public async Task<HttpStatusCode> DeleteCart(int id)
         {
             var deleted = await _context.Carts.FindAsync(id);
-          
             var cartItemsCascade = await _context.CartItems.Where(i => i.CartID == id).ToListAsync();
 
             _context.CartItems.RemoveRange(cartItemsCascade);
-
             _context.Carts.Remove(deleted);
-
             await _context.SaveChangesAsync();
-
             return HttpStatusCode.OK;
         }
 
@@ -87,9 +78,7 @@ namespace GoodToyes.Models.Services
             var cartItem = await _context.CartItems.FindAsync(id);
 
             _context.CartItems.Remove(cartItem);
-
             await _context.SaveChangesAsync();
-
             return HttpStatusCode.OK;
         }
 
@@ -100,7 +89,6 @@ namespace GoodToyes.Models.Services
         public async Task<List<Cart>> GetCarts()
         {
             var allCarts = await _context.Carts.ToListAsync();
-
             return allCarts;
         }
 
@@ -112,7 +100,6 @@ namespace GoodToyes.Models.Services
         public async Task<Cart> GetCart(string id)
         {
             var cart = await _context.Carts.FirstOrDefaultAsync(i => i.UserID == id);
-
             return cart;
         }
 
@@ -124,7 +111,6 @@ namespace GoodToyes.Models.Services
         public async Task<CartItem> GetCartItem(int id)
         {
             var cartItem = await _context.CartItems.FindAsync(id);
-
             return cartItem;
         }
 
@@ -150,7 +136,6 @@ namespace GoodToyes.Models.Services
             return await _context.Carts.FindAsync(id);
         }
 
-
         /// <summary>
         /// Updates cart
         /// </summary>
@@ -159,9 +144,7 @@ namespace GoodToyes.Models.Services
         public async Task<Cart> UpdateCart(Cart cart)
         {
             _context.Carts.Update(cart);
-
             await _context.SaveChangesAsync();
-
             return cart;
         }
 
@@ -174,11 +157,8 @@ namespace GoodToyes.Models.Services
         public async Task<CartItem> UpdateCartItem(int id, CartItem cartItem)
         {
             cartItem.ID = id;
-
             _context.CartItems.Update(cartItem);
-
             await _context.SaveChangesAsync();
-
             return cartItem;
         }
     }
