@@ -51,6 +51,11 @@ namespace GoodToyes.Controllers
             return View(product);
         }
 
+        /// <summary>
+        /// Adds a product to the user's cart
+        /// </summary>
+        /// <param name="cartItem">Product to be added to cart</param>
+        /// <returns>Redirect to index</returns>
         [HttpPost]
         public async Task<IActionResult> AddToCart(CartItem cartItem)
         {
