@@ -57,6 +57,7 @@ namespace GoodToyes.Controllers
                 //creat a number of different claims
                 if (result.Succeeded)
                 {
+                    await _cart.CreateCart(user);
                     Claim fullNameClaim = new Claim("FullName", $"{user.FirstName} {user.LastName}");
 
                     Claim spayOrNeuter = new Claim("SpayNeuter", $"{ user.SpayedOrNeutered }");
