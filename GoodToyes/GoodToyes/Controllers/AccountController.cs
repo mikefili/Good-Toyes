@@ -23,7 +23,6 @@ namespace GoodToyes.Controllers
             _signInManager = signInManager;
             _cart = cart;
         }
-
         
         /// <summary>
         /// User register Page
