@@ -99,7 +99,7 @@ namespace GoodToyes.Models.Services
         /// <returns></returns>
         public async Task<Cart> GetCart(string id)
         {
-            var cart = await _context.Carts.FirstOrDefaultAsync(i => i.UserID == id);
+            var cart = await _context.Carts.FirstOrDefaultAsync(c => c.UserID == id);
             return cart;
         }
 
