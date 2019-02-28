@@ -1,10 +1,19 @@
 ﻿@model List<GoodToyes.ViewModels.CartItemViewModel>
 
 <div>
-    <h1 class="pad-bottom-xs is-size-4">Your Cart:</h1>
-    @foreach (var item in Model)
-    {
-        <h1 class="subtitle">@item.ProductName</h1>
-        <p>@item.ProductPrice x @item.Quantity </p>
-    }
+    <h1 class="pad-bottom-xs is-size-4 has-text-centered">Your Cart:</h1>
+    <div class="pads-xs">
+        @foreach (var item in Model)
+        {
+            <h1 class="is-size-5">@item.ProductName</h1>
+            <span>@item.ProductPrice x @item.Quantity </span>
+        }
+    </div>
+    <div class="buttons is-centered pad-bottom-s">
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-success" type="submit">View Cart</button>
+            </div>
+        </div>
+    </div>
 </div>
