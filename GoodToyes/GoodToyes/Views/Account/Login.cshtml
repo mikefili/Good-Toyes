@@ -1,4 +1,7 @@
 ﻿@model GoodToyes.ViewModels.LoginViewModel
+@using Microsoft.AspNetCore.Identity
+@using GoodToyes.Models
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     Layout = "_Layout";
 }
@@ -52,5 +55,30 @@
                 </div>
             </div>
         </form>
+        <div class="buttons is-centered pad-bottom-m">
+            <div class="field is-grouped">
+                <div class="control">
+                    @{ 
+                        var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+                        if (loginProviders.Count > 0)
+                        {
+                            <h1 class="subtitle">Login with Another Account</h1>
+                            <form asp-action="ExternalLogin" method="post">
+                                @foreach (var provider in loginProviders)
+                                {
+                                    <button type="submit" name="provider" value="@provider.Name" title="Log in using @provider.DisplayName">
+                                @if (provider.Name == "Facebook")
+                                {
+                                    <i class="fab fa-facebook"></i><span class="pad-left-xs">Facebook</span>
+                                }
+                                    </button>
+                                }
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </section>

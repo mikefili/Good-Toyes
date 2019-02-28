@@ -1,0 +1,30 @@
+﻿@model GoodToyes.Models.ViewModels.ExternalLoginViewModel
+@{ 
+    ViewData["Title"] = "ExternalLogin";
+}
+<h2>External Login</h2>
+
+<form asp-action="ExternalLoginConfimation" method="post">
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+
+    <label asp-for="FirstName"></label>
+    <input asp-for="FirstName" />
+
+    <label asp-for="LastName"></label>
+    <input asp-for="LastName" />
+
+    <div class="field">
+        <label class="label has-text-success">Special Deals</label>
+        <div class="control">
+            <label asp-for="SpayedOrNeutered" class="checkbox">
+                <input asp-for="SpayedOrNeutered" type="checkbox">
+                <span class="">
+                    Is your pup spayed or neutered?
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
