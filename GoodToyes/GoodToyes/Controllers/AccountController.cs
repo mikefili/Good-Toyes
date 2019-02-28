@@ -1,5 +1,6 @@
 ﻿using GoodToyes.Models;
 using GoodToyes.Models.Interfaces;
+using GoodToyes.Models.ViewModels;
 using GoodToyes.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -130,6 +131,42 @@ namespace GoodToyes.Controllers
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
 
             return Challenge(properties, provider);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExternalLoginCallBack(string error = null)
+        {
+            // Send user away on error message
+            if (error != null)
+            {
+                // Log incoming error code
+                TempData["Error"] = "Error with Provider";
+                return RedirectToAction("Login");
+            }
+
+            // Check if app supports login provider
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+
+            // If provider not supported, redirect to alternate login method
+            if (info == null)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            // Login with external provider
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+
+            // Redirect user home if login successful
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            // Get user's email if initial login
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+            // Redirect to external login proivder to allow user to login
+            return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
         }
     }
 }
