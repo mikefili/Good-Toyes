@@ -1,6 +1,10 @@
-﻿@*@model List<GoodToyes.Models.Components.Cart>
+﻿@model List<GoodToyes.Models.CartItem>
 
-@foreach (var item in Model)
-{
-
-}*@
+<div>
+    <h1>Your Cart:</h1>
+    @foreach (var item in Model)
+    {
+        <h3>@item.ID @item.Product.Name</h3>
+        <p>@item.Product.Price</p>
+    }
+</div>

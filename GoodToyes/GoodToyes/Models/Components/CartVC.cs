@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoodToyes.Models.Components
 {
-    public class Cart : ViewComponent
+    public class CartVC : ViewComponent
     {
         private GoodToyesDbContext _context;
 
