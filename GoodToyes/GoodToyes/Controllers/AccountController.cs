@@ -168,5 +168,35 @@ namespace GoodToyes.Controllers
             // Redirect to external login proivder to allow user to login
             return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
         }
+
+        public async Task<IActionResult> ExternalLoginConfimation(ExternalLoginViewModel elvm)
+        {
+            if (ModelState.IsValid)
+            {
+                var info = await _signInManager.GetExternalLoginInfoAsync();
+                if (info == null)
+                {
+                    TempData["Error"] = "Error Loading Information";
+                }
+
+                // Create user
+                var user = new ApplicationUser { UserName = elvm.Email, Email = elvm.Email };
+
+                var result = await _userManager.CreateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    result = await _userManager.AddLoginAsync(user, info);
+
+                    if (result.Succeeded)
+                    {
+                        // Sign in user with info from provider
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+            }
+            return View(elvm);
+        }
     }
 }
