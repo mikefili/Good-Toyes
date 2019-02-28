@@ -1,9 +1,10 @@
-﻿@model List<GoodToyes.Models.CartItem>
+﻿@model List<GoodToyes.ViewModels.CartItemViewModel>
 
 <div>
     <h1 class="pad-bottom-xs is-size-4">Your Cart:</h1>
     @foreach (var item in Model)
     {
-        <p>Item ID: @item.ID</p>
+        <h1 class="subtitle">@item.ProductName</h1>
+        <p>@item.ProductPrice x @item.Quantity </p>
     }
 </div>
