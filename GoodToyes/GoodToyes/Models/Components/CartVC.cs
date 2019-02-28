@@ -13,14 +13,14 @@ namespace GoodToyes.Models.Components
     {
         private GoodToyesDbContext _context;
 
-        public Cart(GoodToyesDbContext context)
+        public CartVC(GoodToyesDbContext context)
         {
             _context = context;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var cartItems = await _context.CartItems.OrderByDescending(ci => ci.ID).ToListAsync();
+            var cartItems = await _context.CartItems.OrderBy(ci => ci.ID).ToListAsync();
             return View(cartItems);
         }
     }
