@@ -42,7 +42,6 @@ namespace GoodToyes.Models.Components
                 CartItemViewModel cartItemVM = new CartItemViewModel();
                 cartItemVM.ProductName = product.Name;
                 cartItemVM.ProductPrice = product.Price;
-                cartItemVM.Quantity = product.Quantity;
                 cartItemVMList.Add(cartItemVM);
             }
 

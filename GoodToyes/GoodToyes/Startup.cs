@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -54,11 +55,20 @@ namespace GoodToyes
                 {
                     facebook.AppId = Configuration["Authentication:Facebook:AppId"];
                     facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })
+                
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
+                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
                 });
 
             services.AddScoped<IAuthorizationHandler, SpayNeuterRequirement>();
             services.AddScoped<ICart, CartService>();
             services.AddScoped<IProduct, ProductManager>();
+
+ 
+           
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
