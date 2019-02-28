@@ -56,6 +56,8 @@
             </div>
         </form>
 
+        <p class="center pad-bottom-s">OR</p>
+
         <div class="buttons is-centered pad-bottom-m">
             <div class="field is-grouped">
                 <div class="control">
@@ -64,14 +66,14 @@
 
                         if (loginProviders.Count > 0)
                         {
-                            <h1 class="subtitle">Login with Another Account</h1>
+                            <h1 class="subtitle center">Login With:</h1>
                             <form asp-action="ExternalLogin" method="post">
                                 @foreach (var provider in loginProviders)
                                 {
-                                    <button type="submit" name="provider" value="@provider.Name" title="Log in using @provider.DisplayName">
+                                    <button type="submit" name="provider" value="@provider.Name" title="Login with @provider.DisplayName" class="fb-button button">
                                 @if (provider.Name == "Facebook")
                                 {
-                                    <i class="fab fa-facebook"></i><span class="pad-left-xs">Facebook</span>
+                                    <i class="fab fa-facebook icon is-large"></i><span class="pad-left-xs">Login with Facebook</span>
                                 }
                                     </button>
                                 }

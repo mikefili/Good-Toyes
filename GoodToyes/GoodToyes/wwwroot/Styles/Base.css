@@ -105,6 +105,11 @@ nav {
     position: relative;
 }
 
+.fb-button {
+    background-color: rgb(66, 103, 178);
+    color: white;
+}
+
 @media (min-width: 1200px) {
     .tagline {
         font-size: 6vw;
