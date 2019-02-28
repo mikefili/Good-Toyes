@@ -5,8 +5,8 @@
     <div class="pads-xs">
         @foreach (var item in Model)
         {
-            <h1 class="is-size-5">@item.ProductName</h1>
-            <span>@item.ProductPrice x @item.Quantity </span>
+            <span class="is-size-5">@item.ProductName</span>
+            <span class="has-text-success">@item.ProductPrice</span>
         }
     </div>
     <div class="buttons is-centered pad-bottom-s">

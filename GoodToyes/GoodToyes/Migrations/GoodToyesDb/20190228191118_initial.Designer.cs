@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodToyes.Migrations.GoodToyesDb
 {
     [DbContext(typeof(GoodToyesDbContext))]
-    [Migration("20190228175210_total")]
-    partial class total
+    [Migration("20190228191118_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
