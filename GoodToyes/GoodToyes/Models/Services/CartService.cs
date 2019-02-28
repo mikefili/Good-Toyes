@@ -85,6 +85,7 @@ namespace GoodToyes.Models.Services
         public async Task<CartItem> GetCartItem(int id)
         {
             var cartItem = await _context.CartItems.FindAsync(id);
+            cartItem.Product = await _context.Products.FindAsync(cartItem.ProductID);
             return cartItem;
         }
 
