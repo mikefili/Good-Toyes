@@ -1,0 +1,25 @@
+﻿@model GoodToyes.Models.Cart
+
+@{ 
+    Layout = "_Layout";
+}
+
+@foreach(var item in Model.CartItems)
+{
+    <div>
+        <form asp-action="UpdateCartItem" asp-route-id="@item.ID">
+
+            <label>Quantity</label>
+            <input value="@item.Quantity" name="quantity" />
+            <button type="submit">Update Quantity</button>
+            <p>Total Price: @item.Total</p>
+        </form>
+            <p>@item.Product.Name</p>
+            <p>Price: @item.Product.Price</p>
+            
+            <img src="@item.Product.Image" />
+            <a asp-action="DeleteCartItem" asp-route-id="@item.ID">Delete</a>
+
+        
+    </div>
+}
