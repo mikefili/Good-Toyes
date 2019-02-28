@@ -79,6 +79,12 @@
                             </span>
                             Order History
                         </a>
+                        <hr class="navbar-divider" />
+                        <section>
+                            <aside class="navbar-item">
+                                @await Component.InvokeAsync("CartVC")
+                            </aside>
+                        </section>
                         <hr class="navbar-divider">
                         <a class="navbar-item has-text-danger">
                             <span class="icon is-medium">
@@ -96,7 +102,7 @@
                     <div class="navbar-item">
                         <div class="buttons is-size-5">
                             <p class="pad-right-xs">Hey, @User.Claims.First(c => c.Type == "FullName").Value! |</p>
-                            <a href="../Account/Logout" class="has-text-light">
+                            <a href="../Account/Logout" class="has-text-danger">
                                 Log out
                             </a>
                         </div>

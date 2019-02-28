@@ -110,6 +110,18 @@ nav {
     color: white;
 }
 
+.quantity-input {
+    width: 3rem;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.mobile-hide {
+    display: block;
+}
+
 @media (min-width: 1200px) {
     .tagline {
         font-size: 6vw;
@@ -153,6 +165,10 @@ nav {
 @media (max-width: 560px) {
     .tagline {
         font-size: 1.5rem;
+    }
+
+    .mobile-hide {
+        display: none;
     }
 }
 
