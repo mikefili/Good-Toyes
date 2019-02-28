@@ -102,6 +102,7 @@ nav {
 
 .cart-vc {
     width: 200px;
+    position: relative;
 }
 
 @media (min-width: 1200px) {
