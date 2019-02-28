@@ -1,0 +1,18 @@
+﻿@model GoodToyes.Models.ViewModels.ExternalLoginViewModel
+@{ 
+    ViewData["Title"] = "ExternalLogin";
+}
+<h2>External Login</h2>
+
+<form asp-action="ExternalLoginConfirmation" method="post">
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+
+    <label asp-for="FirstName"></label>
+    <input asp-for="FirstName" />
+
+    <label asp-for="LastName"></label>
+    <input asp-for="LastName" />
+
+    <button type="submit">Register</button>
+</form>
