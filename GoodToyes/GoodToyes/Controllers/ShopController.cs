@@ -52,7 +52,7 @@ namespace GoodToyes.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int quantity)
+        public IActionResult GetQuantity(int quantity)
         {
             return RedirectToAction("AddToCart", new { quantity });
         }
