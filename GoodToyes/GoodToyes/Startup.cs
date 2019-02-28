@@ -49,9 +49,16 @@ namespace GoodToyes
                 options.AddPolicy("spayOrNeuter", policy => policy.Requirements.Add(new SpayNeuterRequirement()));
             });
 
+            services.AddAuthentication()
+                .AddFacebook(facebook =>
+                {
+                    facebook.AppId = Configuration["Authentication:Facebok:AppId"];
+                    facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                });
+
             services.AddScoped<IAuthorizationHandler, SpayNeuterRequirement>();
             services.AddScoped<ICart, CartService>();
-            //services.AddScoped<IProduct, ProductManager>();
+            services.AddScoped<IProduct, ProductManager>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
