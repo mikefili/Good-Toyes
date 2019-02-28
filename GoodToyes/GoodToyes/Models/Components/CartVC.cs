@@ -7,6 +7,7 @@ using GoodToyes.Models.Interfaces;
 using GoodToyes.Data;
 using Microsoft.EntityFrameworkCore;
 using GoodToyes.ViewModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace GoodToyes.Models.Components
 {
@@ -15,19 +16,24 @@ namespace GoodToyes.Models.Components
         private GoodToyesDbContext _context;
         private ICart _cart;
         private IProduct _product;
+        private UserManager<ApplicationUser> _userManager;
 
-        public CartVC(GoodToyesDbContext context, ICart cart, IProduct product)
+        public CartVC(GoodToyesDbContext context, ICart cart, IProduct product, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _cart = cart;
             _product = product;
+            _userManager = userManager;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var user = User.Identity.Name;
+            var userEmail = User.Identity.Name;
+            var ourUser = await _userManager.FindByEmailAsync(userEmail);
+            string user = ourUser.Id;
             var userCart = await _cart.GetCart(user);
-            var userItems = userCart.CartItems.ToList();
+            var userItemsRaw = await _context.CartItems.OrderBy(ci => ci.ID).ToListAsync();
+            var userItems = userItemsRaw.Where(u => u.CartID == userCart.ID);
             List<CartItemViewModel> cartItemVMList = new List<CartItemViewModel>();
 
             foreach (var item in userItems)
