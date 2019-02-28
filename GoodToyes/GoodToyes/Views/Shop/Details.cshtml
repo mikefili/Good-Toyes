@@ -2,6 +2,11 @@
     Layout = "_Layout";
 }
 <section class="pad-bottom-m">
+    <div>
+        <aside class="cart-vc is-pulled-right card">
+            @await Component.InvokeAsync("CartVC")
+        </aside>
+    </div>
     <div class="container">
         <partial name="../Partials/_DisplayProduct.cshtml" />
     </div>
