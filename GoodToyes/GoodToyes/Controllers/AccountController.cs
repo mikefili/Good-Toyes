@@ -53,7 +53,7 @@ namespace GoodToyes.Controllers
                 };
 
                 //creates passsword if password is in valid format
-               var result = await _userManager.CreateAsync(user, rvm.Password);
+                var result = await _userManager.CreateAsync(user, rvm.Password);
 
                 //creat a number of different claims
                 if (result.Succeeded)
@@ -77,9 +77,7 @@ namespace GoodToyes.Controllers
                     //sends user to home page after sign in
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
-                }
-                
-                
+                }            
             }
             return View(rvm);
         }
@@ -123,6 +121,15 @@ namespace GoodToyes.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult ExternalLogin(string provider)
+        {
+            var redirectUrl = Url.Action(nameof(ExternalLoginCallBack), "Account");
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            return Challenge(properties, provider);
         }
     }
 }
