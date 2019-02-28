@@ -55,7 +55,7 @@
                 </div>
             </div>
         </form>
-        <div class="buttons is-centered">
+        <div class="buttons is-centered pad-bottom-m">
             <div class="field is-grouped">
                 <div class="control">
                     @{ 
@@ -67,7 +67,12 @@
                             <form asp-action="ExternalLogin" method="post">
                                 @foreach (var provider in loginProviders)
                                 {
-                                    <button type="submit" name="provider" value="@provider.Name" title="Log in using @provider.DisplayName">@provider.Name</button>
+                                    <button type="submit" name="provider" value="@provider.Name" title="Log in using @provider.DisplayName">
+                                @if (provider.Name == "Facebook")
+                                {
+                                    <i class="fab fa-facebook"></i><span class="pad-left-xs">Facebook</span>
+                                }
+                                    </button>
                                 }
                             </form>
                         }
