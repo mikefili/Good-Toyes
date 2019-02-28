@@ -122,6 +122,11 @@ nav {
     display: block;
 }
 
+.scrollable {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
 @media (min-width: 1200px) {
     .tagline {
         font-size: 6vw;
