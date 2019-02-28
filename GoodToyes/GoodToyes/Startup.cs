@@ -52,7 +52,7 @@ namespace GoodToyes
             services.AddAuthentication()
                 .AddFacebook(facebook =>
                 {
-                    facebook.AppId = Configuration["Authentication:Facebok:AppId"];
+                    facebook.AppId = Configuration["Authentication:Facebook:AppId"];
                     facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                 });
 
