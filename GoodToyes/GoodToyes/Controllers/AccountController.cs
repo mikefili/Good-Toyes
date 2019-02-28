@@ -180,7 +180,7 @@ namespace GoodToyes.Controllers
                 }
 
                 // Create user
-                var user = new ApplicationUser { UserName = elvm.Email, Email = elvm.Email };
+                var user = new ApplicationUser { UserName = elvm.Email, Email = elvm.Email, FirstName = elvm.FirstName, LastName = elvm.LastName };
 
                 var result = await _userManager.CreateAsync(user);
 
@@ -190,6 +190,22 @@ namespace GoodToyes.Controllers
 
                     if (result.Succeeded)
                     {
+                        await _cart.CreateCart(user);
+                        Claim fullNameClaim = new Claim("FullName", $"{user.FirstName} {user.LastName}");
+
+                        Claim spayOrNeuter = new Claim("SpayNeuter", $"{ user.SpayedOrNeutered }");
+
+                        Claim birthdateClaim = new Claim(ClaimTypes.DateOfBirth, new DateTime(user.Birthdate.Year, user.Birthdate.Month, user.Birthdate.Day).ToString("u"),
+                            ClaimValueTypes.DateTime);
+
+                        Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.Email);
+
+                        //list to hold the claims
+                        List<Claim> claims = new List<Claim> { fullNameClaim, birthdateClaim, emailClaim, spayOrNeuter };
+
+                        //returns list of claims to user manager
+                        await _userManager.AddClaimsAsync(user, claims);
+
                         // Sign in user with info from provider
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return RedirectToAction("Index", "Home");

@@ -17,5 +17,9 @@ namespace GoodToyes.Models.ViewModels
 
         [Required]
         public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Is Your Pet Spayed or Neutered?")]
+        public bool SpayedOrNeutered { get; set; }
     }
 }
