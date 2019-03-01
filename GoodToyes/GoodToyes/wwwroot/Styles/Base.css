@@ -114,6 +114,11 @@ nav {
     color: white;
 }
 
+.ms-button {
+    background-color: rgb(246, 83, 20);
+    color: white;
+}
+
 .quantity-input {
     width: 3rem;
 }
