@@ -20,10 +20,8 @@
             <p class="is-size-4 is-size-5-mobile text-container">@Model.Description</p>
             <p class="is-size-4 is-size-5-mobile">SKU: #@Model.SKU</p>
             <div class="buttons is-centered pad-top-s">
-                <div class="field is-grouped">
+                <div class="field is-grouped pads-s">
                     <div class="control">
-                        <span class="is-size-4">Quantity:  </span>
-                      
                         <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@Model.ID" class="button is-success is-large">Add to Cart</a>
                     </div>
                     <div class="control">

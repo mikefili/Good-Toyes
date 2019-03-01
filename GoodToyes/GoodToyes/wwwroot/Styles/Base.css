@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Sniglet:800|Bowlby+One+SC');
+﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Sniglet:800|Bowlby+One+SC|Luckiest+Guy');
 
 body {
     font-family: 'Lato', sans-serif;
@@ -83,6 +83,10 @@ nav {
     font-family: 'Bowlby One SC', cursive;
 }
 
+.luckiest-guy {
+    font-family: 'Luckiest Guy', cursive;
+}
+
 .tagline {
     font-size: 4rem;
 }
@@ -108,6 +112,31 @@ nav {
 .fb-button {
     background-color: rgb(66, 103, 178);
     color: white;
+}
+
+.quantity-input {
+    width: 3rem;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.mobile-hide {
+    display: block;
+}
+
+.scrollable {
+    max-height: 100px;
+    /*max-width: 200px;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.wrap {
+    text-wrap: normal;
+    width: auto;
+    max-width: 100px;
 }
 
 @media (min-width: 1200px) {
@@ -153,6 +182,21 @@ nav {
 @media (max-width: 560px) {
     .tagline {
         font-size: 1.5rem;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .wrap {
+        text-wrap: normal;
+        width: 250px;
+        max-width: none;
+    }
+
+    .cart-vc {
+        width: auto;
+        position: relative;
     }
 }
 

@@ -26,7 +26,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
                 <img src="~/Assets/Logos/logo.png" width="80" height="80" />
-                <h2 class="title is-size-3 pad-left-xs sniglet has-text-white outline"> Good Toyes</h2>
+                <h2 class="title is-size-3 pad-left-xs luckiest-guy has-text-white outline"> Good Toyes</h2>
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="goodToyesNavbar">
                 <span aria-hidden="true"></span>
@@ -79,13 +79,19 @@
                             </span>
                             Order History
                         </a>
+                        <hr class="navbar-divider" />
+                        <section>
+                            <div class="has-text-dark pads-xs">
+                                @await Component.InvokeAsync("CartVC")
+                            </div>
+                        </section>
                         <hr class="navbar-divider">
-                        <a class="navbar-item has-text-danger">
+                        @*<a class="navbar-item has-text-danger">
                             <span class="icon is-medium">
                                 <i class="fas fa-exclamation"></i>
                             </span>
                             Report an issue
-                        </a>
+                        </a>*@
                     </div>
                 </div>
             </div>
@@ -96,7 +102,7 @@
                     <div class="navbar-item">
                         <div class="buttons is-size-5">
                             <p class="pad-right-xs">Hey, @User.Claims.First(c => c.Type == "FullName").Value! |</p>
-                            <a href="../Account/Logout" class="has-text-light">
+                            <a href="../Account/Logout" class="has-text-danger">
                                 Log out
                             </a>
                         </div>
