@@ -26,7 +26,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
                 <img src="~/Assets/Logos/logo.png" width="80" height="80" />
-                <h2 class="title is-size-3 pad-left-xs sniglet has-text-white outline"> Good Toyes</h2>
+                <h2 class="title is-size-3 pad-left-xs luckiest-guy has-text-white outline"> Good Toyes</h2>
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="goodToyesNavbar">
                 <span aria-hidden="true"></span>
@@ -81,9 +81,9 @@
                         </a>
                         <hr class="navbar-divider" />
                         <section>
-                            <aside class="navbar-item">
+                            <div class="has-text-dark pads-xs">
                                 @await Component.InvokeAsync("CartVC")
-                            </aside>
+                            </div>
                         </section>
                         <hr class="navbar-divider">
                         @*<a class="navbar-item has-text-danger">

@@ -5,8 +5,11 @@
     <div class="pad-bottom-xs scrollable">
         @foreach (var item in Model)
         {
-            <span class="is-size-6">@item.ProductName</span>
+        <div class="">
+            @*<span>@item.Quantity x </span>*@
+            <span class="is-size-6 wrap">@item.ProductName</span>
             <span class="has-text-success">@item.ProductPrice</span>
+        </div>
         }
     </div>
     <div class="buttons is-centered pad-bottom-s pad-top-s">
