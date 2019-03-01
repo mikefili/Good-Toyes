@@ -29,6 +29,12 @@ namespace GoodToyes.Models.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var userEmail = User.Identity.Name;
+
+            if (userEmail == null)
+            {
+                return View();
+            }
+
             var ourUser = await _userManager.FindByEmailAsync(userEmail);
             string user = ourUser.Id;
             var userCart = await _cart.GetCart(user);

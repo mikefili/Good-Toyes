@@ -1,22 +1,30 @@
 ﻿@model List<GoodToyes.ViewModels.CartItemViewModel>
 
-<div class="cart-vc">
-    <h1 class="pad-bottom-xs is-size-6">Your Cart:</h1>
-    <div class="pad-bottom-xs scrollable">
-        @foreach (var item in Model)
-        {
-        <div class="">
-            @*<span>@item.Quantity x </span>*@
-            <span class="is-size-6 wrap">@item.ProductName</span>
-            <span class="has-text-success">@item.ProductPrice</span>
+
+@if (Model != null)
+{
+    <div class="cart-vc">
+        <h1 class="pad-bottom-xs is-size-6">Your Cart:</h1>
+        <div class="pad-bottom-xs scrollable">
+            @foreach (var item in Model)
+            {
+                <div class="">
+                    @*<span>@item.Quantity x </span>*@
+                    <span class="is-size-6 wrap">@item.ProductName</span>
+                    <span class="has-text-success">@item.ProductPrice</span>
+                </div>
+            }
         </div>
-        }
-    </div>
-    <div class="buttons is-centered pad-bottom-s pad-top-s">
-        <div class="field is-grouped">
-            <div class="control">
-                <a href="~/Cart" class="button is-success" type="submit">View Cart</a>
+        <div class="buttons is-centered pad-bottom-s pad-top-s">
+            <div class="field is-grouped">
+                <div class="control">
+                    <a href="~/Cart" class="button is-success" type="submit">View Cart</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
+@if (Model == null)
+{
+    <div class="cart-vc"></div>
+}
