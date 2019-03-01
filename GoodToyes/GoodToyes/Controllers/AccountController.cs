@@ -180,7 +180,7 @@ namespace GoodToyes.Controllers
                 }
 
                 // Create user
-                var user = new ApplicationUser { UserName = elvm.Email, Email = elvm.Email, FirstName = elvm.FirstName, LastName = elvm.LastName };
+                var user = new ApplicationUser { UserName = elvm.Email, Email = elvm.Email, FirstName = elvm.FirstName, LastName = elvm.LastName, SpayedOrNeutered = elvm.SpayedOrNeutered };
 
                 var result = await _userManager.CreateAsync(user);
 
