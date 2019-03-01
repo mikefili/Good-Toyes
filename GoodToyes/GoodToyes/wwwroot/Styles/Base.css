@@ -150,6 +150,19 @@ nav {
     }
 }
 
+@media (max-width: 1088px) {
+    .wrap {
+        text-wrap: normal;
+        width: 250px;
+        max-width: none;
+    }
+
+    .cart-vc {
+        width: auto;
+        position: relative;
+    }
+}
+
 @media (max-width: 800px) {
     .body {
         min-height: unset;
@@ -191,17 +204,6 @@ nav {
 
     .mobile-hide {
         display: none;
-    }
-
-    .wrap {
-        text-wrap: normal;
-        width: 250px;
-        max-width: none;
-    }
-
-    .cart-vc {
-        width: auto;
-        position: relative;
     }
 }
 
