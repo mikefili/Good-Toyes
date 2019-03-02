@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -66,9 +67,9 @@ namespace GoodToyes
             services.AddScoped<IAuthorizationHandler, SpayNeuterRequirement>();
             services.AddScoped<ICart, CartService>();
             services.AddScoped<IProduct, ProductManager>();
+            services.AddScoped<IEmailSender, EmailSender>();
 
- 
-           
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

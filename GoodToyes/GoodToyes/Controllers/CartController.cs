@@ -81,28 +81,34 @@ namespace GoodToyes.Controllers
         }
 
 
-        /// <summary>
-        /// Sends a email receipt
-        /// </summary>
-        /// <returns>email</returns>
-        //public IActionResult CheckOut()
-        //{
- 
+        // <summary>
+        // Sends a email receipt
+        // </summary>
+        // <returns>email</returns>
+        public async Task<IActionResult> CheckOut()
+        {
+            var userId = _userManager.GetUserId(User);
 
-        //    StringBuilder sb = new StringBuilder();
+            var cart = await _context.GetCart(userId);
 
-        //    sb.Append("<p>GOOD TOYES");
-        //    sb.AppendLine("RECEIPT</p>");
-        //    sb.AppendLine("RECEIPT</p>");
+            cart.CartItems = await _context.GetCartItems(cart.ID);
 
-        //    // Get the user's email
-        //    _emailSender.SendEmailAsync( sb.ToString());
+            StringBuilder sb = new StringBuilder();
 
-        //    // How do i get a user's id?
-        //    // Like this:
-        //    var user = _userManager.FindByEmailAsync(lvm.Email);
-        //    string id = user.i;
-        //}
+            sb.AppendLine("<p>Thanks for being so curious! Have another look at your silly selections.</p>");
+
+            foreach (var item in cart.CartItems)
+            {
+                sb.AppendLine($"<h1>{item.Product.Name}</h1>");
+
+                sb.AppendLine($"<h2>Qty: {item.Quantity}</h2>");
+
+                sb.AppendLine($"<h2>Price: {item.Total}</h2>");
+            }
+            sb.AppendLine($"<p>Grand Totoa: </p>");
+
+            _emailSender.SendEmailAsync(User., "Receipt", sb.ToString());
+        }
 
 
     }
