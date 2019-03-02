@@ -4,6 +4,7 @@ using GoodToyes.Models.ViewModels;
 using GoodToyes.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,14 @@ namespace GoodToyes.Controllers
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private readonly ICart _cart;
+        private IEmailSender _emailSender;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICart cart)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICart cart, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _cart = cart;
+            _emailSender = emailSender;
         }
         
         /// <summary>

@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoodToyes.Models.ViewModels;
+using GoodToyes.ViewModels;
 
 namespace GoodToyes.Controllers
 {
@@ -81,28 +83,46 @@ namespace GoodToyes.Controllers
         }
 
 
-        /// <summary>
-        /// Sends a email receipt
-        /// </summary>
-        /// <returns>email</returns>
-        //public IActionResult CheckOut()
-        //{
- 
+        // <summary>
+        // Sends a email receipt
+        // </summary>
+        // <returns>email</returns>
+        public async Task<IActionResult> CheckOutEmail()
+        {
+            decimal grandTotal = 0;
 
-        //    StringBuilder sb = new StringBuilder();
+            var user = await _userManager.GetUserAsync(User);
 
-        //    sb.Append("<p>GOOD TOYES");
-        //    sb.AppendLine("RECEIPT</p>");
-        //    sb.AppendLine("RECEIPT</p>");
+            var userId = _userManager.GetUserId(User);
 
-        //    // Get the user's email
-        //    _emailSender.SendEmailAsync( sb.ToString());
+            var cart = await _context.GetCart(userId);
 
-        //    // How do i get a user's id?
-        //    // Like this:
-        //    var user = _userManager.FindByEmailAsync(lvm.Email);
-        //    string id = user.i;
-        //}
+            cart.CartItems = await _context.GetCartItems(cart.ID);
+
+            var thisUser = await _userManager.FindByEmailAsync(user.Email);
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("<h1>Thanks for shopping, come again</h1>");
+
+            foreach (var item in cart.CartItems)
+            {
+                grandTotal += item.Total;
+
+                sb.AppendLine($"<h1>{item.Product.Name}</h1>");
+
+                sb.AppendLine($"<h2>Qty: {item.Quantity}</h2>");
+
+                sb.AppendLine($"<h2>Price: {item.Total}</h2>");
+
+                
+            }
+            sb.AppendLine($"<h1>Grand Totoal: {grandTotal}</h1>");
+
+            await _emailSender.SendEmailAsync(thisUser.Email, "Receipt", sb.ToString());
+
+            return RedirectToAction("index");
+        }
 
 
     }

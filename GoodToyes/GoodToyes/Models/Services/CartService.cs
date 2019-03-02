@@ -98,6 +98,11 @@ namespace GoodToyes.Models.Services
         {
             var AllCartItems = await _context.CartItems.Where(i => i.CartID == id).ToListAsync();
 
+            foreach (var item in AllCartItems)
+            {
+                item.Product = await _context.Products.FindAsync(item.ProductID);
+            }
+
             return AllCartItems;
         }
 
