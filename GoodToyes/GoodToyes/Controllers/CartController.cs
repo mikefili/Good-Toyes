@@ -103,7 +103,7 @@ namespace GoodToyes.Controllers
 
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("<p>Thanks for shopping, come again</p>");
+            sb.AppendLine("<h1>Thanks for shopping, come again</h1>");
 
             foreach (var item in cart.CartItems)
             {
@@ -117,7 +117,7 @@ namespace GoodToyes.Controllers
 
                 
             }
-            sb.AppendLine($"<p>Grand Totoal: {grandTotal}</p>");
+            sb.AppendLine($"<h1>Grand Totoal: {grandTotal}</h1>");
 
             await _emailSender.SendEmailAsync(thisUser.Email, "Receipt", sb.ToString());
 
