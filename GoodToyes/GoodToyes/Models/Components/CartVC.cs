@@ -26,6 +26,10 @@ namespace GoodToyes.Models.Components
             _userManager = userManager;
         }
 
+        /// <summary>
+        /// Displays items in Cart for user
+        /// </summary>
+        /// <returns>List of cart items</returns>
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var userEmail = User.Identity.Name;

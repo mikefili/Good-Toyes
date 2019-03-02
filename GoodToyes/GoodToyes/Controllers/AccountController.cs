@@ -87,7 +87,7 @@ namespace GoodToyes.Controllers
         /// <summary>
         /// Logs user in and sends to home page
         /// </summary>
-        /// <returns></returns>
+        /// <returns>View</returns>
         [HttpGet]
         public IActionResult Login() => View();
 
@@ -114,9 +114,9 @@ namespace GoodToyes.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Logs user out
         /// </summary>
-        /// <returns></returns>
+        /// <returns>view</returns>
         [Authorize]
         public async Task<IActionResult> Logout()
         {
@@ -124,6 +124,11 @@ namespace GoodToyes.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Logs user in using external authentication
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <returns>Provider</returns>
         [HttpPost]
         public IActionResult ExternalLogin(string provider)
         {
@@ -133,6 +138,11 @@ namespace GoodToyes.Controllers
             return Challenge(properties, provider);
         }
 
+        /// <summary>
+        /// Gets user info back from external login provider
+        /// </summary>
+        /// <param name="error"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> ExternalLoginCallBack(string error = null)
         {
@@ -169,6 +179,12 @@ namespace GoodToyes.Controllers
             return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
         }
 
+
+        /// <summary>
+        /// Confirms that user has been logged in with external provider
+        /// </summary>
+        /// <param name="elvm"></param>
+        /// <returns>view</returns>
         public async Task<IActionResult> ExternalLoginConfimation(ExternalLoginViewModel elvm)
         {
             if (ModelState.IsValid)
