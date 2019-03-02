@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoodToyes.Models.ViewModels;
+using GoodToyes.ViewModels;
 
 namespace GoodToyes.Controllers
 {
@@ -85,29 +87,41 @@ namespace GoodToyes.Controllers
         // Sends a email receipt
         // </summary>
         // <returns>email</returns>
-        public async Task<IActionResult> CheckOut()
+        public async Task<IActionResult> CheckOutEmail()
         {
+            decimal grandTotal = 0;
+
+            var user = await _userManager.GetUserAsync(User);
+
             var userId = _userManager.GetUserId(User);
 
             var cart = await _context.GetCart(userId);
 
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
+            var thisUser = await _userManager.FindByEmailAsync(user.Email);
+
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("<p>Thanks for being so curious! Have another look at your silly selections.</p>");
+            sb.AppendLine("<p>Thanks for shopping, come again</p>");
 
             foreach (var item in cart.CartItems)
             {
+                grandTotal += item.Total;
+
                 sb.AppendLine($"<h1>{item.Product.Name}</h1>");
 
                 sb.AppendLine($"<h2>Qty: {item.Quantity}</h2>");
 
                 sb.AppendLine($"<h2>Price: {item.Total}</h2>");
-            }
-            sb.AppendLine($"<p>Grand Totoa: </p>");
 
-            _emailSender.SendEmailAsync(User., "Receipt", sb.ToString());
+                
+            }
+            sb.AppendLine($"<p>Grand Totoal: {grandTotal}</p>");
+
+            await _emailSender.SendEmailAsync(thisUser.Email, "Receipt", sb.ToString());
+
+            return RedirectToAction("index");
         }
 
 
