@@ -91,21 +91,21 @@ namespace GoodToyes.Controllers
         {
             decimal grandTotal = 0;
 
-            var user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await _userManager.GetUserAsync(User);
 
-            var userId = _userManager.GetUserId(User);
+            string userId = _userManager.GetUserId(User);
 
-            var cart = await _context.GetCart(userId);
+            Cart cart = await _context.GetCart(userId);
 
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
-            var thisUser = await _userManager.FindByEmailAsync(user.Email);
+            ApplicationUser thisUser = await _userManager.FindByEmailAsync(user.Email);
 
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("<h1>Thanks for shopping, come again</h1>");
 
-            foreach (var item in cart.CartItems)
+            foreach (CartItem item in cart.CartItems)
             {
                 grandTotal += item.Total;
 
