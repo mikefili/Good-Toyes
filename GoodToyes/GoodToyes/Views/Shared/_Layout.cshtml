@@ -59,7 +59,7 @@
                         {
                             if (User.Claims.First(c => c.Type == "SpayNeuter").Value == "True")
                             {
-                                <partial name="../Partials/_UserDropDown.cshtml" />
+                                <partial name="~/Views/Partials/_UserDropDown.cshtml" />
                             }
                         }
                         else
@@ -98,10 +98,10 @@
                 {
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a href="../Account/Register" class="button is-success">
+                            <a href="~/Account/Register" class="button is-light is-medium is-inverted is-focused">
                                 <strong>Sign up</strong>
                             </a>
-                            <a href="../Account/Login" class="button is-light">
+                            <a href="~/Account/Login" class="button is-light is-medium">
                                 Log in
                             </a>
                         </div>
