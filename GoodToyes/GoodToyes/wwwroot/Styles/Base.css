@@ -67,6 +67,13 @@ nav {
     background-position: center;
 }
 
+.info-img {
+    background-image: url(/Assets/Images/pug-1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .fredoka-one {
     font-family: 'Fredoka One', cursive;
 }

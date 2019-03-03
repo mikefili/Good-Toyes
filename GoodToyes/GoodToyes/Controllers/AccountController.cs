@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace GoodToyes.Controllers
@@ -78,14 +79,34 @@ namespace GoodToyes.Controllers
                     //returns list of claims to user manager
                     await _userManager.AddClaimsAsync(user, claims);
 
+                    //send user confirmation email
+
+
                     //sends user to home page after sign in
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    RegistrationEmail(user);
                     return RedirectToAction("Index", "Home");
                 }            
             }
             return View(rvm);
         }
 
+        /// <summary>
+        /// Sends registration confirmation email to user
+        /// </summary>
+        /// <param name="user">User registering</param>
+        public async void RegistrationEmail(ApplicationUser user)
+        {
+            ApplicationUser thisUser = await _userManager.FindByEmailAsync(user.Email);
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"<h1>Hey {thisUser.FirstName}, thanks for registering with Good Toyes!</h1>");
+            sb.AppendLine("<p>We hope you and your good boye have a good day!</p>");
+            sb.AppendLine("<img src'~/Assets/Images/dog-1.jpg' width='100' />");
+
+            await _emailSender.SendEmailAsync(thisUser.Email, "Registration Confirmation", sb.ToString());
+        }
 
         /// <summary>
         /// Logs user in and sends to home page

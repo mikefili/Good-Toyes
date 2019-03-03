@@ -17,6 +17,14 @@ namespace GoodToyes.Models
         {
             _configuration = configuration;
         }
+
+        /// <summary>
+        /// Send an email to the user
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="htmlMessage"></param>
+        /// <returns></returns>
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             SendGridClient client = new SendGridClient(_configuration["Sendgrid_Api_Key"]);
@@ -26,7 +34,7 @@ namespace GoodToyes.Models
             msg.SetFrom("noreply.goodtoyes@gmail.com", "Good Toyes Admin");
 
             msg.AddTo(email);
-            msg.SetSubject("Welcome");
+            msg.SetSubject(subject);
             msg.AddContent(MimeType.Html, htmlMessage);
 
             await client.SendEmailAsync(msg);
