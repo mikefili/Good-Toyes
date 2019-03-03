@@ -103,7 +103,6 @@ namespace GoodToyes.Controllers
 
             sb.AppendLine($"<h1>Hey {thisUser.FirstName}, thanks for registering with Good Toyes!</h1>");
             sb.AppendLine("<p>We hope you and your good boye have a good day!</p>");
-            sb.AppendLine("<img src'~/Assets/Images/dog-1.jpg' width='100' />");
 
             await _emailSender.SendEmailAsync(thisUser.Email, "Registration Confirmation", sb.ToString());
         }
