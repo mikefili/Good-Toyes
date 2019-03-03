@@ -98,17 +98,15 @@
                             Order History
                         </a>
                         <hr class="navbar-divider" />
-                        <section>
-                            <div class="has-text-dark pads-xs">
-                                @await Component.InvokeAsync("CartVC")
-                            </div>
-                        </section>
-                        @*<a class="navbar-item has-text-danger">
-            <span class="icon is-medium">
-                <i class="fas fa-exclamation"></i>
-            </span>
-            Report an issue
-        </a>*@
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <section>
+                                <div class="has-text-dark pads-xs">
+                                    @await Component.InvokeAsync("CartVC")
+                                </div>
+                            </section>
+                            <hr class="navbar-divider"/>
+                        }
                     </div>
                 </div>
             </div>

@@ -103,7 +103,7 @@ namespace GoodToyes.Controllers
 
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("<h1>Thanks for shopping, come again</h1>");
+            sb.AppendLine("<h1>Thanks for shopping with Good Toyes, come again</h1>");
 
             foreach (CartItem item in cart.CartItems)
             {
