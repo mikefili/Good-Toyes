@@ -121,7 +121,7 @@ namespace GoodToyes.Controllers
 
             await _emailSender.SendEmailAsync(thisUser.Email, "Receipt", sb.ToString());
 
-            return RedirectToAction("index");
+            return RedirectToAction("Checkout");
         }
 
 

@@ -86,6 +86,10 @@ namespace GoodToyes.Controllers
             return View(rvm);
         }
 
+        //public async Task<IActionResult> RegistrationEmail()
+        //{
+
+        //}
 
         /// <summary>
         /// Logs user in and sends to home page

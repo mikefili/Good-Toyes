@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<section class="">
+<section class="pads-xs">
     <div class="container">
         <form method="post">
             <div class="field">
@@ -68,23 +68,28 @@
                         {
                             <h1 class="subtitle center">Login With:</h1>
                             <form asp-action="ExternalLogin" method="post">
-                                @foreach (var provider in loginProviders)
-                                {
-
-                                    @if (provider.Name == "Facebook")
+                                <div class="columns">
+                                    @foreach (var provider in loginProviders)
                                     {
-                                        <button type="submit" name="provider" value="@provider.Name" title="Login with @provider.DisplayName" class="fb-button button">
-                                            <i class="fab fa-facebook icon is-large"></i><span class="pad-left-xs">Login with Facebook</span>
-                                        </button>
-                                    }
-                                    @if (provider.Name == "Microsoft")
-                                    {
-                                        <button type="submit" name="provider" value="@provider.Name" title="Login with @provider.DisplayName" class="ms-button button">
-                                            <i class="fab fa-microsoft icon is-large"></i><span class="pad-left-xs">Login with Microsoft</span>
-                                        </button>
-                                    }
 
-                                }
+                                        @if (provider.Name == "Facebook")
+                                        {
+                                            <div class="column">
+                                                <button type="submit" name="provider" value="@provider.Name" title="Login with @provider.DisplayName" class="fb-button button">
+                                                    <i class="fab fa-facebook icon is-large"></i><span class="pad-left-xs">Login with Facebook</span>
+                                                </button>
+                                            </div>
+                                        }
+                                        @if (provider.Name == "Microsoft")
+                                        {
+                                            <div class="column">
+                                                <button type="submit" name="provider" value="@provider.Name" title="Login with @provider.DisplayName" class="ms-button button">
+                                                    <i class="fab fa-microsoft icon is-large"></i><span class="pad-left-xs">Login with Microsoft</span>
+                                                </button>
+                                            </div>
+                                        }
+                                    }
+                                </div>
                             </form>
                         }
                     }

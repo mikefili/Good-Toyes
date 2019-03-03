@@ -1,6 +1,12 @@
 ﻿@model GoodToyes.Models.Cart
 @{
     Layout = "_Layout";
+    var cartItems = Model.CartItems.ToList();
+    decimal total = 0m;
+    foreach (var item in cartItems)
+    {
+        total += item.Product.Price;
+    }
 }
 <div class="pads-xs">
     <article class="media">
@@ -27,7 +33,7 @@
         </div>
     </article>
 
-    @foreach (var item in Model.CartItems)
+    @foreach (var item in cartItems)
     {<article class="media">
             <figure class="media-left pads-s mobile-hide">
                 <p class="image is-64x64">
@@ -60,4 +66,11 @@
             </div>
         </article>
     }
+</div>
+<div class="pads-xs">
+    <hr />
+</div>
+<div class="buttons is-centered pad-bottom-m">
+    <span class="pad-right-s is-size-3 is-size-5-mobile"><strong>Grand Total:</strong> <span class="has-text-success">@total</span></span>
+    <a asp-action="CheckOutEmail" class="button is-success is-large">Check Out</a>
 </div>
