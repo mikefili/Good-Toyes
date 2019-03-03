@@ -87,7 +87,7 @@ namespace GoodToyes.Controllers
         // Sends a email receipt
         // </summary>
         // <returns>email</returns>
-        public async Task<IActionResult> CheckOutEmail()
+        public async Task<IActionResult> CheckOutReceipt()
         {
             decimal grandTotal = 0;
 
@@ -121,7 +121,7 @@ namespace GoodToyes.Controllers
 
             await _emailSender.SendEmailAsync(thisUser.Email, "Receipt", sb.ToString());
 
-            return RedirectToAction("index");
+            return View(cart);
         }
 
 
