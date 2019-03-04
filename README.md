@@ -1,26 +1,27 @@
-# Good Toyes
+<h1 align="center">Good Toyes</h1>
 ![Good Toyes for Good Boyes](/Assets/dog-2.jpg)
-## Product
+
+<h2>Product</h2>
 
 Good Toyes is your source for everything your good boy needs! All types of toys, treats, and enticements. Now offering discounts for spayed/neutered pets.
 
-## Deployed Link
+<h2>Deployed Link</h2>
 https://goodtoyes.azurewebsites.net/
 
-## Claims
+<h2>Claims</h2>
 
-### Full Name:
-So that we can display it as a welcome on each page
+<h3>Full Name</h3>
+By creating a single claim out of a user's first and last names, we can greet the user on each page with a personalized greeting.
 
-### Email:
-To pass the user information from view to view
+<h3>Email</h3>
+An email claim allows a user's information to pass from view to view seamlessly.
 
-### Date of Birth:
-For age validation
+<h3>Date of Birth</h3>
+Provides quick and easy age verification, should the need arise.
 
-### Spay or Neutered:
-To allow users with spayed/neutered pets access to our discounts
+<h3>Spay or Neutered</h3>
+We created a claim that allows a user to specify if their pet is spayed or neutered.
 
-##Policy
+<h2>Policy</h2>
 
-We are enforcing a Spay or Neuter policy.  If you have spayed or neutered we are allowing users access to a very special page because they are responsible pet owners.
+We are enforcing a Spay or Neuter policy.  If you have spayed or neutered your pet we are allowing users access to a very special page because they are responsible pet owners.
