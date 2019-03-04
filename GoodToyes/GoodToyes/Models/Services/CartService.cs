@@ -142,8 +142,12 @@ namespace GoodToyes.Models.Services
             return cartItem;
         }
 
-
-       public async Task DeleteCartItems(int id)
+        /// <summary>
+        /// Deletes all items in user's cart
+        /// </summary>
+        /// <param name="id">User's ID</param>
+        /// <returns>Saved changes</returns>
+        public async Task DeleteCartItems(int id)
         {
             var cart = await _context.Carts.FindAsync(id);
 
