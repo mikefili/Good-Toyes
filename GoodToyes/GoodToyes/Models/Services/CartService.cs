@@ -141,5 +141,17 @@ namespace GoodToyes.Models.Services
             await _context.SaveChangesAsync();
             return cartItem;
         }
+
+
+       public async Task DeleteCartItems(int id)
+        {
+            var cart = await _context.Carts.FindAsync(id);
+
+            var cartItems = await _context.CartItems.Where(i => i.CartID == id).ToListAsync();
+
+            _context.CartItems.RemoveRange(cartItems);
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

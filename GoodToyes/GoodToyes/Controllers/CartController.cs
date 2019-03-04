@@ -97,6 +97,7 @@ namespace GoodToyes.Controllers
 
             Cart cart = await _context.GetCart(userId);
 
+
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
             ApplicationUser thisUser = await _userManager.FindByEmailAsync(user.Email);
@@ -135,10 +136,7 @@ namespace GoodToyes.Controllers
 
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
-            foreach (CartItem item in cart.CartItems)
-            {
-                await _context.DeleteCartItem(item.ID);
-            }
+            await _context.DeleteCartItems(cart.ID);
 
             return RedirectToAction("Index", "Home");
         }
