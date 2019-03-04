@@ -1,5 +1,5 @@
 <h1 align="center">Good Toyes</h1>
-<img src="/Assets/dog-2.jpg")
+<img src="~/Assets/dog-2.jpg")
 
 <h2>Product</h2>
 
