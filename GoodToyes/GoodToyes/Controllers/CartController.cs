@@ -121,6 +121,26 @@ namespace GoodToyes.Controllers
             return View(cart);
         }
 
+        /// <summary>
+        /// Clears out user's cart after order
+        /// </summary>
+        /// <returns>Home index view</returns>
+        public async Task<IActionResult> BackToShop()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
 
+            string userId = _userManager.GetUserId(User);
+
+            Cart cart = await _context.GetCart(userId);
+
+            cart.CartItems = await _context.GetCartItems(cart.ID);
+
+            foreach (CartItem item in cart.CartItems)
+            {
+                await _context.DeleteCartItem(item.ID);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

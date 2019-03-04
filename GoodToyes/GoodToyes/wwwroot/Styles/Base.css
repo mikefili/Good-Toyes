@@ -157,6 +157,10 @@ nav {
     min-width: 300px;
 }
 
+.center {
+    margin: auto;
+}
+
 @media (min-width: 1200px) {
     .tagline {
         font-size: 6vw;
