@@ -14,7 +14,8 @@ namespace GoodToyes.Migrations.GoodToyesDb
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserID = table.Column<string>(nullable: true),
-                    CheckedOut = table.Column<bool>(nullable: false)
+                    CheckedOut = table.Column<bool>(nullable: false),
+                    GrandTotal = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

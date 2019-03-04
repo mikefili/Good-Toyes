@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodToyes.Migrations.GoodToyesDb
 {
     [DbContext(typeof(GoodToyesDbContext))]
-    [Migration("20190228191118_initial")]
+    [Migration("20190304192336_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,8 @@ namespace GoodToyes.Migrations.GoodToyesDb
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("CheckedOut");
+
+                    b.Property<decimal>("GrandTotal");
 
                     b.Property<string>("UserID");
 

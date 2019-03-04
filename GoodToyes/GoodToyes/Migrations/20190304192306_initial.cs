@@ -44,7 +44,10 @@ namespace GoodToyes.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Birthdate = table.Column<DateTime>(nullable: false),
-                    SpayedOrNeutered = table.Column<bool>(nullable: false)
+                    SpayedOrNeutered = table.Column<bool>(nullable: false),
+                    StreetAddress = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Zip = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

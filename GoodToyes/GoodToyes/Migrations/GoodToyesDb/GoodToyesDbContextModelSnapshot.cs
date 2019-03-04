@@ -26,6 +26,8 @@ namespace GoodToyes.Migrations.GoodToyesDb
 
                     b.Property<bool>("CheckedOut");
 
+                    b.Property<decimal>("GrandTotal");
+
                     b.Property<string>("UserID");
 
                     b.HasKey("ID");
