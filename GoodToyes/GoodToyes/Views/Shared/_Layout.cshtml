@@ -59,54 +59,19 @@
                         {
                             if (User.Claims.First(c => c.Type == "SpayNeuter").Value == "True")
                             {
-                                <a href="~/Policy" class="navbar-item has-text-success">
-                                    <span class="icon is-medium">
-                                        <i class="fas fa-dollar-sign"></i>
-                                    </span>
-                                    Discounts
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="~/Discounts" class="navbar-item">
-                                    <span class="icon is-medium">
-                                        <i class="fas fa-info"></i>
-                                    </span>
-                                    Discounts
-                                </a>
+                                <partial name="~/Views/Partials/_UserDropDown.cshtml" />
                             }
                         }
                         else
                         {
-                            <a href="~/Discounts" class="navbar-item">
+                            <a href="~/Policy/Info" class="navbar-item">
                                 <span class="icon is-medium">
-                                    <i class="fas fa-info"></i>
+                                    <i class="fas fa-dollar-sign"></i>
                                 </span>
                                 Discounts
                             </a>
                         }
-                        <a class="navbar-item">
-                            <span class="icon is-medium">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            User Profile
-                        </a>
-                        <a class="navbar-item">
-                            <span class="icon is-medium">
-                                <i class="fas fa-history"></i>
-                            </span>
-                            Order History
-                        </a>
                         <hr class="navbar-divider" />
-                        @if (signInManager.IsSignedIn(User))
-                        {
-                            <section>
-                                <div class="has-text-dark pads-xs">
-                                    @await Component.InvokeAsync("CartVC")
-                                </div>
-                            </section>
-                            <hr class="navbar-divider"/>
-                        }
                         <a class="navbar-item has-text-danger" href="mailto:norepy.goodtoyes@gmail.com?subject=Report%20an%20Issue">
                             <span class="icon is-medium">
                                 <i class="fas fa-exclamation"></i>
@@ -133,10 +98,10 @@
                 {
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a href="../Account/Register" class="button is-success">
+                            <a href="~/Account/Register" class="button is-light is-medium is-inverted is-focused">
                                 <strong>Sign up</strong>
                             </a>
-                            <a href="../Account/Login" class="button is-light">
+                            <a href="~/Account/Login" class="button is-light is-medium">
                                 Log in
                             </a>
                         </div>

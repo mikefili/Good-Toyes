@@ -1,4 +1,5 @@
 # Good Toyes
+![Good Toyes for Good Boyes](/Assets/dog-2.jpg)
 ## Product
 
 Good Toyes is your source for everything your good boy needs! All types of toys, treats, and enticements. Now offering discounts for spayed/neutered pets.

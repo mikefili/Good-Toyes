@@ -18,5 +18,10 @@ namespace GoodToyes.Controllers
         {
             return View();
         }
+
+        public IActionResult Info()
+        {
+            return View("Info");
+        }
     }
 }

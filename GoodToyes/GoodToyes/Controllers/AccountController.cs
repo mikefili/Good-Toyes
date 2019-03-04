@@ -101,9 +101,8 @@ namespace GoodToyes.Controllers
 
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"<h1>Hey {thisUser.FirstName}, thanks for registering with Good Toyes!</h1>");
-            sb.AppendLine("<p>We hope you and your good boye have a good day!</p>");
-            sb.AppendLine("<img src'~/Assets/Images/dog-1.jpg' width='100' />");
+            sb.AppendLine($"<h1 align='center'>Hey {thisUser.FirstName}, thanks for registering with Good Toyes!</h1>");
+            sb.AppendLine("<p align='center'>We hope you and your good boye have a good day!</p>");
 
             await _emailSender.SendEmailAsync(thisUser.Email, "Registration Confirmation", sb.ToString());
         }

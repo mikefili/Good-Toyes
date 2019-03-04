@@ -103,23 +103,20 @@ namespace GoodToyes.Controllers
 
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("<h1>Thanks for shopping with Good Toyes, come again</h1>");
+            sb.AppendLine("<h1 align='center'>Order Confirmation</h1>");
+            sb.AppendLine($"<h2>Good call {thisUser.FirstName}! We've got some Good Toyes on their way for your good boyes.</h2>");
 
             foreach (CartItem item in cart.CartItems)
             {
                 grandTotal += item.Total;
 
                 sb.AppendLine($"<h1>{item.Product.Name}</h1>");
-
                 sb.AppendLine($"<h2>Qty: {item.Quantity}</h2>");
-
                 sb.AppendLine($"<h2>Price: {item.Total}</h2>");
-
-                
             }
             sb.AppendLine($"<h1>Grand Totoal: {grandTotal}</h1>");
 
-            await _emailSender.SendEmailAsync(thisUser.Email, "Receipt", sb.ToString());
+            await _emailSender.SendEmailAsync(thisUser.Email, $"Order Confirmation", sb.ToString());
 
             return RedirectToAction("Checkout");
         }
