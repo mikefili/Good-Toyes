@@ -54,6 +54,9 @@ namespace GoodToyes.Controllers
                     FirstName = rvm.FirstName,
                     LastName = rvm.LastName,
                     Birthdate = rvm.Birthdate,
+                    StreetAddress = rvm.StreetAddress,
+                    City = rvm.City,
+                    Zip = rvm.Zip,
                     SpayedOrNeutered = rvm.SpayedOrNeutered
                 };
 

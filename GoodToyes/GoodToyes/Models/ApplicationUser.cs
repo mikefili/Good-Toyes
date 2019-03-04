@@ -15,5 +15,11 @@ namespace GoodToyes.Models
         public DateTime Birthdate { get; set; }
 
         public bool SpayedOrNeutered { get; set; }
+
+        public string StreetAddress { get; set; }
+
+        public string City { get; set; }
+
+        public string Zip { get; set; }
     }
 }

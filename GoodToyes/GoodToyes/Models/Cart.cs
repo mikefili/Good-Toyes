@@ -15,5 +15,7 @@ namespace GoodToyes.Models
         public bool CheckedOut { get; set; }
 
         public List<CartItem> CartItems { get; set; }
+
+        public decimal GrandTotal { get; set; }
     }
 }
