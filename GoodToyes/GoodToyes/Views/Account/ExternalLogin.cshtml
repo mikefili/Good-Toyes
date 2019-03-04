@@ -1,0 +1,69 @@
+﻿@model GoodToyes.Models.ViewModels.ExternalLoginViewModel
+@{
+    ViewData["Title"] = "ExternalLogin";
+    Layout = "_Layout";
+}
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-size-1">
+                Sign Up with an External Provider
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section class="pads-xs">
+    <div class="container">
+        <form asp-action="ExternalLoginConfimation" method="post">
+            <div class="field">
+                <label asp-for="Email" class="label">Email</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Email" class="input" type="email" placeholder="example@email.com" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="Email"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="FirstName" class="label">First Name</label>
+                <div class="control">
+                    <input asp-for="FirstName" class="input" type="text" placeholder="eg. Dog" />
+                </div>
+                <span asp-validation-for="FirstName" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="LastName" class="label">Last Name</label>
+                <div class="control">
+                    <input asp-for="LastName" class="input" type="text" placeholder="eg. Lover" />
+                </div>
+                <span asp-validation-for="LastName" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label class="label has-text-success">Special Deals</label>
+                <div class="control">
+                    <label asp-for="SpayedOrNeutered" class="checkbox">
+                        <input asp-for="SpayedOrNeutered" type="checkbox">
+                        <span class="">
+                            Is your pup spayed or neutered?
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="buttons is-centered">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" type="submit">Register</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

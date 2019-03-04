@@ -17,6 +17,10 @@ namespace GoodToyes.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Send user to the home page
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Index()
         {
             return View();

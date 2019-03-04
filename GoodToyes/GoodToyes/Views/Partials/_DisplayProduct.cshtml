@@ -1,0 +1,38 @@
+﻿@model GoodToyes.Models.Product
+@{
+}
+<div class="card-content">
+    <div class="card-image pad-top-s">
+        <figure class="card-image is-1by1 center">
+            <div class="has-text-left center product-title">
+                <span class="title is-2 is-size-3-mobile is-spaced has-text-weight-bold pad-right-s">
+                    @Model.Name
+                </span>
+                <p class="is-size-5 is-size-5-mobile">SKU: #@Model.SKU</p>
+            </div>
+            <img src="/@Model.Image" class="" title="@Model.Name" />
+        </figure>
+    </div>
+
+    <div class="">
+        <div class="has-text-left text-container">
+            <span class="subtitle is-size-2 is-size-4-mobile has-text-success">
+                $@Model.Price
+            </span>
+            <p class="is-size-4 is-size-5-mobile">@Model.Description</p>
+            <div class="buttons is-centered pads-s">
+                <div class="field">
+                    <div class="control is-large">
+                        <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@Model.ID" class="button is-success is-large is-focused">
+                            <i class="fas fa-lg fa-shopping-cart" aria-hidden="true"></i>
+                            <span class="pad-left-xs">Add to Cart</span>
+                        </a>
+                    </div>
+                    <div class="control has-text-centered">
+                        <a href="~/Shop#productsline" class="button is-text">Back to Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

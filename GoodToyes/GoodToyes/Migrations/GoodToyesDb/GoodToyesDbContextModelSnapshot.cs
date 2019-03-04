@@ -18,6 +18,44 @@ namespace GoodToyes.Migrations.GoodToyesDb
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("GoodToyes.Models.Cart", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("CheckedOut");
+
+                    b.Property<string>("UserID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("GoodToyes.Models.CartItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CartID");
+
+                    b.Property<int>("ProductID");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<decimal>("Total");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CartID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("CartItems");
+                });
+
             modelBuilder.Entity("GoodToyes.Models.Product", b =>
                 {
                     b.Property<int>("ID")
@@ -129,6 +167,19 @@ namespace GoodToyes.Migrations.GoodToyesDb
                             Price = 8.95m,
                             SKU = "DT00010"
                         });
+                });
+
+            modelBuilder.Entity("GoodToyes.Models.CartItem", b =>
+                {
+                    b.HasOne("GoodToyes.Models.Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("GoodToyes.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

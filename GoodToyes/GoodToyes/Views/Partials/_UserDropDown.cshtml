@@ -1,0 +1,24 @@
+﻿<a href="~/Policy" class="navbar-item has-text-success">
+    <span class="icon is-medium">
+        <i class="fas fa-dollar-sign"></i>
+    </span>
+    Discounts
+</a>
+<a class="navbar-item">
+    <span class="icon is-medium">
+        <i class="fas fa-user"></i>
+    </span>
+    User Profile
+</a>
+<a class="navbar-item">
+    <span class="icon is-medium">
+        <i class="fas fa-history"></i>
+    </span>
+    Order History
+</a>
+<hr class="navbar-divider" />
+<section>
+    <div class="has-text-dark pads-xs">
+        @await Component.InvokeAsync("CartVC")
+    </div>
+</section>

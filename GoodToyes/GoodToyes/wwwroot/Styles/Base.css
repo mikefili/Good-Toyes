@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Sniglet:800|Bowlby+One+SC');
+﻿@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Lato|Indie+Flower|Sniglet:800|Bowlby+One+SC|Luckiest+Guy');
 
 body {
     font-family: 'Lato', sans-serif;
@@ -67,6 +67,13 @@ nav {
     background-position: center;
 }
 
+.info-img {
+    background-image: url(/Assets/Images/pug-1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .fredoka-one {
     font-family: 'Fredoka One', cursive;
 }
@@ -83,19 +90,93 @@ nav {
     font-family: 'Bowlby One SC', cursive;
 }
 
+.luckiest-guy {
+    font-family: 'Luckiest Guy', cursive;
+}
+
 .tagline {
     font-size: 4rem;
 }
 
 .text-container {
     height: auto;
-    max-width: 250px;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
     text-wrap: normal;
+}
+
+.name-container {
+    width: auto;
+    max-width: 250px;
+}
+
+.cart-vc {
+    width: 200px;
+    position: relative;
+}
+
+.fb-button {
+    background-color: rgb(66, 103, 178);
+    color: white;
+}
+
+.ms-button {
+    background-color: rgb(246, 83, 20);
+    color: white;
+}
+
+.quantity-input {
+    width: 3rem;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.mobile-hide {
+    display: block;
+}
+
+.scrollable {
+    max-height: 100px;
+    /*max-width: 200px;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.wrap {
+    text-wrap: normal;
+    width: auto;
+    max-width: 100px;
+}
+
+.product-title {
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.center {
+    margin: auto;
 }
 
 @media (min-width: 1200px) {
     .tagline {
         font-size: 6vw;
+    }
+}
+
+@media (max-width: 1088px) {
+    .wrap {
+        text-wrap: normal;
+        width: 250px;
+        max-width: none;
+    }
+
+    .cart-vc {
+        width: auto;
+        position: relative;
     }
 }
 
@@ -126,10 +207,80 @@ nav {
     .tagline {
         font-size: 2rem;
     }
+
+    .text-container {
+        width: 80%;
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 560px) {
     .tagline {
         font-size: 1.5rem;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+}
+
+.navbar.is-gradient {
+    background-image: linear-gradient( to right, #23d160, #1a8e42 );
+    color: #fff;
+}
+
+    .navbar.is-gradient .navbar-brand > .navbar-item,
+    .navbar.is-gradient .navbar-brand .navbar-link {
+        color: #fff;
+    }
+
+        .navbar.is-gradient .navbar-brand > a.navbar-item:hover, .navbar.is-gradient .navbar-brand > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-brand .navbar-link:hover,
+        .navbar.is-gradient .navbar-brand .navbar-link.is-active {
+            background-color: #20bc56;
+            color: #fff;
+        }
+
+        .navbar.is-gradient .navbar-brand .navbar-link::after {
+            border-color: #fff;
+        }
+
+    .navbar.is-gradient .navbar-burger {
+        color: #fff;
+    }
+
+@media screen and (min-width: 1088px) {
+    .navbar.is-gradient .navbar-start > .navbar-item,
+    .navbar.is-gradient .navbar-start .navbar-link,
+    .navbar.is-gradient .navbar-end > .navbar-item,
+    .navbar.is-gradient .navbar-end .navbar-link {
+        color: #fff;
+    }
+
+        .navbar.is-gradient .navbar-start > a.navbar-item:hover, .navbar.is-success .navbar-start > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-start .navbar-link:hover,
+        .navbar.is-gradient .navbar-start .navbar-link.is-active,
+        .navbar.is-gradient .navbar-end > a.navbar-item:hover,
+        .navbar.is-gradient .navbar-end > a.navbar-item.is-active,
+        .navbar.is-gradient .navbar-end .navbar-link:hover,
+        .navbar.is-gradient .navbar-end .navbar-link.is-active {
+            background-color: #20bc56;
+            color: #fff;
+        }
+
+        .navbar.is-gradient .navbar-start .navbar-link::after,
+        .navbar.is-gradient .navbar-end .navbar-link::after {
+            border-color: #fff;
+        }
+
+    .navbar.is-gradient .navbar-item.has-dropdown:hover .navbar-link,
+    .navbar.is-gradient .navbar-item.has-dropdown.is-active .navbar-link {
+        background-color: #20bc56;
+        color: #fff;
+    }
+
+    .navbar.is-gradient .navbar-dropdown a.navbar-item.is-active {
+        background-image: linear-gradient( to right, #23d160, #1a8e42 );
+        color: #fff;
     }
 }

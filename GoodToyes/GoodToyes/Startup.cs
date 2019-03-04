@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,9 +39,9 @@ namespace GoodToyes
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ApplicationConnection"]));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ApplicationProductionConnection"]));
 
-            services.AddDbContext<GoodToyesDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddDbContext<GoodToyesDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
 
             services.AddScoped<IProduct, ProductManager>();
             
@@ -49,7 +51,25 @@ namespace GoodToyes
                 options.AddPolicy("spayOrNeuter", policy => policy.Requirements.Add(new SpayNeuterRequirement()));
             });
 
+            services.AddAuthentication()
+                .AddFacebook(facebook =>
+                {
+                    facebook.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })
+                
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
+                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
+                });
+
             services.AddScoped<IAuthorizationHandler, SpayNeuterRequirement>();
+            services.AddScoped<ICart, CartService>();
+            services.AddScoped<IProduct, ProductManager>();
+            services.AddScoped<IEmailSender, EmailSender>();
+
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
