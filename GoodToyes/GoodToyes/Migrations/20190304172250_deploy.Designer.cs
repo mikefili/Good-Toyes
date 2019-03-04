@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodToyes.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190228043516_initial")]
-    partial class initial
+    [Migration("20190304172250_deploy")]
+    partial class deploy
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -35,6 +35,7 @@ namespace GoodToyes.Models.Interfaces
         //updates cart
         Task<Cart> UpdateCart(Cart cart);
 
+        //deletes all items in cart
         Task DeleteCartItems(int id);
     }
 }
