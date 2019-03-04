@@ -67,7 +67,7 @@ namespace GoodToyes.Controllers
 
             var cart = await _cart.GetCart(user);
             var result = await _cart.CreateCartItem(cart, cartItem);
-            return RedirectToAction("Index");
+            return Redirect(Url.RouteUrl(new { controller = "Shop", action = "Index" }) + "#productsline");
         }
     }
 }
