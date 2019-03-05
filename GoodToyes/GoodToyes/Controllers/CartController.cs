@@ -115,18 +115,10 @@ namespace GoodToyes.Controllers
                 
             }
 
-            Cart complete = await _context.GetCart(user.Id);
-
             await _order.UpdateOrder(newOrder.ID, newOrder);
 
             newOrder.OrderItems = await _order.GetOrderItems(newOrder.ID);
 
-            List<Product> orderItems = new List<Product>();
-
-            foreach (OrderItem item in newOrder.OrderItems)
-            {
-                orderItems.Add(await _product.GetProduct(item.ProductID));
-            }
 
             //Run Payment
             Payment payment = new Payment(Configuration);
