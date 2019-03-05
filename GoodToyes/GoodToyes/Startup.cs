@@ -68,8 +68,6 @@ namespace GoodToyes
             services.AddScoped<ICart, CartService>();
             services.AddScoped<IProduct, ProductManager>();
             services.AddScoped<IEmailSender, EmailSender>();
-
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
