@@ -1,4 +1,5 @@
 ﻿using GoodToyes.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,7 +73,7 @@ namespace GoodToyes.Models
         {
             var deleteOrder = await _context.Orders.FindAsync(id);
 
-            var orderItems = _context.OrderItems.Where(i => i.OrderID == id);
+            var orderItems = _context.OrderItems.Where(i => i.OrderID == id).ToListAsync();
 
             _context.RemoveRange(orderItems);
 
@@ -97,30 +98,69 @@ namespace GoodToyes.Models
         }
 
 
-
-        public Task<List<OrderItem>> GetOrderItems(int id)
+        /// <summary>
+        /// Get orderitems in order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>List of order items</returns>
+        public async Task<List<OrderItem>> GetOrderItems(int id)
         {
-            throw new NotImplementedException();
+            var orderItems = await _context.OrderItems.Where(i => i.OrderID == id).ToListAsync();
+
+            return orderItems;
         }
 
-        public Task<List<Order>> GetOrders()
+        /// <summary>
+        /// Gets last 10 orders
+        /// </summary>
+        /// <returns>list of 10 orders</returns>
+        public async Task<List<Order>> GetTenOrders(string userID)
         {
-            throw new NotImplementedException();
+            var orders = await _context.Orders.Where(i => i.UserID == userID).OrderByDescending(o => o.ID).Take(10).ToListAsync();
+
+            foreach (var order in orders)
+            {
+                order.OrderItems = await _context.OrderItems.Where(p => p.OrderID == order.ID).ToListAsync();
+            }
+            return orders;
         }
 
-        public Task OrderComplete(int id)
+        /// <summary>
+        /// Updates an order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="order"></param>
+        /// <returns>updated order</returns>
+        public async Task<Order> UpdateOrder(int id, Order order)
         {
-            throw new NotImplementedException();
+            var updateOrder = await _context.Orders.FindAsync(id);
+            
+            order.ID = updateOrder.ID;
+
+            _context.Orders.Update(order);
+
+            await _context.SaveChangesAsync();
+            
+            return order;
         }
 
-        public Task<Order> UpdateOrder(int id, Order order)
+        /// <summary>
+        /// Updates an order item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="product"></param>
+        /// <returns>updated order item</returns>
+        public async Task<OrderItem> UpdateOrderItem(int id, OrderItem product)
         {
-            throw new NotImplementedException();
-        }
+            var updateItem = await _context.OrderItems.FindAsync(id);
 
-        public Task<OrderItem> UpdateOrderItem(int id, OrderItem product)
-        {
-            throw new NotImplementedException();
+            product.ID = updateItem.ID;
+
+            _context.OrderItems.Update(product);
+
+            await _context.SaveChangesAsync();
+
+            return product;
         }
     }
 }
