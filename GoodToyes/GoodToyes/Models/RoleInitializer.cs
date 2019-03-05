@@ -17,6 +17,10 @@ namespace GoodToyes.Models
             new IdentityRole{Name = ApplicationRoles.Admin, NormalizedName = ApplicationRoles.Admin.ToUpper(), ConcurrencyStamp = Guid.NewGuid().ToString() }
         };
 
+        /// <summary>
+        /// Adds any existing roles to the database
+        /// </summary>
+        /// <param name="context">ApplicationDbContext database context</param>
         private static void AddRoles(ApplicationDbContext context)
         {
             if (context.Roles.Any()) return;
@@ -28,6 +32,10 @@ namespace GoodToyes.Models
             }
         }
 
+        /// <summary>
+        /// Seeds data for existing roles
+        /// </summary>
+        /// <param name="serviceProvider">Service provider interview</param>
         public static void SeedData(IServiceProvider serviceProvider)
         {
             using (var dbContext = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
