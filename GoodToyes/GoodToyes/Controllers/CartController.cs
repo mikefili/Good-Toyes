@@ -58,6 +58,7 @@ namespace GoodToyes.Controllers
         public async Task<IActionResult> DeleteCartItem(int id)
         {
             await _context.DeleteCartItem(id);
+
             return RedirectToAction("Index");
         }
 
