@@ -14,6 +14,7 @@ namespace GoodToyes.Models
     public class Payment
     {
         private IConfiguration _configuration;
+        private IConfiguration configuration;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ICart _cart;
@@ -26,6 +27,11 @@ namespace GoodToyes.Models
             _userManager = userManager;
             _signInManager = signInManager;
             _cart = cart;
+        }
+
+        public Payment(IConfiguration configuration)
+        {
+            this.configuration = configuration;
         }
 
         /// <summary>

@@ -68,6 +68,7 @@ namespace GoodToyes
             services.AddScoped<ICart, CartService>();
             services.AddScoped<IProduct, ProductManager>();
             services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<IOrder, OrderService>();
 
 
         }
