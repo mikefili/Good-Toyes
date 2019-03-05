@@ -56,6 +56,7 @@ namespace GoodToyes.Controllers
                     Birthdate = rvm.Birthdate,
                     StreetAddress = rvm.StreetAddress,
                     City = rvm.City,
+                    State = rvm.State,
                     Zip = rvm.Zip,
                     SpayedOrNeutered = rvm.SpayedOrNeutered
                 };
@@ -143,7 +144,7 @@ namespace GoodToyes.Controllers
                     var user = await _userManager.FindByEmailAsync(lvm.Email);
                     if (await _userManager.IsInRoleAsync(user, ApplicationRoles.Admin))
                     {
-                        return RedirectToPage("Index", "Admin");
+                        return RedirectToPage("/Admin");
                     }
                     return RedirectToAction("Index", "Home");
                 }
