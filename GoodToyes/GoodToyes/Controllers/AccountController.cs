@@ -82,11 +82,20 @@ namespace GoodToyes.Controllers
                     //returns list of claims to user manager
                     await _userManager.AddClaimsAsync(user, claims);
 
-                    //send user confirmation email
-
+                    //assign user to admin role if they qualify or member role otherwise
+                    if (user.Email == "noreply.goodtoyes@gmail.com" || user.Email == "amanda@codefellows.com")
+                    {
+                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
+                    }
 
                     //sends user to home page after sign in
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    //send user confirmation email
                     RegistrationEmail(user);
                     return RedirectToAction("Index", "Home");
                 }            
