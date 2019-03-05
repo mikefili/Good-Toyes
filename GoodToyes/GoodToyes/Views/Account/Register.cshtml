@@ -43,6 +43,58 @@
             </div>
 
             <div class="field">
+                <label asp-for="StreetAddress" class="label">Street Address</label>
+                <div class="control has-icons-left">
+                    <input asp-for="StreetAddress" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="far fa-address-card"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="StreetAddress"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="City" class="label">City</label>
+                <div class="control has-icons-left">
+                    <input asp-for="City" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-city"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="City"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="State" class="label">State</label>
+                <div class="control has-icons-left">
+                    <input asp-for="State" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-flag-usa"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="State"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="Zip" class="label">Zip Code</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Zip" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="fab fa-usps"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="Zip"></span>
+                </p>
+            </div>
+
+            <div class="field">
                 <label asp-for="Email" class="label">Email</label>
                 <div class="control has-icons-left">
                     <input asp-for="Email" class="input" type="email" placeholder="example@email.com" />
@@ -52,33 +104,6 @@
                 </div>
                 <p class="help is-danger">
                     <span asp-validation-for="Email"></span>
-                </p>
-            </div>
-            <div class="field">
-                <label asp-for="StreetAddress" class="label">Street Address</label>
-                <div class="control has-icons-left">
-                    <input asp-for="StreetAddress" class="input" />
-                </div>
-                <p class="help is-danger">
-                    <span asp-validation-for="StreetAddress"></span>
-                </p>
-            </div>
-            <div class="field">
-                <label asp-for="City" class="label">City</label>
-                <div class="control has-icons-left">
-                    <input asp-for="City" class="input" />
-                </div>
-                <p class="help is-danger">
-                    <span asp-validation-for="City"></span>
-                </p>
-            </div>
-            <div class="field">
-                <label asp-for="Zip" class="label">Zip Code</label>
-                <div class="control has-icons-left">
-                    <input asp-for="Zip" class="input" />
-                </div>
-                <p class="help is-danger">
-                    <span asp-validation-for="Zip"></span>
                 </p>
             </div>
 

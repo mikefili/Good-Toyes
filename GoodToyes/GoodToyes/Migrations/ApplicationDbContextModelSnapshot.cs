@@ -38,9 +38,11 @@ namespace GoodToyes.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -61,6 +63,8 @@ namespace GoodToyes.Migrations
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("SpayedOrNeutered");
+
+                    b.Property<string>("State");
 
                     b.Property<string>("StreetAddress");
 

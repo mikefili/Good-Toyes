@@ -45,6 +45,9 @@ namespace GoodToyes.ViewModels
         public string City { get; set; }
 
         [Required]
+        public string State { get; set; }
+
+        [Required]
         public string Zip { get; set; }
     }
 }
