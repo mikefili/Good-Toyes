@@ -125,6 +125,12 @@ namespace GoodToyes.Models
             return orders;
         }
 
+        public async Task<Order> GetOrder(int id)
+        {
+            var order = await _context.Orders.FindAsync(id);
+            return order;
+        }
+
         /// <summary>
         /// Updates an order
         /// </summary>

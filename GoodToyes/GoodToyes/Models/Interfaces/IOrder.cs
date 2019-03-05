@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GoodToyes.Models
 {
-    interface IOrder
+    public interface IOrder
     {
         //Creates a new order
         Task<Order> CreateOrder(ApplicationUser user, decimal grandTotal);
@@ -24,6 +24,8 @@ namespace GoodToyes.Models
 
         //gets a list of order items
         Task<List<OrderItem>> GetOrderItems(int id);
+
+        Task<Order> GetOrder(int id);
 
         //updates an order
         Task<Order> UpdateOrder(int id, Order order);
