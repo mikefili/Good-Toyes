@@ -14,7 +14,6 @@ namespace GoodToyes.Models
     public class Payment
     {
         private IConfiguration _configuration;
-        private IConfiguration configuration;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ICart _cart;
@@ -31,7 +30,7 @@ namespace GoodToyes.Models
 
         public Payment(IConfiguration configuration)
         {
-            this.configuration = configuration;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -41,13 +40,13 @@ namespace GoodToyes.Models
         /// <param name="User"></param>
         /// <param name="cart"></param>
         /// <returns>String</returns>
-        public string Run(string cardNumber, ApplicationUser User, Cart cart)
+        public string Run(string cardNumber, ApplicationUser user, Cart cart)
         {
             //sets the enviornment to sanbox
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;
 
             //Gets access requirment from user secrets
-            new merchantAuthenticationType()
+            ApiOperationBase<ANetApiRequest, ANetApiResponse>.MerchantAuthentication = new merchantAuthenticationType()
             {
                 name = _configuration["AuthNetAPILogin"],
 
@@ -66,7 +65,7 @@ namespace GoodToyes.Models
             };
 
             //gets the address
-            customerAddressType billingAddress = GetAddress(User);
+            customerAddressType billingAddress = GetAddress(user);
 
             //sets the payment type to credit card
             var paymentType = new paymentType { Item = creditCard };

@@ -172,6 +172,7 @@ namespace GoodToyes.Controllers
         /// </summary>
         /// <param name="cardNumber"></param>
         /// <returns>Receipt View</returns>
+        [HttpPost]
         public async Task<IActionResult> RunPayment(string cardNumber)
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
