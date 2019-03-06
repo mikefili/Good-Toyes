@@ -51,7 +51,7 @@
                                 $@item.Product.Price
                             </div>
                             <div class="column is-3 is-1-mobile">
-                                <input value="@item.Quantity" name="quantity" class="quantity-input input" />
+                                <input type="number" value="@item.Quantity" name="quantity" class="quantity-input input" min="1" max="10" />
                                 <button type="submit" class="button is-success pad-top-xs">Update</button>
                             </div>
                             <div class="column is-3 is-1-mobile">
