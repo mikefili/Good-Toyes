@@ -51,6 +51,7 @@ namespace GoodToyes.Controllers
             foreach(var item in cart.CartItems)
             {
                 cart.GrandTotal += item.Total;
+
                 item.Product = await _product.GetProduct(item.ProductID);
             }
 
@@ -90,6 +91,10 @@ namespace GoodToyes.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Shows totals and grand total and gives option to complete purchase
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> CheckOut()
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
@@ -115,7 +120,6 @@ namespace GoodToyes.Controllers
         // <returns>email</returns>
         public async Task<IActionResult> CheckoutReceipt()
         {
-            decimal grandTotal = 0;
 
             ApplicationUser user = await _userManager.GetUserAsync(User);
 
@@ -149,13 +153,13 @@ namespace GoodToyes.Controllers
 
             foreach (CartItem item in cart.CartItems)
             {
-                grandTotal += item.Total;
+                cart.GrandTotal += item.Total;
 
                 sb.AppendLine($"<h1>{item.Product.Name}</h1>");
                 sb.AppendLine($"<h2>Qty: {item.Quantity}</h2>");
                 sb.AppendLine($"<h2>Price: {item.Total}</h2>");
             }
-            sb.AppendLine($"<h1>Grand Totoal: {grandTotal}</h1>");
+            sb.AppendLine($"<h1>Grand Totoal: {cart.GrandTotal}</h1>");
 
             await _emailSender.SendEmailAsync(thisUser.Email, $"Order Confirmation", sb.ToString());
 
@@ -163,6 +167,11 @@ namespace GoodToyes.Controllers
             return View(cart);
         }
 
+        /// <summary>
+        /// Initiates the payment process and redirects to receipt email and page
+        /// </summary>
+        /// <param name="cardNumber"></param>
+        /// <returns>Receipt View</returns>
         public async Task<IActionResult> RunPayment(string cardNumber)
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
@@ -173,6 +182,12 @@ namespace GoodToyes.Controllers
 
 
             cart.CartItems = await _context.GetCartItems(cart.ID);
+
+            foreach (CartItem item in cart.CartItems)
+            {
+                cart.GrandTotal += item.Total;
+
+            }
             //Run Payment
             Payment payment = new Payment(Configuration);
 

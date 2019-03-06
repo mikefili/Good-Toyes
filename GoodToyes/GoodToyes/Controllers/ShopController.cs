@@ -67,6 +67,11 @@ namespace GoodToyes.Controllers
 
             var cart = await _cart.GetCart(user);
             var result = await _cart.CreateCartItem(cart, cartItem);
+            foreach (CartItem item in cart.CartItems)
+            {
+                cart.GrandTotal += item.Total;
+
+            }
             return Redirect(Url.RouteUrl(new { controller = "Shop", action = "Index" }) + "#productsline");
         }
     }
