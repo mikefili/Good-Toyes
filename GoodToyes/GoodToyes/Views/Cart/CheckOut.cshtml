@@ -59,13 +59,14 @@
         <hr />
     </div>
     <div>
-        <form>
+        <form method="post" asp-action="RunPayment">
             <select name="cardNumber" value="" class="dropdown">
                 <option value="370000000000002">370000000000002</option>
                 <option value="6011000000000012">6011000000000012</option>
                 <option value="4111111111111111">4111111111111111</option>
                 <option value="5424000000000015">5424000000000015</option>
             </select>
+            <button  class="button is-success is-large">SUBMIT</button>
         </form>
     </div>
     <div class="pads-xs">
@@ -73,6 +74,6 @@
     </div>
     <div class="buttons is-centered pad-bottom-m">
         <span class="pad-right-s is-size-3 is-size-5-mobile"><strong>Grand Total:</strong> <span class="has-text-success">@Model.GrandTotal</span></span>
-        <a asp-action="RunPayment" class="button is-success is-large">SUBMIT</a>
+        
     </div>
 </section>
