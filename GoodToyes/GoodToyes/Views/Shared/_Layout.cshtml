@@ -49,6 +49,15 @@
                     </span>
                     Shop
                 </a>
+                @if (User.IsInRole("Admin"))
+                {
+                <a href="~/Admin" class="navbar-item">
+                    <span class="icon is-large">
+                        <i class="fas fa-lg fa-user-cog"></i>
+                    </span>
+                    Admin
+                </a>
+                }
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
                         More
@@ -87,7 +96,8 @@
                 {
                     <div class="navbar-item">
                         <div class="buttons is-size-5">
-                            <p class="pad-right-xs">Hey, @User.Claims.First(c => c.Type == "FullName").Value! |</p>
+                            <p>Hey, @User.Claims.First(c => c.Type == "FullName").Value
+                            <span class="pad-left-xs pad-right-xs">|</span></p>
                             <a href="../Account/Logout" class="has-text-danger">
                                 Log out
                             </a>
