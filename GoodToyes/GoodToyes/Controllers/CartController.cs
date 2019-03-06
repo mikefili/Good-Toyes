@@ -50,6 +50,7 @@ namespace GoodToyes.Controllers
 
             foreach(var item in cart.CartItems)
             {
+                cart.GrandTotal += item.Total;
                 item.Product = await _product.GetProduct(item.ProductID);
             }
 

@@ -19,6 +19,22 @@ namespace GoodToyes.Models.ViewModels
         public string LastName { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        public DateTime Birthdate { get; set; }
+
+        [Required]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public string Zip { get; set; }
+
+        [Required]
         [Display(Name = "Is Your Pet Spayed or Neutered?")]
         public bool SpayedOrNeutered { get; set; }
     }
