@@ -11,15 +11,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css" rel="stylesheet" />
     <link href="~/Styles/Base.css" rel="stylesheet" />
     <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".navbar-burger").click(function () {
-                $(".navbar-burger").toggleClass("is-active");
-                $(".navbar-menu").toggleClass("is-active");
-            });
-        });
-    </script>
 </head>
 <body>
     <nav class="navbar is-gradient box-shadow" role="navigation" aria-label="main navigation">
@@ -51,12 +42,12 @@
                 </a>
                 @if (User.IsInRole("Admin"))
                 {
-                <a href="~/Admin" class="navbar-item">
-                    <span class="icon is-large">
-                        <i class="fas fa-lg fa-user-cog"></i>
-                    </span>
-                    Admin
-                </a>
+                    <a href="~/Admin" class="navbar-item">
+                        <span class="icon is-large">
+                            <i class="fas fa-lg fa-user-cog"></i>
+                        </span>
+                        Admin
+                    </a>
                 }
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
@@ -96,8 +87,10 @@
                 {
                     <div class="navbar-item">
                         <div class="buttons is-size-5">
-                            <p>Hey, @User.Claims.First(c => c.Type == "FullName").Value
-                            <span class="pad-left-xs pad-right-xs">|</span></p>
+                            <p>
+                                Hey, @User.Claims.First(c => c.Type == "FullName").Value
+                                <span class="pad-left-xs pad-right-xs">|</span>
+                            </p>
                             <a href="../Account/Logout" class="has-text-danger">
                                 Log out
                             </a>
@@ -130,5 +123,7 @@
             </p>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Scripts/Scripts.js"></script>
 </body>
 </html>
