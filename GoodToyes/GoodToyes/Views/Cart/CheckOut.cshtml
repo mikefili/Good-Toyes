@@ -8,7 +8,7 @@
     <div class="pads-xs">
         <article class="media">
             <div class="media-content hide-overflow pad-top-s">
-                <div class="content">
+                <div class="content pad-left-s">
                     <div class="columns is-size-4 is-size-6-mobile is-mobile">
                         <div class="column is-3 is-2-mobile">
                             <strong>Product</strong>
@@ -19,7 +19,7 @@
                         <div class="column is-2">
                             <strong>Quantity</strong>
                         </div>
-                        <div class="column is-2 has-text-right">
+                        <div class="column has-text-right">
                             <strong>Total</strong>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
         {
             <article class="media">
                 <div class="media-content hide-overflow">
-                    <div class="content">
+                    <div class="content pad-left-s">
                         <form asp-action="UpdateCartItem" asp-route-id="@item.ID">
                             <div class="columns is-mobile">
                                 <div class="column pad-top-s is-3 is-2-mobile">
@@ -43,7 +43,7 @@
                                 <div class="column is-2">
                                     @item.Quantity
                                 </div>
-                                <div class="column is-2 has-text-right">
+                                <div class="column has-text-right">
                                     <span class="is-pushed-right">(@item.Product.Price x @item.Quantity) = <strong class="has-text-success">$@item.Total</strong></span>
                                 </div>
                             </div>
@@ -58,21 +58,29 @@
     <div class="pads-xs">
         <hr />
     </div>
-    <div>
-        <form>
-            <select name="cardNumber" value="" class="dropdown">
-                <option value="370000000000002">370000000000002</option>
-                <option value="6011000000000012">6011000000000012</option>
-                <option value="4111111111111111">4111111111111111</option>
-                <option value="5424000000000015">5424000000000015</option>
-            </select>
+    <div class="center">
+        <form method="post">
+            <div class="pads-s">
+                <div class="columns is-centered">
+                    <div class="column is-narrow">
+                        <label class="label">Payment Method</label>
+                        <select name="cardNumber" value="" class="dropdown-content">
+                            <option value="370000000000002" class="dropdown-item">370000000000002</option>
+                            <option value="6011000000000012" class="dropdown-item">6011000000000012</option>
+                            <option value="4111111111111111" class="dropdown-item">4111111111111111</option>
+                            <option value="5424000000000015" class="dropdown-item">5424000000000015</option>
+                        </select>
+                    </div>
+                    <div class="column is-narrow">
+                        <label class="label">Expiration Date</label>
+                        <input type="month" min="2020-01" max="2030-12" class="input exp-input" />
+                    </div>
+                </div>
+            </div>
+            <div class="buttons is-centered pad-bottom-m">
+                <span class="pad-right-s is-size-3 is-size-5-mobile"><strong>Grand Total:</strong> <span class="has-text-success">@Model.GrandTotal</span></span>
+                <a asp-action="RunPayment" class="button is-success is-large">SUBMIT</a>
+            </div>
         </form>
-    </div>
-    <div class="pads-xs">
-        <hr />
-    </div>
-    <div class="buttons is-centered pad-bottom-m">
-        <span class="pad-right-s is-size-3 is-size-5-mobile"><strong>Grand Total:</strong> <span class="has-text-success">@Model.GrandTotal</span></span>
-        <a asp-action="RunPayment" class="button is-success is-large">SUBMIT</a>
     </div>
 </section>

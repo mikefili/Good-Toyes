@@ -130,6 +130,10 @@ nav {
     width: 4rem;
 }
 
+.exp-input {
+    width: 12rem;
+}
+
 .hide-overflow {
     overflow: hidden;
 }
