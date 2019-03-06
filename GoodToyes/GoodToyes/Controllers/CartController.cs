@@ -94,7 +94,7 @@ namespace GoodToyes.Controllers
         // Checkout
         // </summary>
         // <returns>email</returns>
-        public async Task<IActionResult> CheckoutReceipt(string cardNumber)
+        public async Task<IActionResult> CheckoutReceipt()
         {
             decimal grandTotal = 0;
 
@@ -120,11 +120,6 @@ namespace GoodToyes.Controllers
             newOrder.OrderItems = await _order.GetOrderItems(newOrder.ID);
 
 
-            //Run Payment
-            Payment payment = new Payment(Configuration);
-
-            payment.Run(cardNumber, user, cart);
-
             //email receipt
             ApplicationUser thisUser = await _userManager.FindByEmailAsync(user.Email);
 
@@ -147,6 +142,26 @@ namespace GoodToyes.Controllers
 
             //return to cart
             return View(cart);
+        }
+
+        public async Task<IActionResult> RunPayment(string cardNumber)
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+
+            string userId = _userManager.GetUserId(User);
+
+            Cart cart = await _context.GetCart(userId);
+
+
+            cart.CartItems = await _context.GetCartItems(cart.ID);
+            //Run Payment
+            Payment payment = new Payment(Configuration);
+
+            payment.Run(cardNumber, user, cart);
+
+            await CheckoutReceipt();
+
+            return View("CheckoutReceipt");
         }
 
         /// <summary>
