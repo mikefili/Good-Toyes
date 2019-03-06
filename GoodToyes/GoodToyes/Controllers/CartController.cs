@@ -89,7 +89,25 @@ namespace GoodToyes.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> CheckOut()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
 
+            string userId = _userManager.GetUserId(User);
+
+            Cart cart = await _context.GetCart(userId);
+
+
+            cart.CartItems = await _context.GetCartItems(cart.ID);
+
+            foreach (CartItem item in cart.CartItems)
+            {
+                cart.GrandTotal += item.Total;
+                
+            }
+       
+            return View(cart);
+        }
         // <summary>
         // Checkout
         // </summary>
