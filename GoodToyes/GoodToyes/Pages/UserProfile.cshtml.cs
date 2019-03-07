@@ -18,6 +18,21 @@ namespace GoodToyes.Pages
         private SignInManager<ApplicationUser> _signInManager;
         private GoodToyesDbContext _context;
 
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime Birthdate { get; set; }
+        public string StreetAddress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public bool SpayedOrNeutered { get; set; }
+
+        /// <summary>
+        /// Constructor takes in all necessary context of user profile
+        /// </summary>
+        /// <param name="context">Database context</param>
+        /// <param name="signInManager">Sign in manager interface</param>
+        /// <param name="userManager">User manager interface</param>
         public UserProfileModel(GoodToyesDbContext context, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
@@ -25,8 +40,22 @@ namespace GoodToyes.Pages
             _context = context;
         }
 
-        public void OnGet()
+        /// <summary>
+        /// Get user information using UserManager interface
+        /// </summary>
+        /// <returns>Brings all user info in for use</returns>
+        public async Task OnGet()
         {
+            var user = await _userManager.GetUserAsync(User);
+
+            FirstName = user.FirstName;
+            LastName = user.LastName;
+            Birthdate = user.Birthdate;
+            StreetAddress = user.StreetAddress;
+            City = user.City;
+            State = user.State;
+            Zip = user.Zip;
+            SpayedOrNeutered = user.SpayedOrNeutered;
         }
     }
 }
