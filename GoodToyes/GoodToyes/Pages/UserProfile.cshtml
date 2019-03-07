@@ -1,6 +1,149 @@
 ﻿@page
 @model GoodToyes.Pages.UserProfileModel
 @{
-
+    Layout = "_Layout";
 }
-<h1>User Profile</h1>
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-size-1">
+                User Profile
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section class="pads-xs">
+    <div class="container">
+        <div class="field">
+            <label asp-for="Email" class="label">Email</label>
+            <span>@Model.Email</span>
+        </div>
+        <form method="post" asp-page-handler="Update" asp-route-id="@Model">
+            <div class="field">
+                <label asp-for="FirstName" class="label">First Name</label>
+                <div class="control">
+                    <input asp-for="FirstName" class="input" type="text" placeholder="eg. Dog" />
+                </div>
+                <span asp-validation-for="FirstName" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="LastName" class="label">Last Name</label>
+                <div class="control">
+                    <input asp-for="LastName" class="input" type="text" placeholder="eg. Lover" />
+                </div>
+                <span asp-validation-for="LastName" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="Birthdate" class="label">Birthday</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Birthdate" class="input" type="date" />
+                    <span class="icon is-small is-left">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+                <span asp-validation-for="Birthdate" class="is-danger"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="StreetAddress" class="label">Street Address</label>
+                <div class="control has-icons-left">
+                    <input asp-for="StreetAddress" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="far fa-address-card"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="StreetAddress"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="City" class="label">City</label>
+                <div class="control has-icons-left">
+                    <input asp-for="City" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-city"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="City"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="State" class="label">State</label>
+                <div class="control has-icons-left">
+                    <input asp-for="State" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-flag-usa"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="State"></span>
+                </p>
+            </div>
+
+            <div class="field">
+                <label asp-for="Zip" class="label">Zip Code</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Zip" class="input" />
+                    <span class="icon is-small is-left">
+                        <i class="fab fa-usps"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="Zip"></span>
+                </p>
+            </div>
+
+            @*<div class="field">
+                <label asp-for="Password" class="label">Password</label>
+                <div class="control has-icons-left">
+                    <input asp-for="Password" class="input" type="password" placeholder="Pick a strong password" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="Password"></span>
+                </p>
+            </div>*@
+
+            @*<div class="field">
+                <label asp-for="ConfirmPassword" class="label">Confirm Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input asp-for="ConfirmPassword" class="input" type="password" placeholder="Confirm password" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </p>
+            </div>*@
+
+            <div class="field">
+                <label class="label has-text-success">Special Deals</label>
+                <div class="control">
+                    <label asp-for="SpayedOrNeutered" class="checkbox">
+                        <input asp-for="SpayedOrNeutered" type="checkbox">
+                        <span class="">
+                            Is your pup spayed or neutered?
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="buttons is-centered">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-success is-focused" type="submit">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
