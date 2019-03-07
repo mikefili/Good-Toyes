@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GoodToyes.Models
+namespace GoodToyes.Models.Interfaces
 {
     public interface IOrder
     {
@@ -32,5 +32,8 @@ namespace GoodToyes.Models
 
         //updates an order item
         Task<OrderItem> UpdateOrderItem(int id, OrderItem product);
+
+        //Get 10 orders
+        Task<List<Order>> GetOrders();
     }
 }

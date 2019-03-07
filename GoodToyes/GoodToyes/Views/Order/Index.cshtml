@@ -1,0 +1,26 @@
+﻿@model GoodToyes.Models.Order
+
+@using GoodToyes.Models.Interfaces
+
+@inject IOrder OrderService
+@{
+    Layout = "_Layout";
+    var orders = await OrderService.GetOrders();
+}
+@if (Model != null)
+{
+    <div class="cart-vc">
+        <h1 class="pad-bottom-xs is-size-6"></h1>
+        <div class="pad-bottom-xs scrollable">
+            @foreach (var order in orders) {
+
+            <div class="">
+            <p>@order.OrderDate</p>
+            <p>@order.GrandTotal</p>
+            <p>@order.OrderItems</p>
+            </div>
+            }
+        </div>
+        <
+    </div>
+}

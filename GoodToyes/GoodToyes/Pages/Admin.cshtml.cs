@@ -33,8 +33,16 @@ namespace GoodToyes.Pages
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
-        public async Task OnPostCreateProduct(Product product)
+        public async Task OnPostCreateProduct(string url, decimal price, string name)
         {
+            Product product = new Product();
+
+            product.Name = name;
+
+            product.Price = price;
+
+            product.Image = url;
+
             await _product.CreateProduct(product);
         }
 
@@ -56,7 +64,10 @@ namespace GoodToyes.Pages
             await _product.UpdateProduct(product);
         }
 
-
+        public IActionResult OnPostTenOrders()
+        {
+            return RedirectToAction("~/Order");
+        }
         public void OnGet()
         {
         }

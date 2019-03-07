@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GoodToyes.Models.Interfaces;
 
-namespace GoodToyes.Models
+namespace GoodToyes.Models.Services
 {
     public class OrderService : IOrder
     {
@@ -167,6 +168,17 @@ namespace GoodToyes.Models
             await _context.SaveChangesAsync();
 
             return product;
+        }
+
+        public async Task<List<Order>> GetOrders()
+        {
+            var orders = await _context.Orders.OrderByDescending(o => o.ID).Take(10).ToListAsync();
+
+            foreach (var order in orders)
+            {
+                order.OrderItems = await _context.OrderItems.Where(p => p.OrderID == order.ID).ToListAsync();
+            }
+            return orders;
         }
     }
 }

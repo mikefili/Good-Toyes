@@ -6,13 +6,18 @@
     Layout = "_Layout";
     var products = await ProductManager.GetProducts();
 }
+<form method="post" asp-page-handler="TenOrders">
+<button type="submit">View Last 10 Orders</button>
+</form>
 <h1>Admin Page</h1>
 <h2>Add New Product</h2>
-<form>
-    <input />
-
-    <input />
-    <input />
+<form method="post" asp-page-handler="CreateProduct">
+    <label>Product Image URL</label>
+    <input name="url" />
+    <label>Product Name</label>
+    <input name="name" />
+    <label>Product Price</label>
+    <input name="price" />
     <button type="submit">Add Product</button>
 </form>
 
