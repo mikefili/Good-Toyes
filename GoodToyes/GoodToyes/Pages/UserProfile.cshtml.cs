@@ -51,16 +51,17 @@ namespace GoodToyes.Pages
         /// <param name="state">User input for city property</param>
         /// <param name="zip">User input for zip code property</param>
         /// <returns>Update task which updates the user's profile</returns>
-        public async Task OnPostUpdate(string firstName, string lastName, string streetAddress, string city, string state, string zip)
+        public async Task OnPostUpdate(string firstName, string lastName, DateTime birthDate, string streetAddress, string city, string state, string zip)
         {
             var user = await _userManager.GetUserAsync(User);
 
-            firstName = user.FirstName;
-            lastName = user.LastName;
-            streetAddress = user.StreetAddress;
-            city = user.City;
-            state = user.State;
-            zip = user.Zip;
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Birthdate = birthDate;
+            user.StreetAddress = streetAddress;
+            user.City = city;
+            user.State = state;
+            user.Zip = zip;
 
             await _userManager.UpdateAsync(user);
         }

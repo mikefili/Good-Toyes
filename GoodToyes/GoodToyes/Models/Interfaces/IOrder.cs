@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GoodToyes.Models
+namespace GoodToyes.Models.Interfaces
 {
     public interface IOrder
     {
@@ -20,7 +20,7 @@ namespace GoodToyes.Models
         Task DeleteOrderItem(int id);
 
         //get a list of orders
-        Task<List<Order>> GetTenOrders(string userID);
+        Task<List<Order>> GetFiveOrders(string userID);
 
         //gets a list of order items
         Task<List<OrderItem>> GetOrderItems(int id);
