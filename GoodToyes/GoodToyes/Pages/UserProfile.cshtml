@@ -1,7 +1,10 @@
 ﻿@page
 @model GoodToyes.Pages.UserProfileModel
+@using GoodToyes.Models.Interfaces
+@inject IOrder OrderService
 @{
     Layout = "_Layout";
+    var orders = await OrderService.GetFiveOrders();
 }
 <section class="hero is-small">
     <div class="hero-body">
@@ -147,3 +150,4 @@
         </form>
     </div>
 </section>
+
