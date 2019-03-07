@@ -72,7 +72,7 @@ namespace GoodToyes.Models
 
             var transactionRequest = new transactionRequestType
             {
-                transactionType = transactionTypeEnum.authCaptureContinueTransaction.ToString(),
+                transactionType = transactionTypeEnum.authCaptureTransaction.ToString(),
                 amount = cart.GrandTotal,
                 payment = paymentType,
                 billTo = billingAddress,
@@ -95,7 +95,7 @@ namespace GoodToyes.Models
             {
                 if(response.messages.resultCode == messageTypeEnum.Ok)
                 {
-                    if(response.transactionResponse != null)
+                    if(response.transactionResponse.messages != null)
                     {
                         return "Okay";
                     }

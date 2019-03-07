@@ -7,20 +7,23 @@
     Layout = "_Layout";
     var orders = await OrderService.GetOrders();
 }
-@if (Model != null)
-{
-    <div class="cart-vc">
-        <h1 class="pad-bottom-xs is-size-6"></h1>
-        <div class="pad-bottom-xs scrollable">
+
+    
+        
             @foreach (var order in orders) {
 
-            <div class="">
+            <div>
+                <label>Order Date</label>
             <p>@order.OrderDate</p>
+                <label>Grand Total</label>
             <p>@order.GrandTotal</p>
-            <p>@order.OrderItems</p>
+                @foreach(var item in order.OrderItems)
+                {
+                    <label>Product ID</label>
+                    <p>@item.Quantity</p>
+                }
             </div>
             }
-        </div>
-        <
-    </div>
-}
+       
+   
+

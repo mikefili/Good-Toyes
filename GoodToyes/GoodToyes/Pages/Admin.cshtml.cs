@@ -66,7 +66,7 @@ namespace GoodToyes.Pages
 
         public IActionResult OnPostTenOrders()
         {
-            return RedirectToAction("~/Order");
+            return RedirectToAction("Index", "Order");
         }
         public void OnGet()
         {
