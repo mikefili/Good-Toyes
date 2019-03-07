@@ -114,15 +114,11 @@ namespace GoodToyes.Models
         /// <summary>
         /// Gets last 5 orders
         /// </summary>
-        /// <returns>list of 10 orders</returns>
+        /// <returns>list of 5 orders</returns>
         public async Task<List<Order>> GetFiveOrders(string userID)
         {
             var orders = await _context.Orders.Where(i => i.UserID == userID).OrderByDescending(o => o.ID).Take(5).ToListAsync();
 
-            foreach (var order in orders)
-            {
-                order.OrderItems = await _context.OrderItems.Where(p => p.OrderID == order.ID).ToListAsync();
-            }
             return orders;
         }
 

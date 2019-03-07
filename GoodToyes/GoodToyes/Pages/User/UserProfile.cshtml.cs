@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace GoodToyes.Pages
 {
-    [Authorize]
     public class UserProfileModel : PageModel
     {
         private UserManager<ApplicationUser> _userManager;
