@@ -1,0 +1,12 @@
+﻿@page
+@model GoodToyes.Pages.User.OrderHistoryModel
+@{
+    Layout = "_Layout";
+}
+@foreach (var order in Model.Orders)
+{
+    <p>@order.UserID</p>
+    <p>@order.OrderDate</p>
+    <p>@order.OrderItems</p>
+    <p>@order.GrandTotal</p>
+}

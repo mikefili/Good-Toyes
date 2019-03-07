@@ -1,12 +1,12 @@
 ﻿using GoodToyes.Data;
+using GoodToyes.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GoodToyes.Models.Interfaces;
 
-namespace GoodToyes.Models.Services
+namespace GoodToyes.Models
 {
     public class OrderService : IOrder
     {
@@ -112,17 +112,13 @@ namespace GoodToyes.Models.Services
         }
 
         /// <summary>
-        /// Gets last 10 orders
+        /// Gets last 5 orders
         /// </summary>
-        /// <returns>list of 10 orders</returns>
-        public async Task<List<Order>> GetTenOrders(string userID)
+        /// <returns>list of 5 orders</returns>
+        public async Task<List<Order>> GetFiveOrders(string userID)
         {
-            var orders = await _context.Orders.Where(i => i.UserID == userID).OrderByDescending(o => o.ID).Take(10).ToListAsync();
+            var orders = await _context.Orders.Where(i => i.UserID == userID).OrderByDescending(o => o.ID).Take(5).ToListAsync();
 
-            foreach (var order in orders)
-            {
-                order.OrderItems = await _context.OrderItems.Where(p => p.OrderID == order.ID).ToListAsync();
-            }
             return orders;
         }
 
@@ -168,17 +164,6 @@ namespace GoodToyes.Models.Services
             await _context.SaveChangesAsync();
 
             return product;
-        }
-
-        public async Task<List<Order>> GetOrders()
-        {
-            var orders = await _context.Orders.OrderByDescending(o => o.ID).Take(10).ToListAsync();
-
-            foreach (var order in orders)
-            {
-                order.OrderItems = await _context.OrderItems.Where(p => p.OrderID == order.ID).ToListAsync();
-            }
-            return orders;
         }
     }
 }
