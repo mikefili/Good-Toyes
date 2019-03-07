@@ -97,7 +97,7 @@ namespace GoodToyes.Controllers
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
                     //send user confirmation email
-                    RegistrationEmail(user);
+                    await RegistrationEmail(user);
                     return RedirectToAction("Index", "Home");
                 }            
             }
@@ -108,7 +108,7 @@ namespace GoodToyes.Controllers
         /// Sends registration confirmation email to user
         /// </summary>
         /// <param name="user">User registering</param>
-        public async void RegistrationEmail(ApplicationUser user)
+        public async Task RegistrationEmail(ApplicationUser user)
         {
             ApplicationUser thisUser = await _userManager.FindByEmailAsync(user.Email);
 
@@ -262,6 +262,9 @@ namespace GoodToyes.Controllers
 
                         //returns list of claims to user manager
                         await _userManager.AddClaimsAsync(user, claims);
+
+                        // send user registration email
+                        await RegistrationEmail(user);
 
                         // Sign in user with info from provider
                         await _signInManager.SignInAsync(user, isPersistent: false);
