@@ -26,6 +26,7 @@ namespace GoodToyes.Pages
         public string State { get; set; }
         public string Zip { get; set; }
         public bool SpayedOrNeutered { get; set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// Constructor takes in all necessary context of user profile
@@ -41,6 +42,30 @@ namespace GoodToyes.Pages
         }
 
         /// <summary>
+        /// Updates specific user info fields
+        /// </summary>
+        /// <param name="firstName">User input for first name property</param>
+        /// <param name="lastName">User input for last name property</param>
+        /// <param name="streetAddress">User input for street address property</param>
+        /// <param name="city">User input for city property</param>
+        /// <param name="state">User input for city property</param>
+        /// <param name="zip">User input for zip code property</param>
+        /// <returns>Update task which updates the user's profile</returns>
+        public async Task OnPostUpdate(string firstName, string lastName, string streetAddress, string city, string state, string zip)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            firstName = user.FirstName;
+            lastName = user.LastName;
+            streetAddress = user.StreetAddress;
+            city = user.City;
+            state = user.State;
+            zip = user.Zip;
+
+            await _userManager.UpdateAsync(user);
+        }
+
+        /// <summary>
         /// Get user information using UserManager interface
         /// </summary>
         /// <returns>Brings all user info in for use</returns>
@@ -50,6 +75,7 @@ namespace GoodToyes.Pages
 
             FirstName = user.FirstName;
             LastName = user.LastName;
+            Email = user.Email;
             Birthdate = user.Birthdate;
             StreetAddress = user.StreetAddress;
             City = user.City;
