@@ -19,20 +19,21 @@
 <div class="product-container">
     @foreach (var product in products)
     {
-        <form method="post" asp-route="@product.ID">
+    <form method="post" asp-page-handler="UpdateProduct" asp-route-id="@product.ID">
 
 
-            <img src="@product.Image" class="product-img" />
-            <label>Product Image URL</label>
-            <input value="@product.Image" />
-            <label>Product Name</label>
-            <input value="@product.Name" />
-            <label>Product Price</label>
-            <input value="@product.Price" />
+        <img src="@product.Image" class="product-img" />
+        <label>Product Image URL</label>
+        <input name="url" value="@product.Image" />
+        <label>Product Name</label>
+        <input name="name" value="@product.Name" />
+        <label>Product Price</label>
+        <input name="price" value="@product.Price" />
 
-            <button type="submit" asp-page-handler="UpdateProduct">Update</button>
-            <button type="submit" asp-page-handler="Delete">Delete</button>
+        <button type="submit">Update</button>
 
-        </form>
+        <button method="post" asp-route-id="@product.ID" asp-page-handler="Delete">Delete</button>
+    </form>
+        
     }
 </div>

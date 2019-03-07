@@ -43,8 +43,16 @@ namespace GoodToyes.Pages
         /// </summary>
         /// <param name="product"></param>
         /// <returns>updated product</returns>
-        public async Task OnPostUpdateProduct(Product product)
+        public async Task OnPostUpdateProduct(int id, string url, decimal price, string name)
         {
+            var product = await _product.GetProduct(id);
+
+            product.Name = name;
+
+            product.Price = price;
+
+            product.Image = url;
+
             await _product.UpdateProduct(product);
         }
 
