@@ -32,5 +32,8 @@ namespace GoodToyes.Models.Interfaces
 
         //updates an order item
         Task<OrderItem> UpdateOrderItem(int id, OrderItem product);
+
+        //Get 10 orders
+        Task<List<Order>> GetOrders();
     }
 }
