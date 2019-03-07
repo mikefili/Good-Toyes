@@ -130,7 +130,7 @@ namespace GoodToyes.Controllers
 
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
-            Order newOrder = await _order.CreateOrder(user, cart.GrandTotal);
+            Models.Order newOrder = await _order.CreateOrder(user, cart.GrandTotal);
 
             foreach (CartItem item in cart.CartItems)
             {
