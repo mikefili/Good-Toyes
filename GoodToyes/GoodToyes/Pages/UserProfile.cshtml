@@ -4,7 +4,7 @@
 @inject IOrder OrderService
 @{
     Layout = "_Layout";
-    var orders = await OrderService.GetFiveOrders();
+    //var orders = await OrderService.GetFiveOrders();
 }
 <section class="hero is-small">
     <div class="hero-body">
@@ -22,7 +22,7 @@
             <label asp-for="Email" class="label">Email</label>
             <span>@Model.Email</span>
         </div>
-        <form method="post" asp-page-handler="Update" asp-route-id="@Model">
+        <form method="post" asp-page-handler="Update" asp-route-id="">
             <div class="field">
                 <label asp-for="FirstName" class="label">First Name</label>
                 <div class="control">
