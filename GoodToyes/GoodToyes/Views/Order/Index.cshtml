@@ -12,17 +12,17 @@
         
             @foreach (var order in orders) {
 
-            <div>
-                <label>Order Date</label>
-            <p>@order.OrderDate</p>
-                <label>Grand Total</label>
-            <p>@order.GrandTotal</p>
-                @foreach(var item in order.OrderItems)
-                {
-                    <label>Product ID</label>
-                    <p>@item.Quantity</p>
-                }
-            </div>
+<div>
+    <label>User Name</label>
+    <p>@order.UserName</p>
+
+    <label>Order Date</label>
+    <p>@order.OrderDate</p>
+
+    <label>Grand Total</label>
+    <p>@order.GrandTotal</p>
+
+</div>
             }
        
    

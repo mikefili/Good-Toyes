@@ -27,6 +27,8 @@ namespace GoodToyes.Models.Services
         {
             Order newOrder = new Order
             {
+                UserName = $"{user.FirstName} {user.LastName}",
+
                 UserID = user.Id,
 
                 GrandTotal = grandTotal,
