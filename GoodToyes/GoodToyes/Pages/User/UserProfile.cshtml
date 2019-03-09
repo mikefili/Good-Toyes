@@ -19,6 +19,11 @@
             <label asp-for="Email" class="label">Email</label>
             <span>@Model.Email</span>
         </div>
+
+        <div class="field">
+            <a href="~/User/UpdatePassword">Update Password</a>
+        </div>
+
         <form method="post" asp-page-handler="Update" asp-route-id="">
             <div class="field">
                 <label asp-for="FirstName" class="label">First Name</label>
