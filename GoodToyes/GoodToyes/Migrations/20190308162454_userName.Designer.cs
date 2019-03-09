@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodToyes.Migrations
 {
-    [DbContext(typeof(GoodToyesDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20190308162454_userName")]
     partial class userName
     {

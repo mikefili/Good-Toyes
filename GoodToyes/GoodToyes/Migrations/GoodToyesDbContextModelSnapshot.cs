@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodToyes.Migrations
 {
-    [DbContext(typeof(GoodToyesDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class GoodToyesDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
