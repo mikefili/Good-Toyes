@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GoodToyes.Models
+namespace GoodToyes.Models.Interfaces
 {
     public class OrderService : IOrder
     {
@@ -164,6 +164,11 @@ namespace GoodToyes.Models
             await _context.SaveChangesAsync();
 
             return product;
+        }
+
+        public Task<List<Order>> GetOrders()
+        {
+            throw new NotImplementedException();
         }
     }
 }

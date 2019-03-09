@@ -1,7 +1,5 @@
 ﻿@page
 @model GoodToyes.Pages.UserProfileModel
-@using GoodToyes.Models.Interfaces
-@inject IOrder OrderService
 @{
     Layout = "_Layout";
 }
@@ -21,6 +19,11 @@
             <label asp-for="Email" class="label">Email</label>
             <span>@Model.Email</span>
         </div>
+
+        <div class="field">
+            <a href="~/User/UpdatePassword">Update Password</a>
+        </div>
+
         <form method="post" asp-page-handler="Update" asp-route-id="">
             <div class="field">
                 <label asp-for="FirstName" class="label">First Name</label>
@@ -100,32 +103,6 @@
                     <span asp-validation-for="Zip"></span>
                 </p>
             </div>
-
-            @*<div class="field">
-                <label asp-for="Password" class="label">Password</label>
-                <div class="control has-icons-left">
-                    <input asp-for="Password" class="input" type="password" placeholder="Pick a strong password" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-key"></i>
-                    </span>
-                </div>
-                <p class="help is-danger">
-                    <span asp-validation-for="Password"></span>
-                </p>
-            </div>*@
-
-            @*<div class="field">
-                <label asp-for="ConfirmPassword" class="label">Confirm Password</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input asp-for="ConfirmPassword" class="input" type="password" placeholder="Confirm password" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-check-circle"></i>
-                    </span>
-                </div>
-                <p class="help is-danger">
-                    <span asp-validation-for="ConfirmPassword"></span>
-                </p>
-            </div>*@
 
             <div class="field">
                 <label class="label has-text-success">Special Deals</label>
