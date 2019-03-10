@@ -10,10 +10,10 @@ namespace GoodToyes.Controllers
     /// <summary>
     /// only accessible for spayed or neutered
     /// </summary>
-    [Authorize(Policy = "spayOrNeuter")]
+    
     public class PolicyController : Controller
     {
-        [Authorize]
+        [Authorize(Policy = "spayOrNeuter")]
         public IActionResult Index()
         {
             return View();

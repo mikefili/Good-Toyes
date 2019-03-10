@@ -28,6 +28,10 @@ namespace GoodToyes.Pages.User
             _orderService = orderService;
         }
 
+        /// <summary>
+        /// Gets that last 5 orders that a user made
+        /// </summary>
+        /// <returns>A list of orders</returns>
         public async Task OnGet()
         {
             var user = await _userManager.GetUserAsync(User);

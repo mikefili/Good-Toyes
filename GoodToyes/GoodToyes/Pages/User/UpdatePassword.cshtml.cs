@@ -38,6 +38,10 @@ namespace GoodToyes.Pages.User
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        /// Updates the password
+        /// </summary>
+        /// <returns></returns>
         public async Task OnPostPassword()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -48,6 +52,10 @@ namespace GoodToyes.Pages.User
             } 
         }
 
+        /// <summary>
+        /// Takes user to their dashboard
+        /// </summary>
+        /// <returns>A user</returns>
         public async Task OnGet()
         {
             var user = await _userManager.GetUserAsync(User);

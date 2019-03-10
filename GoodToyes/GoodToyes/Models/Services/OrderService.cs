@@ -170,6 +170,10 @@ namespace GoodToyes.Models.Interfaces
             return product;
         }
 
+        /// <summary>
+        /// Get last 10 orders and sends to view
+        /// </summary>
+        /// <returns>list of orders</returns>
          public async Task<List<Order>> GetOrders()
         {
             var orders = await _context.Orders.OrderByDescending(o => o.ID).Take(10).ToListAsync();

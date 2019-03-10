@@ -66,6 +66,10 @@ namespace GoodToyes.Pages
             await _product.UpdateProduct(product);
         }
 
+        /// <summary>
+        /// Redirects to page that displays last 10 orders
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult OnPostTenOrders()
         {
             return RedirectToAction("Index", "Order");
