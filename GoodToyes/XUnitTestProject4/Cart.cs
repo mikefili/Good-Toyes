@@ -22,6 +22,18 @@ namespace XUnitTestProject2
         }
 
         [Fact]
+        public void CartGetWorksAgain()
+        {
+            //arrange
+            GoodToyes.Models.Cart cart = new GoodToyes.Models.Cart();
+            cart.GrandTotal = 5;
+            cart.ID = 1;
+
+            //Assert
+            Assert.Equal(1, cart.ID);
+        }
+
+        [Fact]
         public void CartSetWorks()
         {
             //arrange
@@ -31,6 +43,19 @@ namespace XUnitTestProject2
             cart.GrandTotal = 6;
             //Assert
             Assert.Equal(6, cart.GrandTotal);
+        }
+
+        [Fact]
+        public void CartSetWorksAgain()
+        {
+            //arrange
+            GoodToyes.Models.Cart cart = new GoodToyes.Models.Cart();
+            cart.GrandTotal = 5;
+            cart.ID = 1;
+
+            cart.ID = 2;
+            //Assert
+            Assert.Equal(2, cart.ID);
         }
 
         [Fact]
@@ -45,6 +70,18 @@ namespace XUnitTestProject2
         }
 
         [Fact]
+        public void CartItemGetWorksAgain()
+        {
+            //arrange
+            GoodToyes.Models.CartItem cartItem = new GoodToyes.Models.CartItem();
+            cartItem.CartID = 1;
+            cartItem.ID = 2;
+
+            //Assert
+            Assert.Equal(2, cartItem.ID);
+        }
+
+        [Fact]
         public void CartItemSetWorks()
         {
             //arrange
@@ -54,6 +91,19 @@ namespace XUnitTestProject2
             cartItem.CartID = 2;
             //Assert
             Assert.Equal(2, cartItem.CartID);
+        }
+
+        [Fact]
+        public void CartItemSetWorksAgain()
+        {
+            //arrange
+            GoodToyes.Models.CartItem cartItem = new GoodToyes.Models.CartItem();
+            cartItem.CartID = 1;
+            cartItem.ID = 2;
+
+            cartItem.ID = 3;
+            //Assert
+            Assert.Equal(3, cartItem.ID);
         }
 
 

@@ -11,9 +11,11 @@ using System.Threading.Tasks;
 using GoodToyes.Models.ViewModels;
 using GoodToyes.ViewModels;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GoodToyes.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly IProduct _product;
