@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodToyes.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190305205007_initial")]
-    partial class initial
+    [Migration("20190308162454_userName")]
+    partial class userName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,8 @@ namespace GoodToyes.Migrations
                     b.Property<DateTime>("OrderDate");
 
                     b.Property<string>("UserID");
+
+                    b.Property<string>("UserName");
 
                     b.HasKey("ID");
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodToyes.Migrations
 {
-    [DbContext(typeof(GoodToyesDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class GoodToyesDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -74,6 +74,8 @@ namespace GoodToyes.Migrations
                     b.Property<DateTime>("OrderDate");
 
                     b.Property<string>("UserID");
+
+                    b.Property<string>("UserName");
 
                     b.HasKey("ID");
 
