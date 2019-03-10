@@ -19,6 +19,7 @@ namespace GoodToyes.Pages.User
         private GoodToyesDbContext _context;
 
         public List<Order> Orders { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
 
         public OrderHistoryModel(GoodToyesDbContext context, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, IOrder orderService)
         {

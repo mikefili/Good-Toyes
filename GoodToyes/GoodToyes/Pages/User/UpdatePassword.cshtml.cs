@@ -38,14 +38,15 @@ namespace GoodToyes.Pages.User
             _signInManager = signInManager;
         }
 
-        public async Task OnPostPassword()
+        public async Task<IActionResult> OnPostPassword()
         {
             var user = await _userManager.GetUserAsync(User);
 
             if (NewPassword == ConfirmPassword)
             {
                 await _userManager.ChangePasswordAsync(user, Password, NewPassword);
-            } 
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task OnGet()
