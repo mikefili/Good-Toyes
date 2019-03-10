@@ -27,6 +27,10 @@ namespace GoodToyes.Models.Interfaces
         {
             Order newOrder = new Order
             {
+                FirstName = user.FirstName,
+
+                LastName = user.LastName,
+
                 UserID = user.Id,
 
                 GrandTotal = grandTotal,
@@ -166,9 +170,12 @@ namespace GoodToyes.Models.Interfaces
             return product;
         }
 
-        public Task<List<Order>> GetOrders()
+         public async Task<List<Order>> GetOrders()
         {
-            throw new NotImplementedException();
+            var orders = await _context.Orders.OrderByDescending(o => o.ID).Take(10).ToListAsync();
+
+            
+            return orders;
         }
     }
 }

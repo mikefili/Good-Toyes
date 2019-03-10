@@ -46,6 +46,7 @@ namespace GoodToyes.Controllers
 
             var cart = await _context.GetCart(userId);
 
+            cart.GrandTotal = 0;
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
             foreach(var item in cart.CartItems)

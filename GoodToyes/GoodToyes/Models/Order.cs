@@ -9,6 +9,10 @@ namespace GoodToyes.Models
 {
     public class Order
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public int ID { get; set; }
 
         public string UserID { get; set; }

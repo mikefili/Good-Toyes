@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace GoodToyes.Pages
 {
-    [Authorize(Policy = "Admin")]
+    [Authorize]
     public class AdminModel : PageModel
     {
         private IProduct _product;

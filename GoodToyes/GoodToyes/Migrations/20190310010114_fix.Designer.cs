@@ -4,14 +4,16 @@ using GoodToyes.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodToyes.Migrations
 {
     [DbContext(typeof(GoodToyesDbContext))]
-    partial class GoodToyesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190310010114_fix")]
+    partial class fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,11 +67,7 @@ namespace GoodToyes.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName");
-
                     b.Property<decimal>("GrandTotal");
-
-                    b.Property<string>("LastName");
 
                     b.Property<DateTime>("OrderDate");
 
