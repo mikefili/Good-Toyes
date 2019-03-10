@@ -7,21 +7,18 @@
     Layout = "_Layout";
     var orders = await OrderService.GetOrders();
 }
+@foreach (var order in orders)
+{
 
-    
-        
-            @foreach (var order in orders) {
-
-<div>
-    <label>Name</label>
-    <p>@order.FirstName @order.LastName</p>
-    <label>Order Date</label>
-    <p>@order.OrderDate</p>
-    <label>Grand Total</label>
-    <p>@order.GrandTotal</p>
-
-</div>
-            }
-       
-   
-
+    <div>
+        <label>Order Date</label>
+        <p>@order.OrderDate</p>
+        <label>Grand Total</label>
+        <p>@order.GrandTotal</p>
+        @foreach (var item in order.OrderItems)
+        {
+            <label>Product ID</label>
+            <p>@item.Quantity</p>
+        }
+    </div>
+}

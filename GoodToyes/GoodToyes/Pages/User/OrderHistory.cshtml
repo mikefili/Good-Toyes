@@ -3,9 +3,42 @@
 @{
     Layout = "_Layout";
 }
-@foreach (var order in Model.Orders)
-{
-    <p>@order.OrderDate</p>
-    <p>@order.OrderItems.</p>
-    <p>@order.GrandTotal</p>
-}
+<div class="container center pads-s">
+    <article class="media">
+        <div class="media-content hide-overflow pad-top-s">
+            <div class="content">
+                <div class="columns is-size-4 is-size-6-mobile is-mobile">
+                    <div class="column is-4 is-1-mobile">
+                        <strong>Date</strong>
+                    </div>
+                    <div class="column is-2 is-1-mobile">
+                        <strong>Products</strong>
+                    </div>
+                    <div class="column is-6 is-1-mobile has-text-centered">
+                        <strong class="pad-right-s">Total</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    @foreach (var order in Model.Orders)
+    {
+        <article class="media">
+            <div class="media-content hide-overflow pad-top-s">
+                <div class="content">
+                    <div class="columns is-size-4 is-size-6-mobile is-mobile">
+                        <div class="column is-4 is-1-mobile">
+                            <strong>@order.OrderDate.ToShortDateString()</strong>
+                        </div>
+                        <div class="column is-2 is-1-mobile">
+                            <strong>@order.OrderItems</strong>
+                        </div>
+                        <div class="column is-6 is-1-mobile has-text-centered">
+                            <strong class="pad-right-s">@order.GrandTotal</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    }
+</div>
