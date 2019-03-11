@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodToyes.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190308162454_userName")]
-    partial class userName
+    [DbContext(typeof(GoodToyesDbContext))]
+    [Migration("20190311032916_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,13 +67,15 @@ namespace GoodToyes.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("FirstName");
+
                     b.Property<decimal>("GrandTotal");
+
+                    b.Property<string>("LastName");
 
                     b.Property<DateTime>("OrderDate");
 
                     b.Property<string>("UserID");
-
-                    b.Property<string>("UserName");
 
                     b.HasKey("ID");
 
@@ -126,7 +128,7 @@ namespace GoodToyes.Migrations
                             Description = "Your puppers will love this tasty toy from south of the border!",
                             Image = "Assets/Products/avacado_toy.png",
                             Name = "Avacado's Nibbler",
-                            Price = 12.95m,
+                            Price = 1.95m,
                             SKU = "DT00001"
                         },
                         new
@@ -135,7 +137,7 @@ namespace GoodToyes.Migrations
                             Description = "You can't got wrong with this time-tested classic.",
                             Image = "Assets/Products/bone_toy.png",
                             Name = "Throw Me A Bone",
-                            Price = 8.95m,
+                            Price = 0.95m,
                             SKU = "DT00002"
                         },
                         new
@@ -144,7 +146,7 @@ namespace GoodToyes.Migrations
                             Description = "A fine, feathered friend for your four-legged friend!",
                             Image = "Assets/Products/chicken_toy.png",
                             Name = "Cluckin' Good Time",
-                            Price = 12.95m,
+                            Price = 1.95m,
                             SKU = "DT00003"
                         },
                         new
@@ -153,7 +155,7 @@ namespace GoodToyes.Migrations
                             Description = "Perfect side toy for your doggo's morning puppaccino!",
                             Image = "Assets/Products/donut_toy.png",
                             Name = "Donut Bother Me",
-                            Price = 12.95m,
+                            Price = 1.95m,
                             SKU = "DT00004"
                         },
                         new
@@ -162,7 +164,7 @@ namespace GoodToyes.Migrations
                             Description = "Barbeque sauce sold separately.",
                             Image = "Assets/Products/drumstick_toy.png",
                             Name = "Ain't No Thing Like A Chicken Wing",
-                            Price = 12.95m,
+                            Price = 1.95m,
                             SKU = "DT00005"
                         },
                         new
@@ -171,7 +173,7 @@ namespace GoodToyes.Migrations
                             Description = "WARNING: May turn your pooch into an old timey movie villain.",
                             Image = "Assets/Products/mustache_toy.png",
                             Name = "I Mustache You A Question",
-                            Price = 13.95m,
+                            Price = 2.95m,
                             SKU = "DT00006"
                         },
                         new
@@ -180,7 +182,7 @@ namespace GoodToyes.Migrations
                             Description = "That classic thin-crust your dog loves, now in plush!",
                             Image = "Assets/Products/pizza_toy.png",
                             Name = "Pizza My Heart",
-                            Price = 12.95m,
+                            Price = 1.95m,
                             SKU = "DT00007"
                         },
                         new
@@ -189,7 +191,7 @@ namespace GoodToyes.Migrations
                             Description = "To the victor, go the spoils!",
                             Image = "Assets/Products/rope_toy.png",
                             Name = "Pug'o'War",
-                            Price = 7.95m,
+                            Price = 0.75m,
                             SKU = "DT00008"
                         },
                         new
@@ -198,7 +200,7 @@ namespace GoodToyes.Migrations
                             Description = "Give your woofer the beautiful pearly whites they deserve.",
                             Image = "Assets/Products/smile_toy.png",
                             Name = "Doggy Dentures",
-                            Price = 13.95m,
+                            Price = 2.95m,
                             SKU = "DT00009"
                         },
                         new
@@ -207,7 +209,7 @@ namespace GoodToyes.Migrations
                             Description = "Set of three extra jingly tennis balls.",
                             Image = "Assets/Products/tennis_balls.png",
                             Name = "Jingle Balls",
-                            Price = 8.95m,
+                            Price = 0.95m,
                             SKU = "DT00010"
                         });
                 });

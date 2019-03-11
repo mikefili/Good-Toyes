@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GoodToyes.Migrations.GoodToyesDb
+namespace GoodToyes.Migrations
 {
     public partial class initial : Migration
     {
@@ -29,6 +29,8 @@ namespace GoodToyes.Migrations.GoodToyesDb
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     UserID = table.Column<string>(nullable: true),
                     GrandTotal = table.Column<decimal>(nullable: false),
                     OrderDate = table.Column<DateTime>(nullable: false)
