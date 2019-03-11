@@ -37,35 +37,35 @@ Users can either register with an email address and your information, or allow a
 <h2>How To Get Around</h2>
 
 <h3>Home Page</h2>
-<img src="~/Assets/ecom/home.PNG" >
+<img src="/Assets/ecom/home.PNG" >
 
 <h3>Login Page</h2>
-<img src="~/Assets/ecom/login.PNG" >
+<img src="/Assets/ecom/login.PNG" >
 
 <h3>Registration Page</h2>
-<img src="~/Assets/ecom/register.PNG" >
+<img src="/Assets/ecom/register.PNG" >
 
 <h3>Admin Dashboard</h3>
-<img src="~/Assets/ecom/admin.PNG" >
+<img src="/Assets/ecom/admin.PNG" >
 
 <h3>Shopping Page</h2>
-<img src="~/Assets/ecom/shop1.PNG" >
-<img src="~/Assets/ecom/shop2.PNG" >
+<img src="/Assets/ecom/shop1.PNG" >
+<img src="/Assets/ecom/shop2.PNG" >
 
 <h3>Product Landing Page</h2>
-<img src="~/Assets/ecom/product.PNG" >
+<img src="/Assets/ecom/product.PNG" >
 
 <h3>Cart Page</h2>
-<img src="~/Assets/ecom/cart.PNG" >
+<img src="/Assets/ecom/cart.PNG" >
 
 <h3>Checkout page</h2>
-<img src="~/Assets/ecom/checkout.PNG" >
+<img src="/Assets/ecom/checkout.PNG" >
 
 <h3>Receipt/Order Confirmation Page</h2>
-<img src="~/Assets/ecom/receipt.PNG" >
+<img src="/Assets/ecom/receipt.PNG" >
 
 <h3>Personal Profile Page</h2>
-<img src="~/Assets/ecom/profile.PNG" >
+<img src="/Assets/ecom/profile.PNG" >
 
 <h3>Database Schema</h2>
 <img src="https://github.com/mikefili/GoodToyes/blob/master/Assets/goodtoyes_db_schema.PNG?raw=true" >
