@@ -33,11 +33,40 @@ We are enforcing a Spay or Neuter policy.  If you have spayed or neutered your p
 
 Users can either register with an email address and your information, or allow a third party to do so for them. Press either the Login with Facebook or Login with Microsoft buttons from the Login Page to utilize these services.
 
+<h2>How To Get Around</h2>
 
-<h2>System Design</h2>
+<h3>Home Page</h2>
+<img src="" >
+
+<h3>Login Page</h2>
+<img src="" >
+
+<h3>Registration Page</h2>
+<img src="" >
+
+<h3>Admin Dashboard</h3>
+<img src="" >
+
+<h3>Shopping Page</h2>
+<img src="" >
+
+<h3>Product Landing Page</h2>
+<img src="" >
+
+<h3>Cart Page</h2>
+<img src="" >
+
+<h3>Checkout page</h2>
+<img src="" >
+
+<h3>Receipt/Order Confirmation Page</h2>
+<img src="" >
+
+<h3>Personal Profile Page</h2>
+<img src="" >
 
 <h3>Database Schema</h2>
-<img src="https://dev.azure.com/GoodToyes/e4e7016b-8089-4a55-9fa3-26c24f1bad71/_apis/git/repositories/ea4d2d35-b6aa-43f7-b387-39101dcd35b8/Items?path=%2FAssets%2Fgoodtoyes_db_schema.PNG&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=README&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1" >
+<img src="https://github.com/mikefili/GoodToyes/blob/master/Assets/goodtoyes_db_schema.PNG?raw=true" >
 
 As users add items to their cart, the product information is passed on into the cart items model through a one-to-one relationship. Each user only has one cart at a time, resulting in a similar one-to-one relationship. Once a user has decided to purchase the items in their cart, the cart and cart item properties are passed with view models to become an order of order items for persistence purposes. This will allow a user to see their order history.
 
