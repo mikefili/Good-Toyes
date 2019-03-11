@@ -67,10 +67,16 @@ Users can either register with an email address and your information, or allow a
 <h3>Personal Profile Page</h2>
 <img src="/Assets/ecom/profile.PNG" >
 
+
 <h3>Database Schema</h2>
 <img src="/Assets/goodtoyes_db_schema.PNG" >
 
 As users add items to their cart, the product information is passed on into the cart items model through a one-to-one relationship. Each user only has one cart at a time, resulting in a similar one-to-one relationship. Once a user has decided to purchase the items in their cart, the cart and cart item properties are passed with view models to become an order of order items for persistence purposes. This will allow a user to see their order history.
+
+
+<h3>Vulnerability Report</h3>
+We analyzed the vulnerabilities surrounding the deployment of an e-commerce platform like this, including SQL injection, access control, sensitive data exposure, and more. A full report with examples can be found <a href="/vulnerability-report.md">here</a>.
+
 
 <h3>Contributors</h3>
 Jason Few & Mike Filicetti
