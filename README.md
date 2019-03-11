@@ -1,5 +1,5 @@
 <h1 align="center">Good Toyes</h1>
-<img src="https://github.com/mikefili/GoodToyes/blob/master/Assets/dog-2.jpg?raw=true") >
+<img src="/Assets/dog-2.jpg") >
 
 <h2>Product</h2>
 
@@ -68,7 +68,7 @@ Users can either register with an email address and your information, or allow a
 <img src="/Assets/ecom/profile.PNG" >
 
 <h3>Database Schema</h2>
-<img src="https://github.com/mikefili/GoodToyes/blob/master/Assets/goodtoyes_db_schema.PNG?raw=true" >
+<img src="/Assets/goodtoyes_db_schema.PNG" >
 
 As users add items to their cart, the product information is passed on into the cart items model through a one-to-one relationship. Each user only has one cart at a time, resulting in a similar one-to-one relationship. Once a user has decided to purchase the items in their cart, the cart and cart item properties are passed with view models to become an order of order items for persistence purposes. This will allow a user to see their order history.
 
