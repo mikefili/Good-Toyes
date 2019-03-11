@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GoodToyes.Migrations
+namespace GoodToyes.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -28,6 +28,8 @@ namespace GoodToyes.Migrations
 
                     b.Property<DateTime>("Birthdate");
 
+                    b.Property<string>("City");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -36,9 +38,11 @@ namespace GoodToyes.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -60,10 +64,16 @@ namespace GoodToyes.Migrations
 
                     b.Property<bool>("SpayedOrNeutered");
 
+                    b.Property<string>("State");
+
+                    b.Property<string>("StreetAddress");
+
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
+
+                    b.Property<string>("Zip");
 
                     b.HasKey("Id");
 

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace GoodToyes.Models
 {
     public class Cart
-    {
-       
+    { 
+
         public int ID { get; set; }
 
         public string UserID { get; set; }
@@ -15,5 +15,7 @@ namespace GoodToyes.Models
         public bool CheckedOut { get; set; }
 
         public List<CartItem> CartItems { get; set; }
+
+        public decimal GrandTotal { get; set; }
     }
 }

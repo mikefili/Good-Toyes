@@ -2,11 +2,7 @@
 @{
     Layout = "_Layout";
     var cartItems = Model.CartItems.ToList();
-    decimal total = 0m;
-    foreach (var item in cartItems)
-    {
-        total += item.Product.Price;
-    }
+    
 }
 <div class="pads-xs">
     <article class="media">
@@ -51,7 +47,7 @@
                                 $@item.Product.Price
                             </div>
                             <div class="column is-3 is-1-mobile">
-                                <input value="@item.Quantity" name="quantity" class="quantity-input input" />
+                                <input type="number" value="@item.Quantity" name="quantity" class="quantity-input input" min="1" max="10" />
                                 <button type="submit" class="button is-success pad-top-xs">Update</button>
                             </div>
                             <div class="column is-3 is-1-mobile">
@@ -71,6 +67,6 @@
     <hr />
 </div>
 <div class="buttons is-centered pad-bottom-m">
-    <span class="pad-right-s is-size-3 is-size-5-mobile"><strong>Grand Total:</strong> <span class="has-text-success">@total</span></span>
-    <a asp-action="CheckoutReceipt" class="button is-success is-large">Check Out</a>
+    <span class="pad-right-s is-size-3 is-size-5-mobile"><strong>Grand Total:</strong> <span class="has-text-success">@Model.GrandTotal</span></span>
+    <a asp-action="Checkout" class="button is-success is-large">Check Out</a>
 </div>

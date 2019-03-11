@@ -22,7 +22,7 @@ namespace GoodToyes.Data
                     ID = 1,
                     Name = "Avacado's Nibbler",
                     SKU = "DT00001",
-                    Price = 12.95m,
+                    Price = 1.95m,
                     Description = "Your puppers will love this tasty toy from south of the border!",
                     Image = "Assets/Products/avacado_toy.png"
                 },
@@ -31,7 +31,7 @@ namespace GoodToyes.Data
                     ID = 2,
                     Name = "Throw Me A Bone",
                     SKU = "DT00002",
-                    Price = 8.95m,
+                    Price = 0.95m,
                     Description = "You can't got wrong with this time-tested classic.",
                     Image = "Assets/Products/bone_toy.png"
                 },
@@ -40,7 +40,7 @@ namespace GoodToyes.Data
                     ID = 3,
                     Name = "Cluckin' Good Time",
                     SKU = "DT00003",
-                    Price = 12.95m,
+                    Price = 1.95m,
                     Description = "A fine, feathered friend for your four-legged friend!",
                     Image = "Assets/Products/chicken_toy.png"
                 },
@@ -49,7 +49,7 @@ namespace GoodToyes.Data
                     ID = 4,
                     Name = "Donut Bother Me",
                     SKU = "DT00004",
-                    Price = 12.95m,
+                    Price = 1.95m,
                     Description = "Perfect side toy for your doggo's morning puppaccino!",
                     Image = "Assets/Products/donut_toy.png"
                 },
@@ -58,7 +58,7 @@ namespace GoodToyes.Data
                     ID = 5,
                     Name = "Ain't No Thing Like A Chicken Wing",
                     SKU = "DT00005",
-                    Price = 12.95m,
+                    Price = 1.95m,
                     Description = "Barbeque sauce sold separately.",
                     Image = "Assets/Products/drumstick_toy.png"
                 },
@@ -67,7 +67,7 @@ namespace GoodToyes.Data
                     ID = 6,
                     Name = "I Mustache You A Question",
                     SKU = "DT00006",
-                    Price = 13.95m,
+                    Price = 2.95m,
                     Description = "WARNING: May turn your pooch into an old timey movie villain.",
                     Image = "Assets/Products/mustache_toy.png"
                 },
@@ -76,7 +76,7 @@ namespace GoodToyes.Data
                     ID = 7,
                     Name = "Pizza My Heart",
                     SKU = "DT00007",
-                    Price = 12.95m,
+                    Price = 1.95m,
                     Description = "That classic thin-crust your dog loves, now in plush!",
                     Image = "Assets/Products/pizza_toy.png"
                 },
@@ -85,7 +85,7 @@ namespace GoodToyes.Data
                     ID = 8,
                     Name = "Pug'o'War",
                     SKU = "DT00008",
-                    Price = 7.95m,
+                    Price = 0.75m,
                     Description = "To the victor, go the spoils!",
                     Image = "Assets/Products/rope_toy.png"
                 },
@@ -94,7 +94,7 @@ namespace GoodToyes.Data
                     ID = 9,
                     Name = "Doggy Dentures",
                     SKU = "DT00009",
-                    Price = 13.95m,
+                    Price = 2.95m,
                     Description = "Give your woofer the beautiful pearly whites they deserve.",
                     Image = "Assets/Products/smile_toy.png"
                 },
@@ -103,7 +103,7 @@ namespace GoodToyes.Data
                     ID = 10,
                     Name = "Jingle Balls",
                     SKU = "DT00010",
-                    Price = 8.95m,
+                    Price = 0.95m,
                     Description = "Set of three extra jingly tennis balls.",
                     Image = "Assets/Products/tennis_balls.png"
                 }
@@ -112,5 +112,7 @@ namespace GoodToyes.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
     }
 }

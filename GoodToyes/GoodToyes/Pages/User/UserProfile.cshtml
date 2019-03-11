@@ -1,13 +1,13 @@
-﻿@model GoodToyes.Models.ViewModels.ExternalLoginViewModel
+﻿@page
+@model GoodToyes.Pages.UserProfileModel
 @{
-    ViewData["Title"] = "ExternalLogin";
     Layout = "_Layout";
 }
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container has-text-centered">
             <h1 class="title is-size-1">
-                Sign Up with an External Provider
+                User Profile
             </h1>
         </div>
     </div>
@@ -15,20 +15,16 @@
 
 <section class="pads-xs">
     <div class="container">
-        <form asp-action="ExternalLoginConfimation" method="post">
-            <div class="field">
-                <label asp-for="Email" class="label">Email</label>
-                <div class="control has-icons-left">
-                    <input asp-for="Email" class="input" type="email" placeholder="example@email.com" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                </div>
-                <p class="help is-danger">
-                    <span asp-validation-for="Email"></span>
-                </p>
-            </div>
+        <div class="field">
+            <label asp-for="Email" class="label">Email</label>
+            <span>@Model.Email</span>
+        </div>
 
+        <div class="field">
+            <a href="~/User/UpdatePassword">Update Password</a>
+        </div>
+
+        <form method="post" asp-page-handler="Update" asp-route-id="">
             <div class="field">
                 <label asp-for="FirstName" class="label">First Name</label>
                 <div class="control">
@@ -123,7 +119,7 @@
             <div class="buttons is-centered">
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link" type="submit">Register</button>
+                        <button class="button is-success is-focused" type="submit">Update</button>
                     </div>
                 </div>
             </div>

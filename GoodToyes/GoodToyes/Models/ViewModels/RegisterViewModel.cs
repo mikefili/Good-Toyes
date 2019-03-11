@@ -38,5 +38,16 @@ namespace GoodToyes.ViewModels
         [Compare("Password", ErrorMessage ="Does Not Match")]
         public string ConfirmPassword { get; set; }
 
+        [Required]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public string Zip { get; set; }
     }
 }

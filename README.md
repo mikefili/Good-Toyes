@@ -1,5 +1,5 @@
 <h1 align="center">Good Toyes</h1>
-<img src="https://dev.azure.com/GoodToyes/e4e7016b-8089-4a55-9fa3-26c24f1bad71/_apis/git/repositories/ea4d2d35-b6aa-43f7-b387-39101dcd35b8/Items?path=%2FAssets%2Fdog-2.jpg&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=README&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1") >
+<img src="https://dev.azure.com/GoodToyes/e4e7016b-8089-4a55-9fa3-26c24f1bad71/_apis/git/repositories/ea4d2d35-b6aa-43f7-b387-39101dcd35b8/Items?path=%2FAssets%2Fdog-2.jpg&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=CheckoutPage&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1") >
 
 <h2>Product</h2>
 
@@ -40,3 +40,6 @@ Users can either register with an email address and your information, or allow a
 <img src="https://dev.azure.com/GoodToyes/e4e7016b-8089-4a55-9fa3-26c24f1bad71/_apis/git/repositories/ea4d2d35-b6aa-43f7-b387-39101dcd35b8/Items?path=%2FAssets%2Fgoodtoyes_db_schema.PNG&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=README&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1" >
 
 As users add items to their cart, the product information is passed on into the cart items model through a one-to-one relationship. Each user only has one cart at a time, resulting in a similar one-to-one relationship. Once a user has decided to purchase the items in their cart, the cart and cart item properties are passed with view models to become an order of order items for persistence purposes. This will allow a user to see their order history.
+
+<h3>Contributors</h3>
+Jason Few & Mike Filicetti

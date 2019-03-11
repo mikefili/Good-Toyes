@@ -10,9 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using GoodToyes.Models.ViewModels;
 using GoodToyes.ViewModels;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace GoodToyes.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly IProduct _product;
@@ -20,15 +24,20 @@ namespace GoodToyes.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private IEmailSender _emailSender;
+        private readonly IOrder _order;
+        private IConfiguration Configuration;
 
-        public CartController(ICart context, IProduct product, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEmailSender emailSender)
+        public CartController(ICart context, IProduct product, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEmailSender emailSender, IOrder order, IConfiguration configuration)
         {
             _context = context;
             _product = product;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
-    }
+            _order = order;
+            Configuration = configuration;
+        }
+
         /// <summary>
         /// Gets cart and cart items and displays to cart page
         /// </summary>
@@ -40,10 +49,13 @@ namespace GoodToyes.Controllers
 
             var cart = await _context.GetCart(userId);
 
+            cart.GrandTotal = 0;
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
             foreach(var item in cart.CartItems)
             {
+                cart.GrandTotal += item.Total;
+
                 item.Product = await _product.GetProduct(item.ProductID);
             }
 
@@ -58,6 +70,7 @@ namespace GoodToyes.Controllers
         public async Task<IActionResult> DeleteCartItem(int id)
         {
             await _context.DeleteCartItem(id);
+
             return RedirectToAction("Index");
         }
 
@@ -82,14 +95,35 @@ namespace GoodToyes.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Shows totals and grand total and gives option to complete purchase
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> CheckOut()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
 
+            string userId = _userManager.GetUserId(User);
+
+            Cart cart = await _context.GetCart(userId);
+
+
+            cart.CartItems = await _context.GetCartItems(cart.ID);
+
+            foreach (CartItem item in cart.CartItems)
+            {
+                cart.GrandTotal += item.Total;
+                
+            }
+       
+            return View(cart);
+        }
         // <summary>
-        // Sends a email receipt
+        // Checkout
         // </summary>
         // <returns>email</returns>
         public async Task<IActionResult> CheckoutReceipt()
         {
-            decimal grandTotal = 0;
 
             ApplicationUser user = await _userManager.GetUserAsync(User);
 
@@ -100,6 +134,20 @@ namespace GoodToyes.Controllers
 
             cart.CartItems = await _context.GetCartItems(cart.ID);
 
+            Models.Order newOrder = await _order.CreateOrder(user, cart.GrandTotal);
+
+            foreach (CartItem item in cart.CartItems)
+            {
+                await _order.CreateOrderItem(newOrder, item);
+                
+            }
+
+            await _order.UpdateOrder(newOrder.ID, newOrder);
+
+            newOrder.OrderItems = await _order.GetOrderItems(newOrder.ID);
+
+
+            //email receipt
             ApplicationUser thisUser = await _userManager.FindByEmailAsync(user.Email);
 
             StringBuilder sb = new StringBuilder();
@@ -109,17 +157,50 @@ namespace GoodToyes.Controllers
 
             foreach (CartItem item in cart.CartItems)
             {
-                grandTotal += item.Total;
+                cart.GrandTotal += item.Total;
 
                 sb.AppendLine($"<h1>{item.Product.Name}</h1>");
                 sb.AppendLine($"<h2>Qty: {item.Quantity}</h2>");
                 sb.AppendLine($"<h2>Price: {item.Total}</h2>");
             }
-            sb.AppendLine($"<h1>Grand Totoal: {grandTotal}</h1>");
+            sb.AppendLine($"<h1>Grand Totoal: {cart.GrandTotal}</h1>");
 
             await _emailSender.SendEmailAsync(thisUser.Email, $"Order Confirmation", sb.ToString());
 
+            //return to cart
             return View(cart);
+        }
+
+        /// <summary>
+        /// Initiates the payment process and redirects to receipt email and page
+        /// </summary>
+        /// <param name="cardNumber"></param>
+        /// <returns>Receipt View</returns>
+        [HttpPost]
+        public async Task<IActionResult> RunPayment(string cardNumber)
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+
+            string userId = _userManager.GetUserId(User);
+
+            Cart cart = await _context.GetCart(userId);
+
+
+            cart.CartItems = await _context.GetCartItems(cart.ID);
+
+            foreach (CartItem item in cart.CartItems)
+            {
+                cart.GrandTotal += item.Total;
+
+            }
+            //Run Payment
+            Payment payment = new Payment(Configuration);
+
+            payment.Run(cardNumber, user, cart);
+
+            await CheckoutReceipt();
+
+            return View("CheckoutReceipt");
         }
 
         /// <summary>
