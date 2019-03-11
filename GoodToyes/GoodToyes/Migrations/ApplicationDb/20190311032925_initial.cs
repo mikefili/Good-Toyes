@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GoodToyes.Migrations
+namespace GoodToyes.Migrations.ApplicationDb
 {
     public partial class initial : Migration
     {

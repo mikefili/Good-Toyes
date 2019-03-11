@@ -7,15 +7,45 @@
     Layout = "_Layout";
     var orders = await OrderService.GetOrders();
 }
-@foreach (var order in orders)
-{
+<section class="container center">
+    <div class="pads-xs">
+        <article class="media">
+            <div class="media-content hide-overflow pad-top-s">
+                <div class="content pad-left-s">
+                    <div class="columns is-size-4 is-size-6-mobile is-mobile">
+                        <div class="column is-4">
+                            <strong>User</strong>
+                        </div>
+                        <div class="column is-4">
+                            <strong>Order Date</strong>
+                        </div>
+                        <div class="column is-4 has-text-right">
+                            <strong>Total</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
 
-<div>
-    <label>User</label>
-    <p>@order.FirstName @order.LastName</p>
-    <label>Order Date</label>
-    <p>@order.OrderDate</p>
-    <label>Grand Total</label>
-    <p>@order.GrandTotal</p>
-</div>
-}
+        @foreach (var order in orders)
+        {
+            <article class="media">
+                <div class="media-content hide-overflow">
+                    <div class="content pad-left-s">
+                        <div class="columns is-mobile">
+                            <div class="column pad-top-s is-4">
+                                <strong>@order.FirstName @order.LastName</strong>
+                            </div>
+                            <div class="column is-4">
+                                @order.OrderDate.ToShortDateString()
+                            </div>
+                            <div class="column is-4 has-text-right">
+                                $@order.GrandTotal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</section>

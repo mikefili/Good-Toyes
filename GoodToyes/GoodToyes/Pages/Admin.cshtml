@@ -6,39 +6,117 @@
     Layout = "_Layout";
     var products = await ProductManager.GetProducts();
 }
-<form method="post" asp-page-handler="TenOrders">
-<button type="submit">View Last 10 Orders</button>
-</form>
-<h1>Admin Page</h1>
-<h2>Add New Product</h2>
-<form method="post" asp-page-handler="CreateProduct">
-    <label>Product Image URL</label>
-    <input name="url" />
-    <label>Product Name</label>
-    <input name="name" />
-    <label>Product Price</label>
-    <input name="price" />
-    <button type="submit">Add Product</button>
-</form>
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-size-1">
+                Admin Page
+            </h1>
+        </div>
+    </div>
+</section>
+
+<div class="buttons is-centered">
+    <div class="field is-grouped">
+        <div class="control">
+            <form method="post" asp-page-handler="TenOrders">
+                <button class="button is-success is-focused" type="submit">View Last 10 Orders</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-size-3">
+                Add Products
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section class="container pads-s">
+    <form method="post" asp-page-handler="CreateProduct">
+        <div class="field">
+            <label>Product Image URL</label>
+            <div class="control">
+                <input name="url" class="input" type="text" placeholder="URL" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Product Name</label>
+            <div class="control">
+                <input name="name" class="input" type="text" placeholder="Name" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Product Price</label>
+            <div class="control">
+                <input name="price" class="input" type="text" placeholder="Price" />
+            </div>
+        </div>
+
+        <div class="buttons is-centered">
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-success is-focused" type="submit">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-size-3">
+                Update Products
+            </h1>
+        </div>
+    </div>
+</section>
 
 <div class="product-container">
     @foreach (var product in products)
     {
-    <form method="post" asp-page-handler="UpdateProduct" asp-route-id="@product.ID">
+        <section class="container pads-s center">
+            <img src="@product.Image" class="product-img" />
+            <form method="post" asp-page-handler="UpdateProduct" asp-route-id="@product.ID">
+                <div class="field">
+                    <label>Product Image URL</label>
+                    <div class="control">
+                        <input name="url" class="input" type="text" value="@product.Image" />
+                    </div>
+                </div>
 
+                <div class="field">
+                    <label>Product Name</label>
+                    <div class="control">
+                        <input name="name" class="input" type="text" value="@product.Name" />
+                    </div>
+                </div>
 
-        <img src="@product.Image" class="product-img" />
-        <label>Product Image URL</label>
-        <input name="url" value="@product.Image" />
-        <label>Product Name</label>
-        <input name="name" value="@product.Name" />
-        <label>Product Price</label>
-        <input name="price" value="@product.Price" />
+                <div class="field">
+                    <label>Product Price</label>
+                    <div class="control">
+                        <input name="price" class="input" type="text" value="@product.Price" />
+                    </div>
+                </div>
 
-        <button type="submit">Update</button>
-
-        <button method="post" asp-route-id="@product.ID" asp-page-handler="Delete">Delete</button>
-    </form>
-        
+                <div class="buttons is-centered">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-success is-focused" type="submit">Update Product</button>
+                        </div>
+                        <div class="control">
+                            <button method="post" asp-route-id="@product.ID" asp-page-handler="Delete" class="button is-success is-danger is-outlined">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
     }
 </div>
