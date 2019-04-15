@@ -6,8 +6,8 @@
 Good Toyes is your source for everything your good boy needs! All types of toys, treats, and enticements. Now offering discounts for spayed/neutered pets.
 
 
-<h2>Deployed Link</h2>
-https://goodtoyes.azurewebsites.net/
+<h2>Azure DevOps Link</h2>
+https://dev.azure.com/GoodToyes/Good%20Toyes
 
 
 <h2>Claims</h2>
